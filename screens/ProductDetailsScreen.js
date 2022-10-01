@@ -1,33 +1,35 @@
-import {ActivityIndicator, Image, StyleSheet, Text, View} from "react-native";
+import {ActivityIndicator, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
 import React, {useCallback, useEffect, useState} from "react";
 import useHttp from "../hooks/use-http";
 import Colors from "../constants/Colors";
 import Line from "../components/Line";
+import MapPreview from "../components/MapPreview";
 
 const ProductDetailsScreen = (props) => {
-    const productId = props.route.params ? props.route.params.productId : null;
+    const product = props.route.params ? props.route.params.product : null;
     const owner = props.route.params ? props.route.params.owner : null;
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
-    const [product, setProduct] = useState(null)
-    const productAddress = owner?.addressId
+    const [address, setAddress] = useState(null)
 
-    const getProduct = useCallback(async () => {
+    const getAddress = useCallback(async () => {
         setIsLoading(true)
         setError(null)
         try{
-            const data = await useHttp(`shares/${productId}`, '3001')
-            setProduct(data);
+            const data = await useHttp(`addresses/${owner.addressId}`, '3003')
+            setAddress(data);
         }catch (err) {
-            setError('Fetching Product Fail -' + err.message)
+            setError('Fetching Address Fail -' + err.message)
         }finally {
             setIsLoading(false)
         }
     }, [])
 
     useEffect(() => {
-        getProduct()
-    }, [])
+        if(owner.addressId !== undefined){
+            getAddress()
+        }
+    }, [owner])
 
     useEffect(() => {
         if(owner){
@@ -37,7 +39,7 @@ const ProductDetailsScreen = (props) => {
         }
     }, [owner])
 
-    if(isLoading){
+    if(isLoading || !address){
         return <ActivityIndicator style={styles.screen} size='large' color={Colors.primary} />
     }
 
@@ -50,9 +52,9 @@ const ProductDetailsScreen = (props) => {
     }
 
     return (
-        <View style={styles.screen}>
-            <Image style={styles.imageContainer} source={require('../assets/image.png')} />
-            <View style={styles.body}>
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.screen}>
+                <Image style={styles.imageContainer} source={require('../assets/image.png')} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>{product.title}</Text>
                     <Text style={styles.title}>{product.price} ₺</Text>
@@ -60,27 +62,29 @@ const ProductDetailsScreen = (props) => {
                 <Line />
                 <Text style={styles.description}>{product.description}</Text>
                 <Line/>
-                <Text>{productAddress}</Text>
-            </View>
-        </View>
+                <MapPreview location={address.location} text={address.text} />
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    screen: {
+    container:{
         flex: 1
+    },
+    screen: {
+        width: '100%',
+        height: '100%'
     },
     imageContainer:{
         width: '100%',
-        height: '50%'
-    },
-    body:{
+        height: 200
     },
     titleContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems:"center",
-        height: '15%',
+        height: 50,
         width: '100%',
         paddingHorizontal: 10,
         marginVertical: 2,
@@ -93,7 +97,7 @@ const styles = StyleSheet.create({
     description: {
         paddingHorizontal: 10,
         fontSize: 15,
-        height: '35%',
+        height: 100,
         backgroundColor: Colors.secondary
     }
 })

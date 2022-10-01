@@ -1,4 +1,4 @@
-export const HOST = 'http://192.168.43.150';
+export const HOST = 'http://10.76.202.57';
 
 const useHttp = async (path, port, method = 'GET', headers= {"Content-Type": "application/json"}, body = undefined) => {
     console.log(path)
