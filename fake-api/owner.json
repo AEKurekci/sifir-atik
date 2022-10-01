@@ -1,0 +1,32 @@
+{
+  "owners": [
+    {
+      "id": 0,
+      "name": "Hacıbaşar",
+      "addressId": 0,
+      "shares": 1,
+      "totalShares": 5
+    },
+    {
+      "id": 1,
+      "name": "Hacıoğlu",
+      "addressId": 1,
+      "shares": 2,
+      "totalShares": 7
+    },
+    {
+      "id": 2,
+      "name": "Çamlık Pide",
+      "addressId": 2,
+      "shares": 1,
+      "totalShares": 11
+    },
+    {
+      "id": 3,
+      "name": "Balım Kebap",
+      "addressId": 3,
+      "shares": 1,
+      "totalShares": 13
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "shares": [
+    {
+      "id": 0,
+      "title": "Kuru-Pilav",
+      "description": "Artan personel yemeği isteyen misafirlerimiz ile paylaşılacaktır.",
+      "price": 0,
+      "ownerId": 0
+    },
+    {
+      "id": 1,
+      "title": "Mercimek çorb-bulgur",
+      "description": "Fazla olan mercimek çorbası ve bulgur pilavı uygun fiyata paylaşılacaktır.",
+      "price": 4,
+      "ownerId": 1
+    },
+    {
+      "id": 2,
+      "title": "Patates yemeği",
+      "description": "Gün sonunda artmış olan patates yemeği öğrenci kardeşlerimize çok uygun fiyatla verilecektir.",
+      "price": 3,
+      "ownerId": 1
+    },
+    {
+      "id": 3,
+      "title": "Bulgur Pilavı",
+      "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
+      "price": 0,
+      "ownerId": 2
+    },
+    {
+      "id": 4,
+      "title": "Pirinç Pilavı",
+      "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
+      "price": 7,
+      "ownerId": 3
+    }
+  ]
+}
