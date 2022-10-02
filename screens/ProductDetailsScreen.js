@@ -1,4 +1,4 @@
-import {ActivityIndicator, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
+import {ActivityIndicator, Image, SafeAreaView, ScrollView, StyleSheet, Text, View} from "react-native";
 import React, {useCallback, useEffect, useState} from "react";
 import useHttp from "../hooks/use-http";
 import Colors from "../constants/Colors";
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     },
     imageContainer:{
         width: '100%',
-        height: 200
+        height: 300
     },
     titleContainer: {
         flexDirection: "row",

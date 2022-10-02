@@ -1,11 +1,11 @@
-import ENV from '../constants/env'
 import {Image, StyleSheet, Text, TouchableOpacity} from "react-native";
+import {MAP_API_KEY} from '@env';
 import React from "react";
 
 const MapPreview = (props) => {
     let imagePreviewUrl;
     if(props.location){
-        imagePreviewUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${props.location.lat},${props.location.lng}&zoom=14&size=400x200&maptype=roadmap&markers=color:red%7Clabel:A%7C${props.location.lat},${props.location.lng}&key=${ENV.apiKey}`
+        imagePreviewUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${props.location.lat},${props.location.lng}&zoom=14&size=400x200&maptype=roadmap&markers=color:red%7Clabel:A%7C${props.location.lat},${props.location.lng}&key=${MAP_API_KEY}`
     }
 
     return (
