@@ -1,20 +1,16 @@
-export const HOST = 'http://192.168.1.39';
+export const HOST = 'http://192.168.1.33';
 
 const useHttp = async (path, port, method = 'GET', headers= {"Content-Type": "application/json"}, body = undefined) => {
     console.log(path)
     const response = await fetch(HOST + ':' + port + '/' + path, {
         method,
-        headers: {
-            ...headers,
-            'Content-Type': 'application/json'
-        },
+        headers,
         body
     })
     if(!response.ok){
         throw new Error('Unable to fetch data :(')
     }
-    const data = await response.json();
-    return data;
+    return await response.json();
 }
 
 export default useHttp;

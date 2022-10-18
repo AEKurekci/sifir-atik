@@ -1,12 +1,14 @@
+import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
 import {Platform} from "react-native";
 import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Ionicons from '@expo/vector-icons/Ionicons'
 import Colors from "../constants/Colors";
 import Home from "../screens/Home";
 import Animals from "../screens/Animals";
-import Profile from "../screens/Profile";
+import ProfileScreen from "../screens/ProfileScreen";
 import ProductDetailsScreen from "../screens/ProductDetailsScreen";
 
 const defaultHeaderStyle = {
@@ -28,7 +30,9 @@ export const HomeNavigator = () => {
             <HomeStackNavigator.Screen
                 name="HomeScreen"
                 component={Home}
-                options={defaultHeaderStyle}
+                options={{...defaultHeaderStyle, ...{
+                    headerTitle: "Bi'Kap"
+                }}}
                 />
             <HomeStackNavigator.Screen
                 name='ProductDetailsScreen'
@@ -36,6 +40,37 @@ export const HomeNavigator = () => {
                 options={defaultHeaderStyle}
             />
         </HomeStackNavigator.Navigator>
+    )
+}
+
+const ProfileStackNavigator = createStackNavigator();
+
+const ProfileNavigator = () => {
+    return (
+        <ProfileStackNavigator.Navigator>
+            <ProfileStackNavigator.Screen
+                name='ProfileScreen'
+                component={ProfileScreen}
+                options={defaultHeaderStyle}/>
+            <HomeStackNavigator.Screen
+                name='ProductDetailsScreen'
+                component={ProductDetailsScreen}
+                options={defaultHeaderStyle}
+            />
+        </ProfileStackNavigator.Navigator>
+    )
+}
+
+const AnimalsStackNavigator = createStackNavigator();
+
+const AnimalsNavigator = () => {
+    return (
+        <AnimalsStackNavigator.Navigator>
+            <AnimalsStackNavigator.Screen
+                name='AnimalsScreen'
+                component={Animals}
+                options={defaultHeaderStyle} />
+        </AnimalsStackNavigator.Navigator>
     )
 }
 
@@ -56,31 +91,31 @@ const TabNavigator = () => {
             <Tab.Screen
                 name='Home'
                 component={HomeNavigator}
-                options={({route}) => ({
-                    tabBarIcon: ({focused, color, size}) => {
+                options={() => ({
+                    tabBarIcon: () => {
                         return(
-                            <FontAwesome5 name='home' size={24} color={fontColor} />
+                            <Ionicons name='home' size={24} color={fontColor} />
                         )
                     },
                     tabBarLabel: 'Ana Sayfa'
                 })} />
             <Tab.Screen
                 name='Animals'
-                component={Animals}
-                options={({route}) => ({
+                component={AnimalsNavigator}
+                options={() => ({
                     tabBarIcon: () => {
                         return(
-                            <FontAwesome5 name='paw' size={24} color={fontColor}/>
+                            <Ionicons name='paw' size={24} color={fontColor}/>
                         )
                     },
                     tabBarLabel: 'Patiler'
                 })}/>
             <Tab.Screen name='Profile'
-                        component={Profile}
+                        component={ProfileNavigator}
                         options={() => ({
                             tabBarIcon: () => {
                                 return(
-                                    <FontAwesome5 name='user' size={24} color={fontColor} />
+                                    <FontAwesome name='user' size={24} color={fontColor} />
                                 )
                             },
                             tabBarLabel: 'Profilim'

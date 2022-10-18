@@ -1,20 +1,23 @@
 import {StyleSheet, View} from "react-native";
 import ProductList from "../components/ProductList";
-import {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {fetchUsers} from "../store/user/user-actions";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUsers, login} from "../store/user/user-actions";
+import {fetchUserProducts} from "../store/product/product-actions";
 
 const Home = (props) => {
     const dispatch = useDispatch()
+    const user = useSelector(state => state.users.user)
     useEffect(() => {
         dispatch(fetchUsers())
+        dispatch(login())
     }, [])
 
     useEffect(() => {
-        props.navigation.setOptions({
-            headerTitle: 'Sıfır Atık'
-        })
-    }, [])
+        if(user){
+            dispatch(fetchUserProducts())
+        }
+    }, [user])
 
     return (
         <View style={styles.screen}>

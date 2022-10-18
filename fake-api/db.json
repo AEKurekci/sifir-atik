@@ -5,6 +5,7 @@
       "title": "Kuru-Pilav",
       "description": "Artan personel yemeği isteyen misafirlerimiz ile paylaşılacaktır.",
       "price": 0,
+      "forAnimals": false,
       "ownerId": 0
     },
     {
@@ -12,6 +13,7 @@
       "title": "Mercimek çorb-bulgur",
       "description": "Fazla olan mercimek çorbası ve bulgur pilavı uygun fiyata paylaşılacaktır.",
       "price": 4,
+      "forAnimals": false,
       "ownerId": 1
     },
     {
@@ -19,6 +21,7 @@
       "title": "Patates yemeği",
       "description": "Gün sonunda artmış olan patates yemeği öğrenci kardeşlerimize çok uygun fiyatla verilecektir.",
       "price": 3,
+      "forAnimals": false,
       "ownerId": 1
     },
     {
@@ -26,6 +29,7 @@
       "title": "Bulgur Pilavı",
       "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
       "price": 0,
+      "forAnimals": false,
       "ownerId": 2
     },
     {
@@ -33,7 +37,16 @@
       "title": "Pirinç Pilavı",
       "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
       "price": 7,
+      "forAnimals": false,
       "ownerId": 3
+    },
+    {
+      "id": 5,
+      "title": "Kesim artıkları",
+      "description": "Hayvan kesiminden kalan kemikleri ilgilenen yardımseverlere vereceğiz",
+      "price": 0,
+      "forAnimals": true,
+      "ownerId": 4
     }
   ]
 }

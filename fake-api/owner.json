@@ -5,28 +5,40 @@
       "name": "Hacıbaşar",
       "addressId": 0,
       "shares": 1,
-      "totalShares": 5
+      "totalShares": 5,
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
     },
     {
       "id": 1,
       "name": "Hacıoğlu",
       "addressId": 1,
       "shares": 2,
-      "totalShares": 7
+      "totalShares": 7,
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
     },
     {
       "id": 2,
       "name": "Çamlık Pide",
       "addressId": 2,
       "shares": 1,
-      "totalShares": 11
+      "totalShares": 11,
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
     },
     {
       "id": 3,
       "name": "Balım Kebap",
       "addressId": 3,
       "shares": 1,
-      "totalShares": 13
+      "totalShares": 13,
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+    },
+    {
+      "id": 4,
+      "name": "Kasap",
+      "addressId": 3,
+      "shares": 1,
+      "totalShares": 17,
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
     }
   ]
 }

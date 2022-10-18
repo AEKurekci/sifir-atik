@@ -1,7 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    users: []
+    users: [],
+    user: null
 }
 
 const userSlice = createSlice({
@@ -10,6 +11,9 @@ const userSlice = createSlice({
     reducers: {
         fetchUsers(state, action){
             state.users = action.payload.users
+        },
+        login(state, action){
+            state.user = action.payload.user
         }
     }
 })

@@ -1,3 +1,4 @@
+import React from "react";
 import * as Font from 'expo-font';
 import {useState} from "react";
 import {NavigationContainer} from "@react-navigation/native";

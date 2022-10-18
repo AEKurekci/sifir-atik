@@ -13,3 +13,16 @@ export const fetchUsers = () => {
         }
     }
 }
+
+export const login = () => {
+    return async dispatch => {
+        try{
+            const data = await useHttp('owners', '3002');
+            dispatch(userActions.login({
+                user: data[0]
+            }))
+        }catch (err){
+            console.log(err.message)
+        }
+    }
+}

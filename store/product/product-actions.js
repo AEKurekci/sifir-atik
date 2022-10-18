@@ -1,8 +1,8 @@
 import {productActions} from "./product-reducer";
-import {HOST} from "../../hooks/use-http";
+import useHttp, {HOST} from "../../hooks/use-http";
 
 export const fetchProduct = () => {
-    return async dispatch => {
+    return async (dispatch, getState) => {
         const fetchData = async (path) => {
             const response = await fetch(HOST + ':3001/' + path, {
                 method: 'GET',
@@ -13,8 +13,7 @@ export const fetchProduct = () => {
             if(!response.ok){
                 throw new Error('Unable to fetch product data :(')
             }
-            const data = await response.json()
-            return data;
+            return await response.json();
         }
 
         try{
@@ -22,8 +21,30 @@ export const fetchProduct = () => {
             dispatch(productActions.fetchProducts({
                 productList: response
             }));
+            const user = getState().users.user;
+            if(user){
+                dispatch(productActions.fetchUserProducts({
+                    userProductList: response.filter(product => product.ownerId === user.id)
+                }))
+            }
 
         }catch (err){
+            console.log(err.message)
+        }
+    }
+}
+
+export const fetchUserProducts = () => {
+    return async (dispatch, getState) => {
+        try{
+            const response = await useHttp('shares', 3001);
+            const user = getState().users.user;
+            if(user){
+                dispatch(productActions.fetchUserProducts({
+                    userProductList: response.filter(product => product.ownerId === user.id)
+                }))
+            }
+        }catch (err) {
             console.log(err.message)
         }
     }

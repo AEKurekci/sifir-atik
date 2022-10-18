@@ -17,8 +17,7 @@ import Card from "./Card";
 function Product(props) {
     const product = props.product;
     const owner = useSelector(state => {
-        const user = state.users.users.find(user => user.id === product.ownerId)
-        return user
+        return state.users.users.find(user => user.id === product.ownerId)
     });
 
     let TouchableComponent = TouchableOpacity;
@@ -33,8 +32,13 @@ function Product(props) {
         })
     }
 
+    const propStyle = props.user ? {
+        height: 250,
+        width: Dimensions.get('window').width > 500 ? Dimensions.get('window').width / 3 - 10 : Dimensions.get('window').width / 2 - 10,
+    } : {}
+
     return (
-        <Card style={styles.screen}>
+        <Card style={{...styles.screen, ...propStyle}}>
             <TouchableComponent useForeground onPress={goToDetails}>
                 <View>
                     <Image style={styles.imageContainer} source={require('../assets/image.png')} />
