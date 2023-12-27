@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "text": "Fatih/İstanbul",
+      "text": "Üsküdar/İstanbul",
       "location": {
         "lat": "41.008469",
         "lng": "28.980261"
@@ -26,7 +26,7 @@
     },
     {
       "id": 3,
-      "text": "Pendik/İstanbul",
+      "text": "Ümraniye/İstanbul",
       "location": {
         "lat": "41.008469",
         "lng": "28.980261"

@@ -14,10 +14,10 @@ import {useSelector} from "react-redux";
 import Card from "./Card";
 
 
-function Product(props) {
-    const product = props.product;
+const HorizontalItem = props => {
+    const item = props.item;
     const owner = useSelector(state => {
-        return state.users.users.find(user => user.id === product.ownerId)
+        return state.users.users.find(user => user.id === item.ownerId)
     });
 
     let TouchableComponent = TouchableOpacity;
@@ -27,25 +27,17 @@ function Product(props) {
 
     const goToDetails = () => {
         props.navigation.navigate('ProductDetailsScreen', {
-            product: product,
+            product: item,
             owner: owner
         })
     }
 
-    const propStyle = props.user ? {
-        height: 250,
-        width: Dimensions.get('window').width > 500 ? Dimensions.get('window').width / 3 - 10 : Dimensions.get('window').width / 2 - 10,
-    } : {}
-
     return (
-        <Card style={{...styles.screen, ...propStyle}}>
+        <Card style={styles.screen}>
             <TouchableComponent useForeground onPress={goToDetails}>
                 <View>
                     <Image style={styles.imageContainer} source={require('../assets/kuru.jpg')} />
-                    <Text numberOfLines={1} ellipsizeMode="tail" style={styles.title}>{product.title}</Text>
-                    <View style={styles.row}>
-                        <Text numberOfLines={1} ellipsizeMode="tail" style={styles.owner}>{product.owner.address.text}</Text>
-                    </View>
+                    <Text numberOfLines={1} ellipsizeMode="tail" style={styles.title}>{item.title}</Text>
                 </View>
             </TouchableComponent>
         </Card>
@@ -54,9 +46,9 @@ function Product(props) {
 
 const styles = StyleSheet.create({
     screen: {
-        height: 230,
-        margin: 5,
-        width: Dimensions.get('window').width > 500 ? Dimensions.get('window').width / 3 - 10 : Dimensions.get('window').width / 2 - 10,
+        height: '95%',
+        margin: 2,
+        width: Dimensions.get('window').width > 500 ? Dimensions.get('window').width / 5 - 4 : Dimensions.get('window').width / 4 - 4,
     },
     row: {
         flexDirection: "row",
@@ -68,25 +60,16 @@ const styles = StyleSheet.create({
     },
     imageContainer:{
         width: '100%',
-        height: '80%',
+        height: '75%',
     },
     title: {
-        height: '10%',
+        height: '25%',
         backgroundColor: Colors.accent,
         color: 'white',
         paddingHorizontal: 1,
-        fontWeight: '500'
-    },
-    owner:{
-        width: '80%',
-        color: 'white',
-        fontWeight: '100',
+        fontWeight: '300',
         fontSize: 12
-    },
-    price: {
-        width: '20%',
-        color: 'white'
     }
 })
 
-export default Product;
+export default HorizontalItem;

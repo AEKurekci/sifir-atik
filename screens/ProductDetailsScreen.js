@@ -17,6 +17,7 @@ const ProductDetailsScreen = (props) => {
         setError(null)
         try{
             const data = await useHttp(`addresses/${owner.addressId}`, '3003')
+            console.log(data)
             setAddress(data);
         }catch (err) {
             setError('Fetching Address Fail -' + err.message)
@@ -87,8 +88,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: '100%',
         paddingHorizontal: 10,
-        marginVertical: 2,
-        backgroundColor: Colors.secondary
+        marginVertical: 2
     },
     title:{
         fontWeight: '700',
@@ -97,8 +97,7 @@ const styles = StyleSheet.create({
     description: {
         paddingHorizontal: 10,
         fontSize: 15,
-        height: 100,
-        backgroundColor: Colors.secondary
+        height: 100
     }
 })
 export default ProductDetailsScreen;

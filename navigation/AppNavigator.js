@@ -7,9 +7,10 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from '@expo/vector-icons/Ionicons'
 import Colors from "../constants/Colors";
 import Home from "../screens/Home";
-import Animals from "../screens/Animals";
+import Favorites from "../screens/Favorites";
 import ProfileScreen from "../screens/ProfileScreen";
 import ProductDetailsScreen from "../screens/ProductDetailsScreen";
+import AddProductScreen from "../screens/AddProductScreen";
 
 const defaultHeaderStyle = {
     headerStyle: {
@@ -51,26 +52,58 @@ const ProfileNavigator = () => {
             <ProfileStackNavigator.Screen
                 name='ProfileScreen'
                 component={ProfileScreen}
-                options={defaultHeaderStyle}/>
-            <HomeStackNavigator.Screen
+                options={defaultHeaderStyle}
+            />
+            <ProfileStackNavigator.Screen
                 name='ProductDetailsScreen'
                 component={ProductDetailsScreen}
                 options={defaultHeaderStyle}
             />
+            <ProfileStackNavigator.Screen
+                name='AddProductScreen'
+                component={AddProductScreen}
+                options={defaultHeaderStyle}
+                />
         </ProfileStackNavigator.Navigator>
     )
 }
 
-const AnimalsStackNavigator = createStackNavigator();
+const FavoritesStackNavigator = createStackNavigator();
 
-const AnimalsNavigator = () => {
+const FavoritesNavigator = () => {
     return (
-        <AnimalsStackNavigator.Navigator>
-            <AnimalsStackNavigator.Screen
-                name='AnimalsScreen'
-                component={Animals}
+        <FavoritesStackNavigator.Navigator>
+            <FavoritesStackNavigator.Screen
+                name='Favorilerim'
+                component={Favorites}
                 options={defaultHeaderStyle} />
-        </AnimalsStackNavigator.Navigator>
+        </FavoritesStackNavigator.Navigator>
+    )
+}
+
+const AddNewStackNavigator = createStackNavigator();
+
+const AddNewNavigator = () => {
+    return (
+        <AddNewStackNavigator.Navigator>
+            <AddNewStackNavigator.Screen
+                name='Ne Paylaşıyorsun?'
+                component={Favorites}
+                options={defaultHeaderStyle} />
+        </AddNewStackNavigator.Navigator>
+    )
+}
+
+const MessagingStackNavigator = createStackNavigator();
+
+const MessagingNavigator = () => {
+    return (
+        <MessagingStackNavigator.Navigator>
+            <MessagingStackNavigator.Screen
+                name='Mesajlarımda Ara...'
+                component={Favorites}
+                options={defaultHeaderStyle} />
+        </MessagingStackNavigator.Navigator>
     )
 }
 
@@ -100,15 +133,35 @@ const TabNavigator = () => {
                     tabBarLabel: 'Ana Sayfa'
                 })} />
             <Tab.Screen
-                name='Animals'
-                component={AnimalsNavigator}
+                name='Favorites'
+                component={FavoritesNavigator}
                 options={() => ({
                     tabBarIcon: () => {
                         return(
-                            <Ionicons name='paw' size={24} color={fontColor}/>
+                            <Ionicons name='heart' size={24} color={fontColor}/>
                         )
                     },
-                    tabBarLabel: 'Patiler'
+                    tabBarLabel: 'Favoriler'
+                })}/>
+            <Tab.Screen
+                name='Paylaş'
+                component={AddNewNavigator}
+                options={() => ({
+                    tabBarIcon: () => {
+                        return(
+                            <Ionicons name='add-circle' size={24} color={fontColor}/>
+                        )
+                    }
+                })}/>
+            <Tab.Screen
+                name='Mesajlarım'
+                component={MessagingNavigator}
+                options={() => ({
+                    tabBarIcon: () => {
+                        return(
+                            <Ionicons name='chatbubble-ellipses' size={24} color={fontColor}/>
+                        )
+                    }
                 })}/>
             <Tab.Screen name='Profile'
                         component={ProfileNavigator}

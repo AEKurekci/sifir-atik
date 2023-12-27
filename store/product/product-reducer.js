@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     products: [],
     userProducts: [],
-    foods: []
+    foods: [],
+    filteredProducts: []
 }
 
 const productSlice = createSlice({
@@ -12,6 +13,7 @@ const productSlice = createSlice({
     reducers: {
         fetchProducts(state, action){
             state.products = action.payload.productList.filter(p => !p.forAnimals);
+            state.filteredProducts = action.payload.productList.filter(p => !p.forAnimals);
             state.foods = action.payload.productList.filter(p => p.forAnimals);
         },
         fetchUserProducts(state, action){
@@ -24,6 +26,9 @@ const productSlice = createSlice({
         addFood(state, action){
             state.foods.push(action.payload.food)
             state.userProducts.push(action.payload.food)
+        },
+        filterProduct(state, action){
+            state.filteredProducts = action.payload.productList;
         }
     }
 })

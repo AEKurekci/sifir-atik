@@ -1,60 +1,51 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {Text, View, StyleSheet, FlatList} from "react-native";
-import {useDispatch, useSelector} from "react-redux";
+import React from 'react';
+import {FlatList, StyleSheet, View} from "react-native";
 import Product from "./Product";
-import {fetchProduct} from "../store/product/product-actions";
+import Title from "./Title";
+import HorizontalList from "./HorizontalList";
 
 function ProductList(props) {
-    const dispatch = useDispatch();
-    const [isRefreshing, setIsRefreshing] = useState(false);
-    const [error, setError] = useState(false)
-    const products = useSelector(state => state.products.products)
-    const fetchData = useCallback(async () => {
-        setIsRefreshing(true)
-        setError(null)
-        try{
-            await dispatch(fetchProduct());
-        }catch (err){
-            setError(err.message)
-        }
-        setIsRefreshing(false)
-    }, [])
 
-    useEffect(() => {
-        fetchData()
-    }, [])
-
-    if(!isRefreshing && error){
-        return (
-            <View style={styles.screen}>
-                <Text>{error}</Text>
-            </View>
-        )
-    }
+    const ProductHeader = (
+        <View style={styles.header}>
+            <Title>Yemek</Title>
+            <HorizontalList
+                navigation={props.navigation}
+                items={props.headerItems.filter(p => p.category.value === 0)} />{/*Yemek*/}
+            <Title>Giyim</Title>
+            <HorizontalList
+                navigation={props.navigation}
+                items={props.headerItems.filter(p => p.category.value === 1)} />{/*Giyim*/}
+        </View>
+    )
 
     return (
         <FlatList
-            onRefresh={fetchData}
-            refreshing={isRefreshing}
+            onRefresh={props.fetchData}
+            refreshing={props.isRefreshing}
             style={styles.screen}
-            data={products}
+            data={props.products}
             keyExtractor={item => item.id}
-            numColumns={3}
-            renderItem={(renderItem) => {
-                return (
-                    <Product
-                        navigation={props.navigation}
-                        product={renderItem.item}
-                    />
-                )
-            }} />
+            numColumns={2}
+            renderItem={(renderItem) => (
+                <Product
+                    navigation={props.navigation}
+                    product={renderItem.item}
+                />
+            )}
+            ListHeaderComponent={ProductHeader}
+        />
     );
 }
 
 const styles = StyleSheet.create({
     screen: {
         backgroundColor: '#ccc',
-        flex: 1
+        height: '100%'
+    },
+    header:{
+        backgroundColor: '#abc',
+        height: 250
     }
 })
 

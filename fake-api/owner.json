@@ -4,6 +4,14 @@
       "id": 0,
       "name": "Hacıbaşar",
       "addressId": 0,
+      "address": {
+        "id": 0,
+        "text": "Fatih/İstanbul",
+        "location": {
+          "lat": "41.008469",
+          "lng": "28.980261"
+        }
+      },
       "shares": 1,
       "totalShares": 5,
       "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
@@ -12,6 +20,14 @@
       "id": 1,
       "name": "Hacıoğlu",
       "addressId": 1,
+      "address": {
+        "id": 1,
+        "text": "Pendik/İstanbul",
+        "location": {
+          "lat": "41.008469",
+          "lng": "28.980261"
+        }
+      },
       "shares": 2,
       "totalShares": 7,
       "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
@@ -20,6 +36,14 @@
       "id": 2,
       "name": "Çamlık Pide",
       "addressId": 2,
+      "address": {
+        "id": 2,
+        "text": "Üsküdar/İstanbul",
+        "location": {
+          "lat": "41.008469",
+          "lng": "28.980261"
+        }
+      },
       "shares": 1,
       "totalShares": 11,
       "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
@@ -28,6 +52,14 @@
       "id": 3,
       "name": "Balım Kebap",
       "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "location": {
+          "lat": "41.008469",
+          "lng": "28.980261"
+        }
+      },
       "shares": 1,
       "totalShares": 13,
       "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
@@ -36,6 +68,46 @@
       "id": 4,
       "name": "Kasap",
       "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "location": {
+          "lat": "41.008469",
+          "lng": "28.980261"
+        }
+      },
+      "shares": 1,
+      "totalShares": 17,
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+    },
+    {
+      "id": 5,
+      "name": "Mehmet Yurt",
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "location": {
+          "lat": "41.008469",
+          "lng": "28.980261"
+        }
+      },
+      "shares": 1,
+      "totalShares": 17,
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+    },
+    {
+      "id": 6,
+      "name": "Kunduracı Remzi",
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "location": {
+          "lat": "41.008469",
+          "lng": "28.980261"
+        }
+      },
       "shares": 1,
       "totalShares": 17,
       "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"

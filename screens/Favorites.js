@@ -3,7 +3,7 @@ import Product from "../components/Product";
 import React from "react";
 import {useSelector} from "react-redux";
 
-const Animals = (props) => {
+const Favorites = (props) => {
     const foods = useSelector(state => state.products.foods)
     return (
         <View style={styles.screen}>
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Animals;
+export default Favorites;
