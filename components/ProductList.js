@@ -3,19 +3,23 @@ import {FlatList, StyleSheet, Text, View} from "react-native";
 import Product from "./Product";
 import Title from "./Title";
 import HorizontalList from "./HorizontalList";
+import Line from "./Line";
 
 function ProductList(props) {
 
     const ProductHeader = (
         <View style={styles.header}>
+            <Line />
             <Title>Yemek</Title>
             <HorizontalList
                 navigation={props.navigation}
                 items={props.headerItems.filter(p => p.category.value === 0)} />{/*Yemek*/}
+            <Line />
             <Title>Giyim</Title>
             <HorizontalList
                 navigation={props.navigation}
                 items={props.headerItems.filter(p => p.category.value === 1)} />{/*Giyim*/}
+            <Line />
         </View>
     )
 
@@ -51,7 +55,7 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     header:{
-        backgroundColor: '#abc',
+        backgroundColor: '#ccc',
         height: 250
     },
     empty:{

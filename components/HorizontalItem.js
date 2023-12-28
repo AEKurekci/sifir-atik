@@ -36,7 +36,7 @@ const HorizontalItem = props => {
         <Card style={styles.screen}>
             <TouchableComponent useForeground onPress={goToDetails}>
                 <View>
-                    <Image style={styles.imageContainer} source={require('../assets/kuru.jpg')} />
+                    <Image style={styles.imageContainer} source={{uri: item.images[0].url}} />
                     <Text numberOfLines={1} ellipsizeMode="tail" style={styles.title}>{item.title}</Text>
                 </View>
             </TouchableComponent>

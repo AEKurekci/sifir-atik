@@ -1,9 +1,10 @@
-import {ActivityIndicator, Image, SafeAreaView, ScrollView, StyleSheet, Text, View} from "react-native";
+import {ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, Text, View} from "react-native";
 import React, {useCallback, useEffect, useState} from "react";
 import useHttp from "../hooks/use-http";
 import Colors from "../constants/Colors";
 import Line from "../components/Line";
 import MapPreview from "../components/MapPreview";
+import Carousel from "../components/Carousel";
 
 const ProductDetailsScreen = (props) => {
     const product = props.route.params ? props.route.params.product : null;
@@ -56,7 +57,7 @@ const ProductDetailsScreen = (props) => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.screen}>
-                <Image style={styles.imageContainer} source={require('../assets/image.png')} />
+                <Carousel items={product.images} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>{product.title}</Text>
                     <Text style={styles.title}>{product.price} ₺</Text>

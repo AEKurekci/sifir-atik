@@ -6,6 +6,7 @@ const HorizontalList = props => {
     return (
         <FlatList
             style={styles.screen}
+            showsHorizontalScrollIndicator={false}
             keyExtractor={item => item.id}
             data={props.items}
             horizontal
@@ -18,7 +19,7 @@ const HorizontalList = props => {
 const styles = StyleSheet.create({
     screen: {
         height: '20%',
-        backgroundColor: '#abc'
+        backgroundColor: '#ccc'
     }
 })
 

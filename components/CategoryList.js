@@ -25,6 +25,7 @@ const CategoryList = props => {
 
     return (
         <FlatList
+            showsHorizontalScrollIndicator={false}
             style={styles.screen}
             keyExtractor={item => item.value}
             data={categories}

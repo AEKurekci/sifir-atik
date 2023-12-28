@@ -10,7 +10,7 @@ const Line = () => {
 const styles = StyleSheet.create({
     line:{
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc'
+        borderBottomColor: '#9a9999'
     }
 })
 

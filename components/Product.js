@@ -41,7 +41,7 @@ function Product(props) {
         <Card style={{...styles.screen, ...propStyle}}>
             <TouchableComponent useForeground onPress={goToDetails}>
                 <View>
-                    <Image style={styles.imageContainer} source={require('../assets/kuru.jpg')} />
+                    <Image style={styles.imageContainer} source={{uri: product.images[0].url}} />
                     <Text numberOfLines={1} ellipsizeMode="tail" style={styles.title}>{product.title}</Text>
                     <View style={styles.row}>
                         <Text numberOfLines={1} ellipsizeMode="tail" style={styles.owner}>{product.owner.address.text}</Text>
