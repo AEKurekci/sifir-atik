@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, StyleSheet, View} from "react-native";
+import {FlatList, StyleSheet, Text, View} from "react-native";
 import Product from "./Product";
 import Title from "./Title";
 import HorizontalList from "./HorizontalList";
@@ -19,6 +19,12 @@ function ProductList(props) {
         </View>
     )
 
+    const ListEmptyComponent = (
+        <View style={styles.empty}>
+            <Text>Oops! Hiç ürün bulamadık..Eklemek ister misiniz?</Text>
+        </View>
+    )
+
     return (
         <FlatList
             onRefresh={props.fetchData}
@@ -34,6 +40,7 @@ function ProductList(props) {
                 />
             )}
             ListHeaderComponent={ProductHeader}
+            ListEmptyComponent={ListEmptyComponent}
         />
     );
 }
@@ -46,6 +53,16 @@ const styles = StyleSheet.create({
     header:{
         backgroundColor: '#abc',
         height: 250
+    },
+    empty:{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center"
+    },
+    emptyText:{
+        fontFamily: 'open-sans',
+        fontSize: 20
     }
 })
 

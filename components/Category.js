@@ -19,8 +19,11 @@ const Category = props => {
             Icon = <FontAwesome5 name={props.item.iconText} size={Dimensions.get('window').width / 20} color={fontColor}/>
             break;
     }
+
+    const backgroundStyle = props.item.selected ? {backgroundColor: '#abc'} : {};
+
     return (
-        <TouchableOpacity style={styles.screen} onPress={() => props.filterProduct(props.item.value)}>
+        <TouchableOpacity style={{...styles.screen, ...backgroundStyle}} onPress={() => props.filterProduct(props.item.value)}>
             <View style={styles.icon}>
                 {Icon}
             </View>
@@ -34,8 +37,9 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 8,
         borderStyle: "solid",
-        borderWidth: 0.5,
-        borderRadius: 5,
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: '#abc',
         margin: 2,
         flexDirection: "column",
         justifyContent: "center",

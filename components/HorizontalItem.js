@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     screen: {
         height: '95%',
         margin: 2,
-        width: Dimensions.get('window').width > 500 ? Dimensions.get('window').width / 5 - 4 : Dimensions.get('window').width / 4 - 4,
+        width: Dimensions.get('window').width > 500 ? Dimensions.get('window').width / 5 - 10 : Dimensions.get('window').width / 4 - 10,
     },
     row: {
         flexDirection: "row",

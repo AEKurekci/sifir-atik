@@ -35,7 +35,8 @@ const ProductDetailsScreen = (props) => {
     useEffect(() => {
         if(owner){
             props.navigation.setOptions({
-                headerTitle: owner.name
+                headerTransparent: true,
+                headerTitle: ''
             })
         }
     }, [owner])
@@ -79,7 +80,8 @@ const styles = StyleSheet.create({
     },
     imageContainer:{
         width: '100%',
-        height: 300
+        height: 300,
+        marginTop: 20
     },
     titleContainer: {
         flexDirection: "row",

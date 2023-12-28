@@ -73,10 +73,7 @@ const Home = (props) => {
         <View style={styles.screen}>
             <View style={styles.row}>
                 <View style={styles.categoryList}>
-                    <CategoryList filterProduct={category => {
-                        console.log(category)
-                        filterProduct(category)
-                    }}/>
+                    <CategoryList filterProduct={filterProduct}/>
                 </View>
                 <TouchableOpacity useForeground style={styles.icon}>
                     <Ionicons name="md-options" size={Dimensions.get('window').width / 10} color={fontColor}/>
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: '#abc'
+        backgroundColor: '#ccc'
     }
 })
 

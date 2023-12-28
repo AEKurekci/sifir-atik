@@ -23,6 +23,10 @@ const defaultHeaderStyle = {
     headerTintColor: 'white'
 }
 
+const productDetailHeaderStyle = {
+    headerTransparent: true
+}
+
 const HomeStackNavigator = createStackNavigator();
 
 export const HomeNavigator = () => {
@@ -57,7 +61,7 @@ const ProfileNavigator = () => {
             <ProfileStackNavigator.Screen
                 name='ProductDetailsScreen'
                 component={ProductDetailsScreen}
-                options={defaultHeaderStyle}
+                options={{...defaultHeaderStyle, ...productDetailHeaderStyle}}
             />
             <ProfileStackNavigator.Screen
                 name='AddProductScreen'
