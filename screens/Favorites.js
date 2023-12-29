@@ -4,11 +4,11 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 const Favorites = (props) => {
-    const foods = useSelector(state => state.products.foods)
+    const favorites = useSelector(state => state.products.favorites)
     return (
         <View style={styles.screen}>
             <FlatList
-                data={foods}
+                data={favorites}
                 style={styles.screen}
                 keyExtractor={item => item.id.toString()}
                 numColumns={3}

@@ -5,12 +5,14 @@
       "title": "Kuru-Pilav",
       "description": "Artan personel yemeği isteyen misafirlerimiz ile paylaşılacaktır.",
       "price": 0,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
           "id": 0,
-          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
           "id": 1,
@@ -18,7 +20,7 @@
         },
         {
           "id": 2,
-          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
           "id": 3,
@@ -53,12 +55,14 @@
       "title": "Mercimek çorb-bulgur",
       "description": "Fazla olan mercimek çorbası ve bulgur pilavı uygun fiyata paylaşılacaktır.",
       "price": 4,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
           "id": 0,
-          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          "url": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
           "id": 1,
@@ -70,7 +74,7 @@
         },
         {
           "id": 3,
-          "url": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         }
       ],
       "ownerId": 1,
@@ -101,7 +105,9 @@
       "title": "Patates yemeği",
       "description": "Gün sonunda artmış olan patates yemeği öğrenci kardeşlerimize çok uygun fiyatla verilecektir.",
       "price": 3,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
@@ -149,7 +155,9 @@
       "title": "Bulgur Pilavı",
       "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
       "price": 0,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
@@ -197,7 +205,9 @@
       "title": "Pirinç Pilavı",
       "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
       "price": 7,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
@@ -245,7 +255,9 @@
       "title": "Pirinç Pilavı",
       "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
       "price": 7,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
@@ -293,7 +305,9 @@
       "title": "Kazak",
       "description": "Az kullanılmış kazağımı ihtiyaç sahibine vermek istiyorum",
       "price": 7,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
@@ -337,7 +351,9 @@
       "title": "Pirinç Pilavı",
       "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
       "price": 7,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
@@ -385,7 +401,9 @@
       "title": "Pirinç Pilavı",
       "description": "Personel yemeğimiz ücretsiz olarak verilecektir.",
       "price": 7,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 1,
       "images": [
         {
@@ -433,7 +451,9 @@
       "title": "38 numara ayakkabı 3 adet",
       "description": "Hiç kullanılmamış ayakkabıyı ihtiyacı olan ile paylaşmak istiyoruz",
       "price": 7,
-      "forAnimals": false,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Ev Yapımı"],
       "amount": 3,
       "images": [
         {
@@ -481,7 +501,9 @@
       "title": "Kesim artıkları",
       "description": "Hayvan kesiminden kalan kemikleri ilgilenen yardımseverlere vereceğiz",
       "price": 0,
-      "forAnimals": true,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Yeni kesilmiş"],
       "amount": 5,
       "images": [
         {
@@ -519,8 +541,8 @@
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
       "category": {
-        "id": 0,
-        "value": 0,
+        "id": 7,
+        "value": 7,
         "text": "Yemek"
       }
     }

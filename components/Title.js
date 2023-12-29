@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     title:{
         fontSize: 14,
-        fontFamily: 'open-sans-bold'
+        fontFamily: 'poppins-semi-bold'
     }
 })
 

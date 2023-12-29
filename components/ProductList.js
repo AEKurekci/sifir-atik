@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     emptyText:{
-        fontFamily: 'open-sans',
+        fontFamily: 'poppins',
         fontSize: 20
     }
 })
