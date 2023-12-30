@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import * as Font from 'expo-font';
-import {useState} from "react";
 import {NavigationContainer} from "@react-navigation/native";
 import AppNavigator from "./navigation/AppNavigator";
 import {Provider} from "react-redux";
 import store from "./store";
-import AppLoading from 'expo-app-loading';
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 const fetchFonts = () => {
     return Font.loadAsync({
@@ -72,21 +73,34 @@ export default function App() {
     console.log('log')
 */
 
-    if (!fontLoaded) {
-        return <AppLoading
-            startAsync={fetchFonts}
-            onError={() => {
-                console.log('An error occurred while loading fonts')
-                }
-            }
-            onFinish={() => {
+    useEffect(() => {
+        async function prepare() {
+            try {
+                await fetchFonts();
+            } catch (e) {
+                console.error('An error occurred while loading fonts')
+            } finally {
+                // Tell the application to render
                 setFontLoaded(true);
-            }} />;
+            }
+        }
+
+        prepare();
+    }, []);
+
+    const onLayoutRootView = useCallback(async () => {
+        if(fontLoaded){
+            await SplashScreen.hideAsync();
+        }
+    }, [fontLoaded])
+
+    if (!fontLoaded) {
+        return null;
     }
 
     return (
         <Provider store={store}>
-            <NavigationContainer>
+            <NavigationContainer onReady={onLayoutRootView}>
                 <AppNavigator/>
             </NavigationContainer>
         </Provider>

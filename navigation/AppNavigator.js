@@ -9,7 +9,7 @@ import Colors from "../constants/Colors";
 import Home from "../screens/Home";
 import Favorites from "../screens/Favorites";
 import ProfileScreen from "../screens/ProfileScreen";
-import ProductDetailsScreen from "../screens/ProductDetailsScreen";
+import ProductDetailsScreen, {screenOptions as ProductDetailsOptions} from "../screens/ProductDetailsScreen";
 import AddProductScreen from "../screens/AddProductScreen";
 
 const defaultHeaderStyle = {
@@ -42,7 +42,12 @@ export const HomeNavigator = () => {
             <HomeStackNavigator.Screen
                 name='ProductDetailsScreen'
                 component={ProductDetailsScreen}
-                options={defaultHeaderStyle}
+                options={(props) => {
+                    return {
+                        ...defaultHeaderStyle,
+                        ...ProductDetailsOptions(props)
+                    }
+                } }
             />
         </HomeStackNavigator.Navigator>
     )

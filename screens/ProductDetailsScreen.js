@@ -1,4 +1,4 @@
-import {ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, Text, View} from "react-native";
+import {ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React, {useCallback, useEffect, useState} from "react";
 import useHttp from "../hooks/use-http";
 import Colors from "../constants/Colors";
@@ -9,6 +9,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Title from "../components/Title";
 import {FontAwesome5} from "@expo/vector-icons";
 import Bubble from "../components/Bubble";
+import ProfileLine from "../components/ProfileLine";
 
 const ProductDetailsScreen = (props) => {
     const product = props.route.params ? props.route.params.product : null;
@@ -116,7 +117,7 @@ const ProductDetailsScreen = (props) => {
                         <Title>Detaylar</Title>
                         <View style={styles.row}>
                             {product.keywords.map((k, i) => (
-                                <Bubble index={i}>{k}</Bubble>
+                                <Bubble index={i} key={i.toString()}>{k}</Bubble>
                             ))}
                         </View>
                     </View>
@@ -126,6 +127,9 @@ const ProductDetailsScreen = (props) => {
                         <Text>{product.description}</Text>
                     </View>
                     <Line/>
+                    <Title>Paylaşan</Title>
+                    <ProfileLine user={product.owner} />
+                    <Line/>
                     <Title>İlan Konumu</Title>
                     <View style={styles.mapContainer}>
                         <MapPreview location={address.location} text={address.text} />
@@ -134,6 +138,16 @@ const ProductDetailsScreen = (props) => {
             </ScrollView>
         </SafeAreaView>
     );
+}
+
+export const screenOptions = (navData) => {
+    return {
+        headerRight: () =>(
+            <TouchableOpacity style={styles.rightHeader}>
+                <Ionicons name='share-social' size={22} color='white' />
+            </TouchableOpacity>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -201,6 +215,9 @@ const styles = StyleSheet.create({
     },
     mapContainer:{
         paddingTop: 10
+    },
+    rightHeader:{
+        paddingRight: 15
     }
 })
 export default ProductDetailsScreen;
