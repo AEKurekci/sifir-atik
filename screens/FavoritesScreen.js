@@ -28,7 +28,10 @@ const FavoritesScreen = (props) => {
                 keyExtractor={item => item.id.toString()}
                 renderItem={(renderItem) => {
                     return (
-                        <ProfileLine user={renderItem.item} rightIcon='chevron-forward-outline' onPressProfile={onPressProfileHandler} />
+                        <ProfileLine
+                            user={renderItem.item}
+                            rightIcon='chevron-forward-outline'
+                            onPressProfile={onPressProfileHandler}/>
                     )
                 }}/>
         </View>

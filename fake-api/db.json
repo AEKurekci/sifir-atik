@@ -545,6 +545,206 @@
         "value": 7,
         "text": "Yemek"
       }
+    },
+    {
+      "id": 11,
+      "title": "Kesim artıkları 2",
+      "description": "Hayvan kesiminden kalan kemikleri ilgilenen yardımseverlere vereceğiz",
+      "price": 0,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Yeni kesilmiş"],
+      "amount": 5,
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "ownerId": 4,
+      "owner": {
+        "id": 4,
+        "name": "Kasap",
+        "addressId": 3,
+        "address": {
+          "id": 3,
+          "text": "Ümraniye/İstanbul",
+          "location": {
+            "lat": "41.008469",
+            "lng": "28.980261"
+          }
+        },
+        "shares": 1,
+        "totalShares": 17,
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "category": {
+        "id": 7,
+        "value": 7,
+        "text": "Yemek"
+      }
+    },
+    {
+      "id": 12,
+      "title": "Kesim artıkları 3",
+      "description": "Hayvan kesiminden kalan kemikleri ilgilenen yardımseverlere vereceğiz",
+      "price": 0,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Yeni kesilmiş"],
+      "amount": 5,
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "ownerId": 4,
+      "owner": {
+        "id": 4,
+        "name": "Kasap",
+        "addressId": 3,
+        "address": {
+          "id": 3,
+          "text": "Ümraniye/İstanbul",
+          "location": {
+            "lat": "41.008469",
+            "lng": "28.980261"
+          }
+        },
+        "shares": 1,
+        "totalShares": 17,
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "category": {
+        "id": 7,
+        "value": 7,
+        "text": "Yemek"
+      }
+    },
+    {
+      "id": 13,
+      "title": "Kesim artıkları 4",
+      "description": "Hayvan kesiminden kalan kemikleri ilgilenen yardımseverlere vereceğiz",
+      "price": 0,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Yeni kesilmiş"],
+      "amount": 5,
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "ownerId": 4,
+      "owner": {
+        "id": 4,
+        "name": "Kasap",
+        "addressId": 3,
+        "address": {
+          "id": 3,
+          "text": "Ümraniye/İstanbul",
+          "location": {
+            "lat": "41.008469",
+            "lng": "28.980261"
+          }
+        },
+        "shares": 1,
+        "totalShares": 17,
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "category": {
+        "id": 7,
+        "value": 7,
+        "text": "Yemek"
+      }
+    },
+    {
+      "id": 14,
+      "title": "Kesim artıkları 5",
+      "description": "Hayvan kesiminden kalan kemikleri ilgilenen yardımseverlere vereceğiz",
+      "price": 0,
+      "createdAt": "2023-12-29 10:39:35",
+      "expiresIn": "2024-01-20 10:39:35",
+      "keywords": ["Sıcak", "Taze", "Yeni kesilmiş"],
+      "amount": 5,
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "ownerId": 4,
+      "owner": {
+        "id": 4,
+        "name": "Kasap",
+        "addressId": 3,
+        "address": {
+          "id": 3,
+          "text": "Ümraniye/İstanbul",
+          "location": {
+            "lat": "41.008469",
+            "lng": "28.980261"
+          }
+        },
+        "shares": 1,
+        "totalShares": 17,
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "category": {
+        "id": 7,
+        "value": 7,
+        "text": "Yemek"
+      }
     }
   ]
 }

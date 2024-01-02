@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {ActivityIndicator, FlatList, Image, StyleSheet, View} from "react-native";
+import {ActivityIndicator, FlatList, SafeAreaView, StyleSheet, TouchableOpacity} from "react-native";
 import {useSelector} from "react-redux";
 import Product from "../components/Product";
 import Colors from "../constants/Colors";
+import {MaterialCommunityIcons} from "@expo/vector-icons";
+import ProfileHeader from "../components/ProfileHeader";
 
 const ProfileScreen = (props) => {
     const [userProducts, setUserProducts] = useState([]);
@@ -22,7 +24,8 @@ const ProfileScreen = (props) => {
         }
         if(user){
             props.navigation.setOptions({
-                headerTitle: user.name
+                headerTransparent: true,
+                headerTitle: ''
             })
             setUserProducts(products.filter(p => p.owner.id === user.id))
         }
@@ -32,18 +35,14 @@ const ProfileScreen = (props) => {
         return <ActivityIndicator style={styles.screen} size='large' color={Colors.primary} />
     }
 
-    const HeaderComp = () => {
-        return <Image style={styles.img} source={{uri: user.imageURL}} />
-    }
-
     return (
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
             <FlatList
                 data={userProducts}
                 style={styles.screen}
                 keyExtractor={item => item.id.toString()}
                 numColumns={2}
-                ListHeaderComponent={HeaderComp}
+                ListHeaderComponent={<ProfileHeader user={user} />}
                 renderItem={(renderItem) => {
                     return (
                         <Product
@@ -53,17 +52,26 @@ const ProfileScreen = (props) => {
                             />
                     )
                 }}/>
-        </View>
+        </SafeAreaView>
     )
+}
+
+export const screenOptions = (navData) => {
+    return {
+        headerRight: () =>(
+            <TouchableOpacity style={styles.rightHeader}>
+                <MaterialCommunityIcons name="dots-vertical" size={22} color="white" />
+            </TouchableOpacity>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
     screen:{
         flex: 1
     },
-    img:{
-        width: '100%',
-        height: 100
+    rightHeader:{
+        paddingRight: 15
     }
 })
 

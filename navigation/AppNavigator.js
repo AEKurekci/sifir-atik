@@ -8,7 +8,7 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import Colors from "../constants/Colors";
 import Home from "../screens/Home";
 import FavoritesScreen from "../screens/FavoritesScreen";
-import ProfileScreen from "../screens/ProfileScreen";
+import ProfileScreen, {screenOptions as ProfileScreenOptions} from "../screens/ProfileScreen";
 import ProductDetailsScreen, {screenOptions as ProductDetailsOptions} from "../screens/ProductDetailsScreen";
 import AddProductScreen from "../screens/AddProductScreen";
 import MessagesScreen from "../screens/MessagesScreen";
@@ -53,7 +53,12 @@ export const HomeNavigator = () => {
             <HomeStackNavigator.Screen
                 name='ProfileScreen'
                 component={ProfileScreen}
-                options={defaultHeaderStyle}
+                options={(props) => {
+                    return {
+                        ...defaultHeaderStyle,
+                        ...ProfileScreenOptions(props)
+                    }
+                } }
             />
         </HomeStackNavigator.Navigator>
     )
@@ -67,7 +72,12 @@ const ProfileNavigator = () => {
             <ProfileStackNavigator.Screen
                 name='ProfileScreen'
                 component={ProfileScreen}
-                options={defaultHeaderStyle}
+                options={(props) => {
+                    return {
+                        ...defaultHeaderStyle,
+                        ...ProfileScreenOptions(props)
+                    }
+                } }
             />
             <ProfileStackNavigator.Screen
                 name='ProductDetailsScreen'
@@ -95,7 +105,12 @@ const FavoritesNavigator = () => {
             <FavoritesStackNavigator.Screen
                 name='ProfileScreen'
                 component={ProfileScreen}
-                options={defaultHeaderStyle}
+                options={(props) => {
+                    return {
+                        ...defaultHeaderStyle,
+                        ...ProfileScreenOptions(props)
+                    }
+                } }
             />
         </FavoritesStackNavigator.Navigator>
     )
