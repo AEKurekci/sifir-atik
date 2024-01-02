@@ -7,10 +7,11 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from '@expo/vector-icons/Ionicons'
 import Colors from "../constants/Colors";
 import Home from "../screens/Home";
-import Favorites from "../screens/Favorites";
+import FavoritesScreen from "../screens/FavoritesScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import ProductDetailsScreen, {screenOptions as ProductDetailsOptions} from "../screens/ProductDetailsScreen";
 import AddProductScreen from "../screens/AddProductScreen";
+import MessagesScreen from "../screens/MessagesScreen";
 
 const defaultHeaderStyle = {
     headerStyle: {
@@ -49,6 +50,11 @@ export const HomeNavigator = () => {
                     }
                 } }
             />
+            <HomeStackNavigator.Screen
+                name='ProfileScreen'
+                component={ProfileScreen}
+                options={defaultHeaderStyle}
+            />
         </HomeStackNavigator.Navigator>
     )
 }
@@ -84,8 +90,13 @@ const FavoritesNavigator = () => {
         <FavoritesStackNavigator.Navigator>
             <FavoritesStackNavigator.Screen
                 name='Favorilerim'
-                component={Favorites}
+                component={FavoritesScreen}
                 options={defaultHeaderStyle} />
+            <FavoritesStackNavigator.Screen
+                name='ProfileScreen'
+                component={ProfileScreen}
+                options={defaultHeaderStyle}
+            />
         </FavoritesStackNavigator.Navigator>
     )
 }
@@ -97,7 +108,7 @@ const AddNewNavigator = () => {
         <AddNewStackNavigator.Navigator>
             <AddNewStackNavigator.Screen
                 name='Ne Paylaşıyorsun?'
-                component={Favorites}
+                component={FavoritesScreen}
                 options={defaultHeaderStyle} />
         </AddNewStackNavigator.Navigator>
     )
@@ -110,7 +121,7 @@ const MessagingNavigator = () => {
         <MessagingStackNavigator.Navigator>
             <MessagingStackNavigator.Screen
                 name='Mesajlarımda Ara...'
-                component={Favorites}
+                component={MessagesScreen}
                 options={defaultHeaderStyle} />
         </MessagingStackNavigator.Navigator>
     )

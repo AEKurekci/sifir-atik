@@ -76,6 +76,12 @@ const ProductDetailsScreen = (props) => {
         this.offset = currentOffset;
     }
 
+    const onPressProfileHandler = (userId) => {
+        props.navigation.navigate('ProfileScreen', {
+            userId
+        })
+    }
+
     if(isLoading || !address){
         return <ActivityIndicator style={styles.screen} size='large' color={Colors.primary} />
     }
@@ -128,7 +134,7 @@ const ProductDetailsScreen = (props) => {
                     </View>
                     <Line/>
                     <Title>Paylaşan</Title>
-                    <ProfileLine user={product.owner} />
+                    <ProfileLine user={product.owner} rightIcon='chatbubble-ellipses' onPressProfile={onPressProfileHandler}/>
                     <Line/>
                     <Title>İlan Konumu</Title>
                     <View style={styles.mapContainer}>

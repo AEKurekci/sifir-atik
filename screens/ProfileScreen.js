@@ -1,16 +1,36 @@
-import React, {useEffect} from "react";
-import {FlatList, Image, StyleSheet, View} from "react-native";
+import React, {useEffect, useState} from "react";
+import {ActivityIndicator, FlatList, Image, StyleSheet, View} from "react-native";
 import {useSelector} from "react-redux";
 import Product from "../components/Product";
+import Colors from "../constants/Colors";
 
 const ProfileScreen = (props) => {
-    const user = useSelector(state => state.users.user)
-    const userProducts = useSelector(state => state.products.userProducts)
+    const [userProducts, setUserProducts] = useState([]);
+    const me = useSelector(state => state.users.user)
+    const [user, setUser] = useState(me)
+    const users = useSelector(state => state.users.users);
+    const userId = props.route !== undefined && props.route.params !== undefined ? props.route.params.userId : undefined
+
+    const products = useSelector(state => state.products.products)
+
     useEffect(() => {
-        props.navigation.setOptions({
-            headerTitle: user.name
-        })
-    }, [user])
+        if(userId !== undefined){
+            const filteredUsers = users.filter(u => u.id === userId);
+            if(filteredUsers.length > 0){
+                setUser(filteredUsers[0])
+            }
+        }
+        if(user){
+            props.navigation.setOptions({
+                headerTitle: user.name
+            })
+            setUserProducts(products.filter(p => p.owner.id === user.id))
+        }
+    }, [users, products, user, userId])
+
+    if(userProducts.length === 0){
+        return <ActivityIndicator style={styles.screen} size='large' color={Colors.primary} />
+    }
 
     const HeaderComp = () => {
         return <Image style={styles.img} source={{uri: user.imageURL}} />

@@ -1,0 +1,42 @@
+import {FlatList, StyleSheet, View} from "react-native";
+import React from "react";
+import {useSelector} from "react-redux";
+import MessagingLine from "../components/MessagingLine";
+
+const MessagesScreen = (props) => {
+    const user = useSelector(state => state.users.user)
+    const users = useSelector(state => state.users.users)
+    const products = useSelector(state => state.products.products)
+
+    return (
+        <View style={styles.screen}>
+            <FlatList
+                data={user.messages}
+                style={styles.screen}
+                keyExtractor={item => item.id.toString()}
+                renderItem={(renderItem) => {
+                    let date = new Date(renderItem.item.message[renderItem.item.message.length - 1].t);
+                    let targetUser = users.filter(u => u.id === renderItem.item.user)
+                    let targetProduct = products.filter(p => p.id === renderItem.item.productId)
+                    return (
+                        <MessagingLine
+                            message={renderItem.item}
+                            user={user}
+                            target={targetUser[0]}
+                            product={targetProduct[0]}
+                            rightIcon='trash'
+                            date={date} />
+                    )
+                }}/>
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    screen:{
+        flex: 1,
+        paddingHorizontal: 3
+    }
+})
+
+export default MessagesScreen;

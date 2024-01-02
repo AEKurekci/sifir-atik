@@ -14,7 +14,69 @@
       },
       "shares": 1,
       "totalShares": 5,
-      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+      "favorites": [5, 6],
+      "messages": [
+        {
+          "id": 0,
+          "user": 1,
+          "productId": 0,
+          "message": [
+            {
+              "s": 0,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 1,
+              "m": "selamm",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 1,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 0,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "user": 2,
+          "productId": 1,
+          "message": [
+            {
+              "s": 2,
+              "m": "selam",
+              "t": "2023-11-14 10:39:35"
+            },
+            {
+              "s": 2,
+              "m": "nasılsın",
+              "t": "2023-11-04 10:40:35"
+            },
+            {
+              "s": 0,
+              "m": "selamm, iyiym sağol sen?",
+              "t": "2023-11-04 10:41:35"
+            },
+            {
+              "s": 2,
+              "m": "iyiyim teşekkürler",
+              "t": "2023-11-04 10:42:35"
+            },
+            {
+              "s": 2,
+              "m": "bir sorum olacaktı müsait misin?",
+              "t": "2023-11-04 10:42:55"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 1,
@@ -30,7 +92,69 @@
       },
       "shares": 2,
       "totalShares": 7,
-      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+      "favorites": [6, 0],
+      "messages": [
+        {
+          "id": 2,
+          "user": 1,
+          "productId": 0,
+          "message": [
+            {
+              "s": 1,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 0,
+              "m": "selamm",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 0,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 1,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "user": 2,
+          "productId": 1,
+          "message": [
+            {
+              "s": 2,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 2,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 1,
+              "m": "selamm, iyiym sağol sen?",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 2,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            },
+            {
+              "s": 2,
+              "m": "bir sorum olacaktı müsait misin?",
+              "t": "2024-01-20 10:42:55"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 2,
@@ -46,7 +170,69 @@
       },
       "shares": 1,
       "totalShares": 11,
-      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+      "favorites": [0, 1],
+      "messages": [
+        {
+          "id": 4,
+          "user": 1,
+          "productId": 0,
+          "message": [
+            {
+              "s": 2,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 1,
+              "m": "selamm",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 1,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 2,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "user": 3,
+          "productId": 1,
+          "message": [
+            {
+              "s": 3,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 3,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 2,
+              "m": "selamm, iyiym sağol sen?",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 3,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            },
+            {
+              "s": 3,
+              "m": "bir sorum olacaktı müsait misin?",
+              "t": "2024-01-20 10:42:55"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 3,
@@ -62,7 +248,69 @@
       },
       "shares": 1,
       "totalShares": 13,
-      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+      "favorites": [1, 2],
+      "messages": [
+        {
+          "id": 6,
+          "user": 1,
+          "productId": 0,
+          "message": [
+            {
+              "s": 3,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 1,
+              "m": "selamm",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 1,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 3,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "user": 2,
+          "productId": 1,
+          "message": [
+            {
+              "s": 2,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 2,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 3,
+              "m": "selamm, iyiym sağol sen?",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 2,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            },
+            {
+              "s": 2,
+              "m": "bir sorum olacaktı müsait misin?",
+              "t": "2024-01-20 10:42:55"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 4,
@@ -78,7 +326,69 @@
       },
       "shares": 1,
       "totalShares": 17,
-      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+      "favorites": [2, 3],
+      "messages": [
+        {
+          "id": 8,
+          "user": 1,
+          "productId": 0,
+          "message": [
+            {
+              "s": 4,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 1,
+              "m": "selamm",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 1,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 4,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "user": 2,
+          "productId": 1,
+          "message": [
+            {
+              "s": 2,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 2,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 4,
+              "m": "selamm, iyiym sağol sen?",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 2,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            },
+            {
+              "s": 2,
+              "m": "bir sorum olacaktı müsait misin?",
+              "t": "2024-01-20 10:42:55"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 5,
@@ -94,7 +404,69 @@
       },
       "shares": 1,
       "totalShares": 17,
-      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+      "favorites": [3, 4],
+      "messages": [
+        {
+          "id": 10,
+          "user": 1,
+          "productId": 0,
+          "message": [
+            {
+              "s": 5,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 1,
+              "m": "selamm",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 1,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 5,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "user": 2,
+          "productId": 1,
+          "message": [
+            {
+              "s": 2,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 2,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 5,
+              "m": "selamm, iyiym sağol sen?",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 2,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            },
+            {
+              "s": 2,
+              "m": "bir sorum olacaktı müsait misin?",
+              "t": "2024-01-20 10:42:55"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 6,
@@ -110,7 +482,69 @@
       },
       "shares": 1,
       "totalShares": 17,
-      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+      "favorites": [4, 5],
+      "messages": [
+        {
+          "id": 12,
+          "user": 1,
+          "productId": 0,
+          "message": [
+            {
+              "s": 6,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 1,
+              "m": "selamm",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 1,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 6,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "user": 2,
+          "productId": 1,
+          "message": [
+            {
+              "s": 2,
+              "m": "selam",
+              "t": "2024-01-20 10:39:35"
+            },
+            {
+              "s": 2,
+              "m": "nasılsın",
+              "t": "2024-01-20 10:40:35"
+            },
+            {
+              "s": 6,
+              "m": "selamm, iyiym sağol sen?",
+              "t": "2024-01-20 10:41:35"
+            },
+            {
+              "s": 2,
+              "m": "iyiyim teşekkürler",
+              "t": "2024-01-20 10:42:35"
+            },
+            {
+              "s": 2,
+              "m": "bir sorum olacaktı müsait misin?",
+              "t": "2024-01-20 10:42:55"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -6,7 +6,7 @@ const ProfileLine = props => {
     return (
         <View style={styles.row}>
             <View style={styles.row}>
-                <TouchableOpacity style={styles.imgContainer}>
+                <TouchableOpacity style={styles.imgContainer} onPress={props.onPressProfile.bind(this, props.user.id)}>
                     <Image source={{uri: props.user.imageURL}} style={styles.img} />
                     <Text style={styles.title}>{props.user.name}</Text>
                 </TouchableOpacity>
@@ -15,7 +15,7 @@ const ProfileLine = props => {
                 </TouchableOpacity>
             </View>
             <TouchableOpacity style={styles.messageIconContainer}>
-                <Ionicons name='chatbubble-ellipses' size={24} color='white'/>
+                <Ionicons name={props.rightIcon} size={24} color='white'/>
             </TouchableOpacity>
         </View>
     )
