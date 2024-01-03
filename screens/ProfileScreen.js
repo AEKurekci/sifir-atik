@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from "react";
-import {ActivityIndicator, FlatList, SafeAreaView, StyleSheet, TouchableOpacity} from "react-native";
+import {
+    ActivityIndicator,
+    BackHandler,
+    FlatList,
+    SafeAreaView,
+    StatusBar,
+    StyleSheet,
+    TouchableOpacity
+} from "react-native";
 import {useSelector} from "react-redux";
 import Product from "../components/Product";
 import Colors from "../constants/Colors";
@@ -23,6 +31,12 @@ const ProfileScreen = (props) => {
             }
         }
         if(user){
+            if(props.navigation.getParent() !== undefined){
+                props.navigation.getParent().setOptions({
+                    headerTransparent: true,
+                    headerTitle: ''
+                })
+            }
             props.navigation.setOptions({
                 headerTransparent: true,
                 headerTitle: ''
@@ -31,12 +45,27 @@ const ProfileScreen = (props) => {
         }
     }, [users, products, user, userId])
 
+    useEffect(() => {
+        const subs = BackHandler.addEventListener('hardwareBackPress', () => {
+            if(props.navigation.getParent() !== undefined){
+                props.navigation.getParent().setOptions({
+                    headerTransparent: false,
+                    headerTitle: 'Favoriler'
+                })
+            }
+        })
+        return () => subs.remove();
+    })
+
     if(userProducts.length === 0){
         return <ActivityIndicator style={styles.screen} size='large' color={Colors.primary} />
     }
 
     return (
         <SafeAreaView style={styles.screen}>
+            <StatusBar
+                hidden={true}
+                style={styles.screen}/>
             <FlatList
                 data={userProducts}
                 style={styles.screen}

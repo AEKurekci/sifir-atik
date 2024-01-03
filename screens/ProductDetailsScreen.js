@@ -1,4 +1,14 @@
-import {ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {
+    ActivityIndicator,
+    BackHandler,
+    SafeAreaView,
+    ScrollView,
+    StatusBar,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View
+} from "react-native";
 import React, {useCallback, useEffect, useState} from "react";
 import useHttp from "../hooks/use-http";
 import Colors from "../constants/Colors";
@@ -48,6 +58,12 @@ const ProductDetailsScreen = (props) => {
     }, [product])
 
     useEffect(() => {
+        if(props.navigation.getParent() !== undefined){
+            props.navigation.getParent().setOptions({
+                headerTransparent: true,
+                headerTitle: ''
+            })
+        }
         if(owner){
             props.navigation.setOptions({
                 headerTransparent: true,
@@ -55,6 +71,18 @@ const ProductDetailsScreen = (props) => {
             })
         }
     }, [owner])
+
+    useEffect(() => {
+        const subs = BackHandler.addEventListener('hardwareBackPress', () => {
+            if(props.navigation.getParent() !== undefined){
+                props.navigation.getParent().setOptions({
+                    headerTransparent: false,
+                    headerTitle: 'Favoriler'
+                })
+            }
+        })
+        return () => subs.remove();
+    })
 
     const onScrollHandler = (e) => {
         const {navigation} = props;
@@ -96,52 +124,55 @@ const ProductDetailsScreen = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar
+                hidden={true}
+                style={styles.screen}/>
             <ScrollView style={styles.screen}>
-                <Carousel items={product.images} />
-                <View style={styles.detailsContainer}>
-                    <View style={styles.titleContainer}>
-                        <Text style={styles.title}>{product.title}</Text>
-                    </View>
-                    <View style={styles.locationDate}>
-                        <View style={styles.row}>
-                            <Ionicons name='ios-location-sharp' size={14} color='black' />
-                            <Text style={styles.subTitle}>{address.text}</Text>
+                    <Carousel items={product.images} />
+                    <View style={styles.detailsContainer}>
+                        <View style={styles.titleContainer}>
+                            <Text style={styles.title}>{product.title}</Text>
                         </View>
-                        <View style={styles.col}>
+                        <View style={styles.locationDate}>
                             <View style={styles.row}>
-                                <Text style={styles.subTitle}>Paylaşıldı: {createdAt}</Text>
-                                <FontAwesome5 style={{paddingLeft: 2}} name='calendar-alt' size={14} color='black' />
+                                <Ionicons name='ios-location-sharp' size={14} color='black' />
+                                <Text style={styles.subTitle}>{address.text}</Text>
                             </View>
+                            <View style={styles.col}>
+                                <View style={styles.row}>
+                                    <Text style={styles.subTitle}>Paylaşıldı: {createdAt}</Text>
+                                    <FontAwesome5 style={{paddingLeft: 2}} name='calendar-alt' size={14} color='black' />
+                                </View>
+                                <View style={styles.row}>
+                                    <Text style={styles.subTitle}>Son: {expires}</Text>
+                                    <Ionicons style={{paddingLeft: 2}} name='time-sharp' size={14} color='black' />
+                                </View>
+                            </View>
+                        </View>
+                        <Line />
+                        <View style={styles.description}>
+                            <Title>Detaylar</Title>
                             <View style={styles.row}>
-                                <Text style={styles.subTitle}>Son: {expires}</Text>
-                                <Ionicons style={{paddingLeft: 2}} name='time-sharp' size={14} color='black' />
+                                {product.keywords.map((k, i) => (
+                                    <Bubble index={i} key={i.toString()}>{k}</Bubble>
+                                ))}
                             </View>
                         </View>
-                    </View>
-                    <Line />
-                    <View style={styles.description}>
-                        <Title>Detaylar</Title>
-                        <View style={styles.row}>
-                            {product.keywords.map((k, i) => (
-                                <Bubble index={i} key={i.toString()}>{k}</Bubble>
-                            ))}
+                        <Line />
+                        <View style={styles.description}>
+                            <Title>Açıklama</Title>
+                            <Text>{product.description}</Text>
+                        </View>
+                        <Line/>
+                        <Title>Paylaşan</Title>
+                        <ProfileLine user={product.owner} rightIcon='chatbubble-ellipses' onPressProfile={onPressProfileHandler}/>
+                        <Line/>
+                        <Title>İlan Konumu</Title>
+                        <View style={styles.mapContainer}>
+                            <MapPreview location={address.location} text={address.text} />
                         </View>
                     </View>
-                    <Line />
-                    <View style={styles.description}>
-                        <Title>Açıklama</Title>
-                        <Text>{product.description}</Text>
-                    </View>
-                    <Line/>
-                    <Title>Paylaşan</Title>
-                    <ProfileLine user={product.owner} rightIcon='chatbubble-ellipses' onPressProfile={onPressProfileHandler}/>
-                    <Line/>
-                    <Title>İlan Konumu</Title>
-                    <View style={styles.mapContainer}>
-                        <MapPreview location={address.location} text={address.text} />
-                    </View>
-                </View>
-            </ScrollView>
+                </ScrollView>
         </SafeAreaView>
     );
 }

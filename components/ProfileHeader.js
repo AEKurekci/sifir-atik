@@ -9,7 +9,7 @@ const ProfileHeader = props => {
     const {user} = props
     const date = new Date(user.signDate)
     return(
-        <View style={styles.container}>
+        <View>
             <Image style={styles.img} source={{uri: user.imageURL}} />
             <View style={styles.row}>
                 <View style={styles.titleContainer}>
@@ -31,12 +31,9 @@ const ProfileHeader = props => {
 }
 
 const styles = StyleSheet.create({
-    container:{
-    },
     img:{
         width: '100%',
-        height: 200,
-        marginTop: 20
+        height: 200
     },
     row:{
         display: "flex",

@@ -1,6 +1,6 @@
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
-import {Platform} from "react-native";
+import {Dimensions, Platform} from "react-native";
 import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -12,6 +12,8 @@ import ProfileScreen, {screenOptions as ProfileScreenOptions} from "../screens/P
 import ProductDetailsScreen, {screenOptions as ProductDetailsOptions} from "../screens/ProductDetailsScreen";
 import AddProductScreen from "../screens/AddProductScreen";
 import MessagesScreen from "../screens/MessagesScreen";
+import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
+import FollowingsScreen from "../screens/FollowingsScreen";
 
 const defaultHeaderStyle = {
     headerStyle: {
@@ -99,9 +101,16 @@ const FavoritesNavigator = () => {
     return (
         <FavoritesStackNavigator.Navigator>
             <FavoritesStackNavigator.Screen
-                name='Favorilerim'
-                component={FavoritesScreen}
-                options={defaultHeaderStyle} />
+                name='FavNavigator'
+                component={FavNavigator}
+                options={{
+                    headerShown: false
+                }} />
+            <FavoritesStackNavigator.Screen
+                name='ProductDetailsScreen'
+                component={ProductDetailsScreen}
+                options={{...defaultHeaderStyle, ...productDetailHeaderStyle}}
+            />
             <FavoritesStackNavigator.Screen
                 name='ProfileScreen'
                 component={ProfileScreen}
@@ -113,6 +122,94 @@ const FavoritesNavigator = () => {
                 } }
             />
         </FavoritesStackNavigator.Navigator>
+    )
+}
+
+const FollowingsStackNavigator = createStackNavigator();
+
+const FollowingsNavigator = () => {
+    return (
+        <FollowingsStackNavigator.Navigator>
+            <FollowingsStackNavigator.Screen
+                name='FavNavigator'
+                component={FavNavigator}
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: 'Favoriler'
+                    }
+                }} />
+            <FollowingsStackNavigator.Screen
+                name='ProfileScreen'
+                component={ProfileScreen}
+                options={(props) => {
+                    return {
+                        ...defaultHeaderStyle,
+                        ...ProfileScreenOptions(props)
+                    }
+                } }
+            />
+        </FollowingsStackNavigator.Navigator>
+    )
+}
+
+const FavTopTabNavigator = createMaterialTopTabNavigator();
+
+const FavNavigator = () => {
+    return (
+        <FavTopTabNavigator.Navigator
+            screenOptions={{
+                tabBarScrollEnabled: true
+            }}
+        >
+            <FavTopTabNavigator.Screen
+                name='FavoritesScreen'
+                component={FavoritesScreen}
+                options={{
+                    tabBarLabel: 'Favori Ürünler',
+                    tabBarStyle:{
+                        width: Dimensions.get('window').width + 100
+                    }
+                }}
+            />
+            <FavTopTabNavigator.Screen
+                name='FollowingsScreen'
+                component={FollowingsScreen}
+                options={{
+                    tabBarLabel: 'Takip Ettiklerim',
+                    tabBarStyle:{
+                        width: Dimensions.get('window').width + 100
+                    }
+                }}
+            />
+        </FavTopTabNavigator.Navigator>
+    )
+}
+
+const FavStack = createStackNavigator();
+
+const FavStackNavigator = () => {
+    return (
+        <FavStack.Navigator>
+            <FavStack.Screen
+                name='FavoritesNavigator'
+                component={FavoritesNavigator}
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: 'Favoriler'
+                    }
+            }}/>
+            <FavStack.Screen
+                name='FollowingsNavigator'
+                component={FollowingsNavigator}
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: 'Favoriler'
+                    }
+            }}/>
+        </FavStack.Navigator>
     )
 }
 
@@ -157,7 +254,7 @@ const TabNavigator = () => {
                 backgroundColor: Colors.primary,
             }}>
             <Tab.Screen
-                name='Home'
+                name='HomeNavigator'
                 component={HomeNavigator}
                 options={() => ({
                     tabBarIcon: () => {
@@ -168,8 +265,8 @@ const TabNavigator = () => {
                     tabBarLabel: 'Ana Sayfa'
                 })} />
             <Tab.Screen
-                name='Favorites'
-                component={FavoritesNavigator}
+                name='FavStackNavigator'
+                component={FavStackNavigator}
                 options={() => ({
                     tabBarIcon: () => {
                         return(
@@ -179,7 +276,7 @@ const TabNavigator = () => {
                     tabBarLabel: 'Favoriler'
                 })}/>
             <Tab.Screen
-                name='Paylaş'
+                name='AddNewNavigator'
                 component={AddNewNavigator}
                 options={() => ({
                     tabBarIcon: () => {
@@ -189,7 +286,7 @@ const TabNavigator = () => {
                     }
                 })}/>
             <Tab.Screen
-                name='Mesajlarım'
+                name='MessagingNavigator'
                 component={MessagingNavigator}
                 options={() => ({
                     tabBarIcon: () => {
@@ -198,7 +295,7 @@ const TabNavigator = () => {
                         )
                     }
                 })}/>
-            <Tab.Screen name='Profile'
+            <Tab.Screen name='ProfileNavigator'
                         component={ProfileNavigator}
                         options={() => ({
                             tabBarIcon: () => {

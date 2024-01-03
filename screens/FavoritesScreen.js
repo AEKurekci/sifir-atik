@@ -1,24 +1,18 @@
 import {FlatList, StyleSheet, View} from "react-native";
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import ProfileLine from "../components/ProfileLine";
+import Product from "../components/Product";
 
 const FavoritesScreen = (props) => {
     const [favorites, setFavorites] = useState([]);
-    const users = useSelector(state => state.users.users)
+    const products = useSelector(state => state.products.products)
     const user = useSelector(state => state.users.user)
 
     useEffect(() => {
-        if(users && users.length > 0){
-            setFavorites(users.filter(u => user.favorites.includes(u.id)))
+        if(products && products.length > 0){
+            setFavorites(products.filter(p => user.favorites.includes(p.id)))
         }
-    }, [users])
-
-    const onPressProfileHandler = (userId) => {
-        props.navigation.navigate('ProfileScreen', {
-            userId
-        })
-    }
+    }, [products])
 
     return (
         <View style={styles.screen}>
@@ -26,14 +20,13 @@ const FavoritesScreen = (props) => {
                 data={favorites}
                 style={styles.screen}
                 keyExtractor={item => item.id.toString()}
-                renderItem={(renderItem) => {
-                    return (
-                        <ProfileLine
-                            user={renderItem.item}
-                            rightIcon='chevron-forward-outline'
-                            onPressProfile={onPressProfileHandler}/>
-                    )
-                }}/>
+                numColumns={2}
+                renderItem={(renderItem) =>
+                    <Product
+                        navigation={props.navigation}
+                        product={renderItem.item}
+                    />
+                }/>
         </View>
     )
 }

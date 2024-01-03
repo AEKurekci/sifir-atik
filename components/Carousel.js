@@ -27,8 +27,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         minHeight: 280,
-        height: 280,
-        marginTop: 20
+        height: 280
     }
 })
 
