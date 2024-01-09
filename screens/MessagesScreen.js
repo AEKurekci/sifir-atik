@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, View} from "react-native";
+import {FlatList, SafeAreaView, StyleSheet} from "react-native";
 import React from "react";
 import {useSelector} from "react-redux";
 import MessagingLine from "../components/MessagingLine";
@@ -9,7 +9,7 @@ const MessagesScreen = (props) => {
     const products = useSelector(state => state.products.products)
 
     return (
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
             <FlatList
                 data={user.messages}
                 style={styles.screen}
@@ -28,7 +28,7 @@ const MessagesScreen = (props) => {
                             date={date} />
                     )
                 }}/>
-        </View>
+        </SafeAreaView>
     )
 }
 

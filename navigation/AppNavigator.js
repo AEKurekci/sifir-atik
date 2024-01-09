@@ -43,7 +43,7 @@ export const HomeNavigator = () => {
                 }}}
                 />
             <HomeStackNavigator.Screen
-                name='ProductDetailsScreen'
+                name='ProductDetailsScreenFromHome'
                 component={ProductDetailsScreen}
                 options={(props) => {
                     return {
@@ -51,9 +51,12 @@ export const HomeNavigator = () => {
                         ...ProductDetailsOptions(props)
                     }
                 } }
+                initialParams={{
+                    profileScreenPath: 'ProfileScreenFromHome'
+                }}
             />
             <HomeStackNavigator.Screen
-                name='ProfileScreen'
+                name='ProfileScreenFromHome'
                 component={ProfileScreen}
                 options={(props) => {
                     return {
@@ -61,6 +64,10 @@ export const HomeNavigator = () => {
                         ...ProfileScreenOptions(props)
                     }
                 } }
+                initialParams={{
+                    productScreenPath: 'ProductDetailsScreenFromHome',
+                    profileScreenPath: 'ProfileScreenFromHome'
+                }}
             />
         </HomeStackNavigator.Navigator>
     )
@@ -80,11 +87,19 @@ const ProfileNavigator = () => {
                         ...ProfileScreenOptions(props)
                     }
                 } }
+                initialParams={{
+                    productScreenPath: 'ProductDetailsScreenFromProfile',
+                    profileScreenPath: 'ProfileScreen'
+                }}
             />
             <ProfileStackNavigator.Screen
-                name='ProductDetailsScreen'
+                name='ProductDetailsScreenFromProfile'
                 component={ProductDetailsScreen}
                 options={{...defaultHeaderStyle, ...productDetailHeaderStyle}}
+                initialParams={{
+                    productScreenPath: 'ProductDetailsScreenFromProfile',
+                    profileScreenPath: 'ProfileScreen'
+                }}
             />
             <ProfileStackNavigator.Screen
                 name='AddProductScreen'
@@ -95,67 +110,9 @@ const ProfileNavigator = () => {
     )
 }
 
-const FavoritesStackNavigator = createStackNavigator();
-
-const FavoritesNavigator = () => {
-    return (
-        <FavoritesStackNavigator.Navigator>
-            <FavoritesStackNavigator.Screen
-                name='FavNavigator'
-                component={FavNavigator}
-                options={{
-                    headerShown: false
-                }} />
-            <FavoritesStackNavigator.Screen
-                name='ProductDetailsScreen'
-                component={ProductDetailsScreen}
-                options={{...defaultHeaderStyle, ...productDetailHeaderStyle}}
-            />
-            <FavoritesStackNavigator.Screen
-                name='ProfileScreen'
-                component={ProfileScreen}
-                options={(props) => {
-                    return {
-                        ...defaultHeaderStyle,
-                        ...ProfileScreenOptions(props)
-                    }
-                } }
-            />
-        </FavoritesStackNavigator.Navigator>
-    )
-}
-
-const FollowingsStackNavigator = createStackNavigator();
-
-const FollowingsNavigator = () => {
-    return (
-        <FollowingsStackNavigator.Navigator>
-            <FollowingsStackNavigator.Screen
-                name='FavNavigator'
-                component={FavNavigator}
-                options={{
-                    ...defaultHeaderStyle,
-                    ...{
-                        headerTitle: 'Favoriler'
-                    }
-                }} />
-            <FollowingsStackNavigator.Screen
-                name='ProfileScreen'
-                component={ProfileScreen}
-                options={(props) => {
-                    return {
-                        ...defaultHeaderStyle,
-                        ...ProfileScreenOptions(props)
-                    }
-                } }
-            />
-        </FollowingsStackNavigator.Navigator>
-    )
-}
-
 const FavTopTabNavigator = createMaterialTopTabNavigator();
 
-const FavNavigator = () => {
+const FavTopNavigator = () => {
     return (
         <FavTopTabNavigator.Navigator
             screenOptions={{
@@ -170,6 +127,10 @@ const FavNavigator = () => {
                     tabBarStyle:{
                         width: Dimensions.get('window').width + 100
                     }
+                }}
+                initialParams={{
+                    detailPath: 'ProductDetailsScreenFromFav',
+                    profileScreenPath: 'ProfileScreenFromFav'
                 }}
             />
             <FavTopTabNavigator.Screen
@@ -192,23 +153,35 @@ const FavStackNavigator = () => {
     return (
         <FavStack.Navigator>
             <FavStack.Screen
-                name='FavoritesNavigator'
-                component={FavoritesNavigator}
+                name='FavTopNavigator'
+                component={FavTopNavigator}
                 options={{
                     ...defaultHeaderStyle,
-                    ...{
-                        headerTitle: 'Favoriler'
-                    }
-            }}/>
+                    ...{headerTitle: 'Favoriler'}
+                }} />
             <FavStack.Screen
-                name='FollowingsNavigator'
-                component={FollowingsNavigator}
-                options={{
-                    ...defaultHeaderStyle,
-                    ...{
-                        headerTitle: 'Favoriler'
+                name='ProductDetailsScreenFromFav'
+                component={ProductDetailsScreen}
+                options={{...defaultHeaderStyle, ...productDetailHeaderStyle}}
+                initialParams={{
+                    productScreenPath: 'ProductDetailsScreenFromFav',
+                    profileScreenPath: 'ProfileScreenFromFav'
+                }}
+            />
+            <FavStack.Screen
+                name='ProfileScreenFromFav'
+                component={ProfileScreen}
+                options={(props) => {
+                    return {
+                        ...defaultHeaderStyle,
+                        ...ProfileScreenOptions(props)
                     }
-            }}/>
+                } }
+                initialParams={{
+                    productScreenPath: 'ProductDetailsScreenFromFav',
+                    profileScreenPath: 'ProfileScreenFromFav'
+                }}
+            />
         </FavStack.Navigator>
     )
 }
@@ -219,8 +192,8 @@ const AddNewNavigator = () => {
     return (
         <AddNewStackNavigator.Navigator>
             <AddNewStackNavigator.Screen
-                name='Ne Paylaşıyorsun?'
-                component={FavoritesScreen}
+                name='AddProductScreen'
+                component={AddProductScreen}
                 options={defaultHeaderStyle} />
         </AddNewStackNavigator.Navigator>
     )
@@ -232,9 +205,14 @@ const MessagingNavigator = () => {
     return (
         <MessagingStackNavigator.Navigator>
             <MessagingStackNavigator.Screen
-                name='Mesajlarımda Ara...'
+                name='MessagesScreen'
                 component={MessagesScreen}
-                options={defaultHeaderStyle} />
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: 'Mesajlarımda Ara...'
+                    }
+                }} />
         </MessagingStackNavigator.Navigator>
     )
 }
@@ -252,7 +230,9 @@ const TabNavigator = () => {
             inactiveColor={Colors.secondary}
             barStyle={{
                 backgroundColor: Colors.primary,
-            }}>
+            }}
+            backBehavior='none'
+        >
             <Tab.Screen
                 name='HomeNavigator'
                 component={HomeNavigator}
@@ -283,7 +263,8 @@ const TabNavigator = () => {
                         return(
                             <Ionicons name='add-circle' size={24} color={fontColor}/>
                         )
-                    }
+                    },
+                    tabBarLabel: 'Paylaş'
                 })}/>
             <Tab.Screen
                 name='MessagingNavigator'
@@ -293,7 +274,8 @@ const TabNavigator = () => {
                         return(
                             <Ionicons name='chatbubble-ellipses' size={24} color={fontColor}/>
                         )
-                    }
+                    },
+                    tabBarLabel: 'Mesajlarım'
                 })}/>
             <Tab.Screen name='ProfileNavigator'
                         component={ProfileNavigator}

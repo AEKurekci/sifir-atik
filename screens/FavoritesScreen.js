@@ -1,9 +1,12 @@
-import {FlatList, StyleSheet, View} from "react-native";
+import {FlatList, SafeAreaView, StyleSheet} from "react-native";
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import Product from "../components/Product";
 
 const FavoritesScreen = (props) => {
+    console.log('FavoritesScreen: ',props.route.name)
+    const productScreenPath = props.route.params ? props.route.params.detailPath : null;
+    const profileScreenPath = props.route.params ? props.route.params.profileScreenPath : null;
     const [favorites, setFavorites] = useState([]);
     const products = useSelector(state => state.products.products)
     const user = useSelector(state => state.users.user)
@@ -15,7 +18,7 @@ const FavoritesScreen = (props) => {
     }, [products])
 
     return (
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
             <FlatList
                 data={favorites}
                 style={styles.screen}
@@ -25,16 +28,17 @@ const FavoritesScreen = (props) => {
                     <Product
                         navigation={props.navigation}
                         product={renderItem.item}
+                        detailPath={productScreenPath}
+                        profileScreenPath={profileScreenPath}
                     />
                 }/>
-        </View>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     screen:{
-        flex: 1,
-        paddingHorizontal: 3
+        flex: 1
     }
 })
 

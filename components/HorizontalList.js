@@ -11,7 +11,7 @@ const HorizontalList = props => {
             data={props.items}
             horizontal
             renderItem={(renderItem) => {
-                return <HorizontalItem item={renderItem.item} navigation={props.navigation}/>
+                return <HorizontalItem item={renderItem.item} navigation={props.navigation} detailPath={props.detailPath}/>
         }}/>
     )
 }

@@ -10,6 +10,7 @@ import Colors from "../constants/Colors";
 import {productActions} from "../store/product/product-reducer";
 
 const Home = (props) => {
+    console.log(props.route.name)
     const dispatch = useDispatch();
     const [isRefreshing, setIsRefreshing] = useState(false);
     const [error, setError] = useState(false)

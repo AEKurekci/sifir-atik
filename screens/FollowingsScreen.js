@@ -1,9 +1,10 @@
-import {FlatList, StyleSheet, View} from "react-native";
+import {FlatList, SafeAreaView, StyleSheet} from "react-native";
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import ProfileLine from "../components/ProfileLine";
 
 const FollowingsScreen = (props) => {
+    console.log(props.route.name)
     const [favorites, setFavorites] = useState([]);
     const users = useSelector(state => state.users.users)
     const user = useSelector(state => state.users.user)
@@ -15,13 +16,15 @@ const FollowingsScreen = (props) => {
     }, [users])
 
     const onPressProfileHandler = (userId) => {
-        props.navigation.navigate('ProfileScreen', {
-            userId
+        props.navigation.navigate('ProfileScreenFromFav', {
+            userId,
+            detailPath: 'ProductDetailsScreenFromFav',
+            profileScreenPath: 'ProfileScreenFromFav'
         })
     }
 
     return (
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
             <FlatList
                 data={favorites}
                 style={styles.screen}
@@ -34,7 +37,7 @@ const FollowingsScreen = (props) => {
                             onPressProfile={onPressProfileHandler}/>
                     )
                 }}/>
-        </View>
+        </SafeAreaView>
     )
 }
 

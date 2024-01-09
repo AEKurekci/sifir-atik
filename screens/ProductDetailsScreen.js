@@ -1,6 +1,5 @@
 import {
     ActivityIndicator,
-    BackHandler,
     SafeAreaView,
     ScrollView,
     StatusBar,
@@ -22,7 +21,10 @@ import Bubble from "../components/Bubble";
 import ProfileLine from "../components/ProfileLine";
 
 const ProductDetailsScreen = (props) => {
+    console.log(props.route.name)
     const product = props.route.params ? props.route.params.product : null;
+    const profileScreenPath = props.route.params ? props.route.params.profileScreenPath : null;
+    console.log('product detail profile path: ', profileScreenPath)
     const [createdAt, setCreatedAt] = useState(null);
     const [expires, setExpires] = useState(null);
     const owner = props.route.params ? props.route.params.owner : null;
@@ -58,12 +60,6 @@ const ProductDetailsScreen = (props) => {
     }, [product])
 
     useEffect(() => {
-        if(props.navigation.getParent() !== undefined){
-            props.navigation.getParent().setOptions({
-                headerTransparent: true,
-                headerTitle: ''
-            })
-        }
         if(owner){
             props.navigation.setOptions({
                 headerTransparent: true,
@@ -71,18 +67,6 @@ const ProductDetailsScreen = (props) => {
             })
         }
     }, [owner])
-
-    useEffect(() => {
-        const subs = BackHandler.addEventListener('hardwareBackPress', () => {
-            if(props.navigation.getParent() !== undefined){
-                props.navigation.getParent().setOptions({
-                    headerTransparent: false,
-                    headerTitle: 'Favoriler'
-                })
-            }
-        })
-        return () => subs.remove();
-    })
 
     const onScrollHandler = (e) => {
         const {navigation} = props;
@@ -105,8 +89,10 @@ const ProductDetailsScreen = (props) => {
     }
 
     const onPressProfileHandler = (userId) => {
-        props.navigation.navigate('ProfileScreen', {
-            userId
+        props.navigation.navigate(profileScreenPath, {
+            userId,
+            detailPath: props.route.name,
+            profileScreenPath
         })
     }
 

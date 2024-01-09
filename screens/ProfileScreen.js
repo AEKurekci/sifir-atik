@@ -1,13 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {
-    ActivityIndicator,
-    BackHandler,
-    FlatList,
-    SafeAreaView,
-    StatusBar,
-    StyleSheet,
-    TouchableOpacity
-} from "react-native";
+import {ActivityIndicator, FlatList, SafeAreaView, StatusBar, StyleSheet, TouchableOpacity} from "react-native";
 import {useSelector} from "react-redux";
 import Product from "../components/Product";
 import Colors from "../constants/Colors";
@@ -15,6 +7,9 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import ProfileHeader from "../components/ProfileHeader";
 
 const ProfileScreen = (props) => {
+    console.log(props.route.name)
+    const productScreenPath = props.route.params ? props.route.params.detailPath : null;
+    const profileScreenPath = props.route.params ? props.route.params.profileScreenPath : null;
     const [userProducts, setUserProducts] = useState([]);
     const me = useSelector(state => state.users.user)
     const [user, setUser] = useState(me)
@@ -31,12 +26,6 @@ const ProfileScreen = (props) => {
             }
         }
         if(user){
-            if(props.navigation.getParent() !== undefined){
-                props.navigation.getParent().setOptions({
-                    headerTransparent: true,
-                    headerTitle: ''
-                })
-            }
             props.navigation.setOptions({
                 headerTransparent: true,
                 headerTitle: ''
@@ -44,18 +33,6 @@ const ProfileScreen = (props) => {
             setUserProducts(products.filter(p => p.owner.id === user.id))
         }
     }, [users, products, user, userId])
-
-    useEffect(() => {
-        const subs = BackHandler.addEventListener('hardwareBackPress', () => {
-            if(props.navigation.getParent() !== undefined){
-                props.navigation.getParent().setOptions({
-                    headerTransparent: false,
-                    headerTitle: 'Favoriler'
-                })
-            }
-        })
-        return () => subs.remove();
-    })
 
     if(userProducts.length === 0){
         return <ActivityIndicator style={styles.screen} size='large' color={Colors.primary} />
@@ -78,6 +55,8 @@ const ProfileScreen = (props) => {
                             navigation={props.navigation}
                             product={renderItem.item}
                             user
+                            detailPath={productScreenPath}
+                            profileScreenPath={profileScreenPath}
                             />
                     )
                 }}/>

@@ -1,11 +1,11 @@
 import React from "react";
-import {StyleSheet, TextInput, View} from "react-native";
+import {SafeAreaView, StyleSheet, TextInput} from "react-native";
 
 const AddProductScreen = props => {
     return (
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
             <TextInput />
-        </View>
+        </SafeAreaView>
     )
 }
 
