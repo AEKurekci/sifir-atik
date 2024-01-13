@@ -81,7 +81,6 @@ const Home = (props) => {
                 </TouchableOpacity>
             </View>
             <ProductList
-                style={styles.product}
                 navigation={props.navigation}
                 products={filteredProducts}
                 headerItems={products}
