@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import ProfileLine from "../components/ProfileLine";
 
 const FollowingsScreen = (props) => {
-    console.log(props.route.name)
+    console.log('FollowingsScreen: ',props.route.name)
     const [favorites, setFavorites] = useState([]);
     const users = useSelector(state => state.users.users)
     const user = useSelector(state => state.users.user)

@@ -7,7 +7,7 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import ProfileHeader from "../components/ProfileHeader";
 
 const ProfileScreen = (props) => {
-    console.log(props.route.name)
+    console.log('ProfileScreen: ', props.route.name)
     const productScreenPath = props.route.params ? props.route.params.detailPath : null;
     const profileScreenPath = props.route.params ? props.route.params.profileScreenPath : null;
     const [userProducts, setUserProducts] = useState([]);
@@ -64,7 +64,7 @@ const ProfileScreen = (props) => {
     )
 }
 
-export const screenOptions = (navData) => {
+export const screenOptions = () => {
     return {
         headerRight: () =>(
             <TouchableOpacity style={styles.rightHeader}>

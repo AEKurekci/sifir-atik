@@ -15,7 +15,6 @@ import Card from "./Card";
 
 
 function Product(props) {
-    console.log(props.profileScreenPath)
     const product = props.product;
     const owner = useSelector(state => {
         return state.users.users.find(user => user.id === product.ownerId)

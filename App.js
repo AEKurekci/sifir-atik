@@ -3,6 +3,7 @@ import * as Font from 'expo-font';
 import {NavigationContainer} from "@react-navigation/native";
 import AppNavigator from "./navigation/AppNavigator";
 import {Provider} from "react-redux";
+import { Provider as PaperProvider} from 'react-native-paper';
 import store from "./store";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -100,9 +101,11 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            <NavigationContainer onReady={onLayoutRootView}>
-                <AppNavigator/>
-            </NavigationContainer>
+            <PaperProvider>
+                <NavigationContainer onReady={onLayoutRootView}>
+                    <AppNavigator/>
+                </NavigationContainer>
+            </PaperProvider>
         </Provider>
     );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
-import {Dimensions, Platform} from "react-native";
+import {Platform} from "react-native";
 import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -114,19 +114,12 @@ const FavTopTabNavigator = createMaterialTopTabNavigator();
 
 const FavTopNavigator = () => {
     return (
-        <FavTopTabNavigator.Navigator
-            screenOptions={{
-                tabBarScrollEnabled: true
-            }}
-        >
+        <FavTopTabNavigator.Navigator>
             <FavTopTabNavigator.Screen
                 name='FavoritesScreen'
                 component={FavoritesScreen}
                 options={{
-                    tabBarLabel: 'Favori Ürünler',
-                    tabBarStyle:{
-                        width: Dimensions.get('window').width + 100
-                    }
+                    tabBarLabel: 'Favori Ürünler'
                 }}
                 initialParams={{
                     detailPath: 'ProductDetailsScreenFromFav',
@@ -137,10 +130,7 @@ const FavTopNavigator = () => {
                 name='FollowingsScreen'
                 component={FollowingsScreen}
                 options={{
-                    tabBarLabel: 'Takip Ettiklerim',
-                    tabBarStyle:{
-                        width: Dimensions.get('window').width + 100
-                    }
+                    tabBarLabel: 'Takip Ettiklerim'
                 }}
             />
         </FavTopTabNavigator.Navigator>
@@ -174,7 +164,8 @@ const FavStackNavigator = () => {
                 options={(props) => {
                     return {
                         ...defaultHeaderStyle,
-                        ...ProfileScreenOptions(props)
+                        ...ProfileScreenOptions(props),
+                        animationEnabled: true
                     }
                 } }
                 initialParams={{
@@ -243,7 +234,7 @@ const TabNavigator = () => {
                         )
                     },
                     tabBarLabel: 'Ana Sayfa'
-                })} />
+                })}/>
             <Tab.Screen
                 name='FavStackNavigator'
                 component={FavStackNavigator}
