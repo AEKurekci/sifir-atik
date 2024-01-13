@@ -26,7 +26,7 @@ function Product(props) {
     }
 
     const goToDetails = () => {
-        props.navigation.navigate(props.detailPath, {
+        props.navigation.navigate(props.productScreenPath, {
             product: product,
             owner: owner,
             profileScreenPath: props.profileScreenPath

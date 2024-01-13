@@ -5,7 +5,7 @@ import Product from "../components/Product";
 
 const FavoritesScreen = (props) => {
     console.log('FavoritesScreen: ',props.route.name)
-    const productScreenPath = props.route.params ? props.route.params.detailPath : null;
+    const productScreenPath = props.route.params ? props.route.params.productScreenPath : null;
     const profileScreenPath = props.route.params ? props.route.params.profileScreenPath : null;
     const [favorites, setFavorites] = useState([]);
     const products = useSelector(state => state.products.products)
@@ -28,7 +28,7 @@ const FavoritesScreen = (props) => {
                     <Product
                         navigation={props.navigation}
                         product={renderItem.item}
-                        detailPath={productScreenPath}
+                        productScreenPath={productScreenPath}
                         profileScreenPath={profileScreenPath}
                     />
                 }/>

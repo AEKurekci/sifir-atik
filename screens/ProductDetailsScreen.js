@@ -91,7 +91,7 @@ const ProductDetailsScreen = (props) => {
     const onPressProfileHandler = (userId) => {
         props.navigation.navigate(profileScreenPath, {
             userId,
-            detailPath: props.route.name,
+            productScreenPath: props.route.name,
             profileScreenPath
         })
     }
@@ -163,7 +163,7 @@ const ProductDetailsScreen = (props) => {
     );
 }
 
-export const screenOptions = (navData) => {
+export const screenOptions = () => {
     return {
         headerRight: () =>(
             <TouchableOpacity style={styles.rightHeader}>

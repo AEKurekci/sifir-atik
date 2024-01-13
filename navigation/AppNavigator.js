@@ -122,7 +122,7 @@ const FavTopNavigator = () => {
                     tabBarLabel: 'Favori Ürünler'
                 }}
                 initialParams={{
-                    detailPath: 'ProductDetailsScreenFromFav',
+                    productScreenPath: 'ProductDetailsScreenFromFav',
                     profileScreenPath: 'ProfileScreenFromFav'
                 }}
             />
@@ -185,7 +185,12 @@ const AddNewNavigator = () => {
             <AddNewStackNavigator.Screen
                 name='AddProductScreen'
                 component={AddProductScreen}
-                options={defaultHeaderStyle} />
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: 'Ne Paylaşıyorsun..'
+                    }
+                }} />
         </AddNewStackNavigator.Navigator>
     )
 }

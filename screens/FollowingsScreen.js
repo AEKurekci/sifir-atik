@@ -18,7 +18,7 @@ const FollowingsScreen = (props) => {
     const onPressProfileHandler = (userId) => {
         props.navigation.navigate('ProfileScreenFromFav', {
             userId,
-            detailPath: 'ProductDetailsScreenFromFav',
+            productScreenPath: 'ProductDetailsScreenFromFav',
             profileScreenPath: 'ProfileScreenFromFav'
         })
     }

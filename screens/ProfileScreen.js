@@ -8,7 +8,7 @@ import ProfileHeader from "../components/ProfileHeader";
 
 const ProfileScreen = (props) => {
     console.log('ProfileScreen: ', props.route.name)
-    const productScreenPath = props.route.params ? props.route.params.detailPath : null;
+    const productScreenPath = props.route.params ? props.route.params.productScreenPath : null;
     const profileScreenPath = props.route.params ? props.route.params.profileScreenPath : null;
     const [userProducts, setUserProducts] = useState([]);
     const me = useSelector(state => state.users.user)
@@ -55,7 +55,7 @@ const ProfileScreen = (props) => {
                             navigation={props.navigation}
                             product={renderItem.item}
                             user
-                            detailPath={productScreenPath}
+                            productScreenPath={productScreenPath}
                             profileScreenPath={profileScreenPath}
                             />
                     )

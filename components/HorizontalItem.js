@@ -26,7 +26,7 @@ const HorizontalItem = props => {
     }
 
     const goToDetails = () => {
-        props.navigation.navigate(props.detailPath, {
+        props.navigation.navigate(props.productScreenPath, {
             product: item,
             owner: owner
         })

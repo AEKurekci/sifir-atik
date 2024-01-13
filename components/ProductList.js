@@ -12,13 +12,13 @@ function ProductList(props) {
             <Line />
             <Title>Yemek</Title>
             <HorizontalList
-                detailPath='ProductDetailsScreenFromHome'
+                productScreenPath='ProductDetailsScreenFromHome'
                 navigation={props.navigation}
                 items={props.headerItems.filter(p => p.category.value === 0)} />{/*Yemek*/}
             <Line />
             <Title>Giyim</Title>
             <HorizontalList
-                detailPath='ProductDetailsScreenFromHome'
+                productScreenPath='ProductDetailsScreenFromHome'
                 navigation={props.navigation}
                 items={props.headerItems.filter(p => p.category.value === 1)} />{/*Giyim*/}
             <Line />
@@ -43,7 +43,7 @@ function ProductList(props) {
                 <Product
                     navigation={props.navigation}
                     product={renderItem.item}
-                    detailPath='ProductDetailsScreenFromHome'
+                    productScreenPath='ProductDetailsScreenFromHome'
                     profileScreenPath='ProfileScreenFromHome'
                 />
             )}
