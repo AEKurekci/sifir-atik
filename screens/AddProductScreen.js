@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {FlatList, SafeAreaView, StyleSheet} from "react-native";
 import AddCategory from "../components/AddCategory";
 
-const AddProductScreen = () => {
+const AddProductScreen = (props) => {
     const [categories, setCategories] = useState([
         {text: 'Yemek', value: 0, icon: 'Ionicons', iconText: 'fast-food-outline', selected: false},
         {text: 'Giyim', value: 1, icon: 'MaterialCommunityIcons', iconText: 'tshirt-crew', selected: false},
@@ -21,7 +21,7 @@ const AddProductScreen = () => {
                 keyExtractor={c => c.value.toString()}
                 numColumns={2}
                 renderItem={(renderItem) => (
-                    <AddCategory item={renderItem.item} />
+                    <AddCategory item={renderItem.item} navigation={props.navigation} />
             )} />
         </SafeAreaView>
     )

@@ -14,6 +14,7 @@ import AddProductScreen from "../screens/AddProductScreen";
 import MessagesScreen from "../screens/MessagesScreen";
 import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 import FollowingsScreen from "../screens/FollowingsScreen";
+import AddDetailsScreen from "../screens/AddDetailsScreen";
 
 const defaultHeaderStyle = {
     headerStyle: {
@@ -189,6 +190,24 @@ const AddNewNavigator = () => {
                     ...defaultHeaderStyle,
                     ...{
                         headerTitle: 'Ne Paylaşıyorsun..'
+                    }
+                }} />
+            <AddNewStackNavigator.Screen
+                name='AddDetailsScreen'
+                component={AddDetailsScreen}
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: 'Detay Ekle'
+                    }
+                }} />
+            <AddNewStackNavigator.Screen
+                name='AddressScreen'
+                component={AddDetailsScreen}
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: 'Konum'
                     }
                 }} />
         </AddNewStackNavigator.Navigator>

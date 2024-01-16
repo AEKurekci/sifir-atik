@@ -4,6 +4,10 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import {FontAwesome5, MaterialCommunityIcons} from "@expo/vector-icons";
 
 const AddCategory = props => {
+    const goToAddDetails = () => {
+        props.navigation.navigate('AddDetailsScreen')
+    }
+
     const iconColor = '#ccc';
     const size = Dimensions.get('window').width / 2 - 100;
     let Icon = null;
@@ -30,7 +34,7 @@ const AddCategory = props => {
     const IconWithRightLineButton = (
         <View style={styles.row}>
             <View style={styles.col}>
-                <TouchableOpacity style={styles.cover}>
+                <TouchableOpacity style={styles.cover} onPress={goToAddDetails}>
                     {Icon}
                     <Text style={styles.text}>{props.item.text}</Text>
                 </TouchableOpacity>
@@ -42,7 +46,7 @@ const AddCategory = props => {
 
     const IconButton = (
         <View style={styles.col}>
-            <TouchableOpacity style={styles.cover}>
+            <TouchableOpacity style={styles.cover} onPress={goToAddDetails}>
                 {Icon}
                 <Text style={styles.text}>{props.item.text}</Text>
             </TouchableOpacity>
