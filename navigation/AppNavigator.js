@@ -15,6 +15,7 @@ import MessagesScreen from "../screens/MessagesScreen";
 import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs";
 import FollowingsScreen from "../screens/FollowingsScreen";
 import AddDetailsScreen from "../screens/AddDetailsScreen";
+import AddressScreen, {screenOptions as AddressScreenOptions} from "../screens/AddressScreen";
 
 const defaultHeaderStyle = {
     headerStyle: {
@@ -203,13 +204,14 @@ const AddNewNavigator = () => {
                 }} />
             <AddNewStackNavigator.Screen
                 name='AddressScreen'
-                component={AddDetailsScreen}
-                options={{
+                component={AddressScreen}
+                options={props => ({
                     ...defaultHeaderStyle,
+                    ...AddressScreenOptions(props),
                     ...{
                         headerTitle: 'Konum'
                     }
-                }} />
+                })} />
         </AddNewStackNavigator.Navigator>
     )
 }

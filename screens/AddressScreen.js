@@ -1,102 +1,89 @@
-import React, {useState} from "react";
-import {Image, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from "react-native";
-import Line from "../components/Line";
-import {MaterialIcons} from "@expo/vector-icons";
-import {TextInput} from "react-native-paper";
-import Colors from "../constants/Colors";
+import React, {useCallback, useState} from "react";
+import {SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from "react-native";
+import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {Button} from "react-native-paper";
+import {SelectList} from "react-native-dropdown-select-list";
+import {useSelector} from "react-redux";
 
 const AddressScreen = (props) => {
-    const [images, setImages] = useState([
-        {id: -1},
-        {id: 0, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-        {id: 1, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-        {id: 2, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-        {id: 3, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-        {id: 4, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-        {id: 5, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}])
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [tag, setTag] = useState('');
+    const [city, setCity] = useState('İl')
+    const [district, setDistrict] = useState('İlçe')
+    const cities = useSelector(state => state.address.cities)
+    const [districts, setDistricts] = useState([])
 
-    const goToSelectAddress = () => {
+    const goToSelectLocation = () => {
         props.navigation.navigate('AddressScreen')
     }
 
-    const Images = (
-        images.map(i => (
-            i.id < 0 ?
-            <TouchableOpacity key={i.id} style={styles.imageContainer}>
-                <MaterialIcons name='add-a-photo' size={45} color='#ccc' />
-            </TouchableOpacity>
-                :
-                <TouchableOpacity style={styles.imageContainer}>
-                    <Image key={i.id} style={styles.image} source={{uri: i.url}} />
-                </TouchableOpacity>
-        ))
-    )
+    const citySelectHandler = useCallback(plaka => {
+        setCity(plaka)
+        for(let i = 0; i < cities.length; i++){
+            if(cities[i].plaka_kodu === plaka){
+                setDistricts(cities[i].ilceler)
+                break
+            }
+        }
+    }, [cities])
 
     return (
         <SafeAreaView style={styles.screen}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.photosContainer}>
-                {Images}
-            </ScrollView>
-            <Line />
             <ScrollView style={styles.form}>
-                <TextInput
+                <Button
+                    key={'location'}
                     style={styles.input}
-                    label='Başlık'
-                    value={title}
-                    key='title'
-                    mode='outlined'
-                    activeOutlineColor={Colors.primary}
-                    cursorColor={Colors.secondary}
-                    outlineColor={Colors.secondary}
-                    onChangeText={t => setTitle(t)}/>
-                <TextInput
-                    style={styles.input}
-                    label='Açıklama'
-                    value={description}
-                    key='description'
-                    mode='outlined'
-                    multiline={true}
-                    numberOfLines={5}
-                    activeOutlineColor={Colors.primary}
-                    cursorColor={Colors.secondary}
-                    outlineColor={Colors.secondary}
-                    onChangeText={d => setDescription(d)}/>
-                <TextInput
-                    style={styles.input}
-                    label='Konum Seç'
-                    value={address}
-                    key='address'
-                    mode='outlined'
-                    activeOutlineColor={Colors.primary}
-                    cursorColor={Colors.secondary}
-                    outlineColor={Colors.secondary}
-                    onChangeText={goToSelectAddress}/>
-                <TextInput
-                    style={styles.input}
-                    label='Etiketler'
-                    value={tag}
-                    key='tag'
-                    mode='outlined'
-                    multiline={true}
-                    numberOfLines={3}
-                    activeOutlineColor={Colors.primary}
-                    cursorColor={Colors.secondary}
-                    outlineColor={Colors.secondary}
-                    onChangeText={t => setTag(t)}/>
+                    buttonColor={'#fff'}
+                    textColor={'#000'}
+                    textAlignments='left'
+                    theme={{
+                        roundness: 3
+                    }}
+                    contentStyle={{flexDirection: 'row', justifyContent: 'flex-start'}}
+                    onPress={goToSelectLocation}
+                    icon='map-marker'
+                    mode='outlined'>
+                    Mevcut Konum
+                </Button>
+                <SelectList
+                    boxStyles={styles.selectList}
+                    setSelected={val => citySelectHandler(val)}
+                    data={cities.map(c => ({
+                        key: c.plaka_kodu,
+                        value: c.il_adi
+                    }))}
+                    save='key'
+                    placeholder='İl'
+                    searchPlaceholder='Ara..'
+                />
+                <SelectList
+                    boxStyles={styles.selectList}
+                    setSelected={val => setDistrict(val)}
+                    data={districts.map(c => ({
+                        key: c.ilce_kodu,
+                        value: c.ilce_adi
+                    }))}
+                    save='key'
+                    placeholder='İlçe'
+                    searchPlaceholder='Ara..'
+                    notFoundText='Önce İl seçiniz...'
+                />
             </ScrollView>
         </SafeAreaView>
     )
 }
 
+export const screenOptions = (navData) => {
+    return {
+        headerBackImage: () => (
+            <TouchableOpacity style={styles.leftHeader} onPress={() => navData.navigation.goBack(null)}>
+                <MaterialCommunityIcons name="close" size={22} color="white" />
+            </TouchableOpacity>
+        )
+    }
+}
+
 const styles = StyleSheet.create({
     screen:{
         display: "flex"
-    },
-    photosContainer:{
-        height: 91
     },
     form:{
         marginHorizontal: 3
@@ -104,21 +91,13 @@ const styles = StyleSheet.create({
     input:{
         marginTop: 7
     },
-    imageContainer:{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 7,
-        overflow: "hidden",
-        borderWidth: 0.1,
-        marginVertical: 8,
-        marginHorizontal: 2.5,
-        width: 75
+    selectList:{
+        borderRadius: 15,
+        marginTop: 7,
+        backgroundColor: '#fff'
     },
-    image:{
-        height: 75,
-        width: 75
+    leftHeader:{
+        paddingLeft: 15
     }
 })
 

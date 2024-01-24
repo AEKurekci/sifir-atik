@@ -8,6 +8,7 @@ import CategoryList from "../components/CategoryList";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Colors from "../constants/Colors";
 import {productActions} from "../store/product/product-reducer";
+import {fetchAddress} from "../store/address/address-action";
 
 const Home = (props) => {
     console.log(props.route.name)
@@ -54,6 +55,7 @@ const Home = (props) => {
         fetchData()
         dispatch(fetchUsers())
         dispatch(login())
+        dispatch(fetchAddress())
     }, [])
 
     useEffect(() => {

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Image, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View} from "react-native";
+import {Image, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from "react-native";
 import Line from "../components/Line";
 import {MaterialIcons} from "@expo/vector-icons";
 import {Button, TextInput} from "react-native-paper";
@@ -30,8 +30,8 @@ const AddDetailsScreen = (props) => {
                 <MaterialIcons name='add-a-photo' size={45} color='#ccc' />
             </TouchableOpacity>
                 :
-                <TouchableOpacity style={styles.imageContainer}>
-                    <Image key={i.id} style={styles.image} source={{uri: i.url}} />
+                <TouchableOpacity key={i.id} style={styles.imageContainer}>
+                    <Image style={styles.image} source={{uri: i.url}} />
                 </TouchableOpacity>
         ))
     )
@@ -49,6 +49,9 @@ const AddDetailsScreen = (props) => {
                     value={title}
                     key='title'
                     mode='outlined'
+                    theme={{
+                        roundness: 10
+                    }}
                     activeOutlineColor={Colors.primary}
                     cursorColor={Colors.secondary}
                     outlineColor={Colors.secondary}
@@ -61,6 +64,9 @@ const AddDetailsScreen = (props) => {
                     mode='outlined'
                     multiline={true}
                     numberOfLines={5}
+                    theme={{
+                        roundness: 10
+                    }}
                     activeOutlineColor={Colors.primary}
                     cursorColor={Colors.secondary}
                     outlineColor={Colors.secondary}
@@ -73,24 +79,42 @@ const AddDetailsScreen = (props) => {
                     mode='outlined'
                     multiline={true}
                     numberOfLines={3}
+                    theme={{
+                        roundness: 10
+                    }}
                     activeOutlineColor={Colors.primary}
                     cursorColor={Colors.secondary}
                     outlineColor={Colors.secondary}
                     onChangeText={t => setTag(t)}/>
-                <View key='address'>
-                    <Button
-                        style={styles.input}
-                        value={address}
-                        buttonColor={'#fff'}
-                        textColor={'#000'}
-                        textAlignments='left'
-                        contentStyle={{justifyContent: 'space-between', flexDirection: 'row-reverse'}}
-                        onPress={goToSelectAddress}
-                        icon='chevron-right'
-                        mode='outlined'>
-                        {address}
-                    </Button>
-                </View>
+                <Button
+                    key='address'
+                    style={styles.input}
+                    value={address}
+                    buttonColor={'#fff'}
+                    textColor={'#000'}
+                    textAlignments='left'
+                    theme={{
+                        roundness: 3
+                    }}
+                    contentStyle={{justifyContent: 'space-between', flexDirection: 'row-reverse'}}
+                    onPress={goToSelectAddress}
+                    icon='chevron-right'
+                    mode='outlined'>
+                    {address}
+                </Button>
+                <Button
+                    key='save'
+                    style={styles.input}
+                    value={address}
+                    buttonColor={Colors.primary}
+                    textColor={'#fff'}
+                    theme={{
+                        roundness: 3
+                    }}
+                    onPress={goToSelectAddress}
+                    mode='contained'>
+                    Kaydet
+                </Button>
             </ScrollView>
         </SafeAreaView>
     )
