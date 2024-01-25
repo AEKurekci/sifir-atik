@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import {FlatList, SafeAreaView, StyleSheet} from "react-native";
+import {FlatList, SafeAreaView, StatusBar, StyleSheet} from "react-native";
 import AddCategory from "../components/AddCategory";
+import Colors from "../constants/Colors";
 
 const AddProductScreen = (props) => {
     const [categories, setCategories] = useState([
@@ -16,6 +17,10 @@ const AddProductScreen = (props) => {
 
     return (
         <SafeAreaView style={styles.screen}>
+            <StatusBar
+                hidden={false}
+                backgroundColor={Colors.primary}
+                style={styles.screen}/>
             <FlatList
                 data={categories}
                 keyExtractor={c => c.value.toString()}
@@ -29,7 +34,8 @@ const AddProductScreen = (props) => {
 
 const styles = StyleSheet.create({
     screen:{
-
+        flex: 1,
+        display: "flex"
     }
 })
 

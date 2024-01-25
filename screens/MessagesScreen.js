@@ -1,7 +1,8 @@
-import {FlatList, SafeAreaView, StyleSheet} from "react-native";
+import {FlatList, SafeAreaView, StatusBar, StyleSheet} from "react-native";
 import React from "react";
 import {useSelector} from "react-redux";
 import MessagingLine from "../components/MessagingLine";
+import Colors from "../constants/Colors";
 
 const MessagesScreen = (props) => {
     const user = useSelector(state => state.users.user)
@@ -10,6 +11,10 @@ const MessagesScreen = (props) => {
 
     return (
         <SafeAreaView style={styles.screen}>
+            <StatusBar
+                hidden={false}
+                backgroundColor={Colors.primary}
+                style={styles.screen}/>
             <FlatList
                 data={user.messages}
                 style={styles.screen}

@@ -1,7 +1,8 @@
-import {FlatList, SafeAreaView, StyleSheet} from "react-native";
+import {FlatList, SafeAreaView, StatusBar, StyleSheet} from "react-native";
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import Product from "../components/Product";
+import Colors from "../constants/Colors";
 
 const FavoritesScreen = (props) => {
     console.log('FavoritesScreen: ',props.route.name)
@@ -19,6 +20,10 @@ const FavoritesScreen = (props) => {
 
     return (
         <SafeAreaView style={styles.screen}>
+            <StatusBar
+                hidden={false}
+                backgroundColor={Colors.primary}
+                style={styles.screen}/>
             <FlatList
                 data={favorites}
                 style={styles.screen}

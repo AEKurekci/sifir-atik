@@ -185,12 +185,13 @@ const AddNewNavigator = () => {
     return (
         <AddNewStackNavigator.Navigator>
             <AddNewStackNavigator.Screen
-                name='AddProductScreen'
-                component={AddProductScreen}
+                name='TabNavigator'
+                component={TabNavigator}
                 options={{
                     ...defaultHeaderStyle,
                     ...{
-                        headerTitle: 'Ne Paylaşıyorsun..'
+                        headerTitle: '',
+                        headerTransparent: true,
                     }
                 }} />
             <AddNewStackNavigator.Screen
@@ -213,6 +214,26 @@ const AddNewNavigator = () => {
                     }
                 })} />
         </AddNewStackNavigator.Navigator>
+    )
+}
+
+const AddProductNewStackNavigator = createStackNavigator();
+
+const AddProductNewNavigator = () => {
+    return (
+        <AddProductNewStackNavigator.Navigator>
+            <AddProductNewStackNavigator.Screen
+                name='AddProductScreen'
+                component={AddProductScreen}
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerShown: true,
+                        headerTitle: 'Ne Paylaşıyorsun..',
+                        headerTransparent: false,
+                    }
+                }} />
+        </AddProductNewStackNavigator.Navigator>
     )
 }
 
@@ -246,9 +267,50 @@ const TabNavigator = () => {
             activeColor={Colors.secondary}
             inactiveColor={Colors.secondary}
             barStyle={{
-                backgroundColor: Colors.primary,
+                backgroundColor: Colors.primary
             }}
             backBehavior='none'
+            /*tabBar={({ navigation, state, descriptors, insets }) => (
+                <BottomNavigation.Bar
+                    navigationState={state}
+                    safeAreaInsets={insets}
+                    onTabPress={({ route, preventDefault }) => {
+                        const event = navigation.emit({
+                            type: 'tabPress',
+                            target: route.key,
+                            canPreventDefault: true,
+                        });
+
+                        if (event.defaultPrevented) {
+                            preventDefault();
+                        } else {
+                            navigation.dispatch({
+                                ...CommonActions.navigate(route.name, route.params),
+                                target: state.key,
+                            });
+                        }
+                    }}
+                    renderIcon={({ route, focused, color }) => {
+                        const { options } = descriptors[route.key];
+                        if (options.tabBarIcon) {
+                            return options.tabBarIcon({ focused, color, size: 24 });
+                        }
+
+                        return null;
+                    }}
+                    getLabelText={({ route }) => {
+                        const { options } = descriptors[route.key];
+                        const label =
+                            options.tabBarLabel !== undefined
+                                ? options.tabBarLabel
+                                : options.title !== undefined
+                                    ? options.title
+                                    : route.title;
+
+                        return label;
+                    }}
+                />
+            )}*/
         >
             <Tab.Screen
                 name='HomeNavigator'
@@ -273,8 +335,8 @@ const TabNavigator = () => {
                     tabBarLabel: 'Favoriler'
                 })}/>
             <Tab.Screen
-                name='AddNewNavigator'
-                component={AddNewNavigator}
+                name='AddProductNewNavigator'
+                component={AddProductNewNavigator}
                 options={() => ({
                     tabBarIcon: () => {
                         return(
@@ -308,4 +370,4 @@ const TabNavigator = () => {
     )
 }
 
-export default TabNavigator;
+export default AddNewNavigator;

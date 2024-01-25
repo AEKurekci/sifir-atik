@@ -1,5 +1,15 @@
 import React, {useState} from "react";
-import {Image, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from "react-native";
+import {
+    Image,
+    Keyboard,
+    KeyboardAvoidingView,
+    Platform,
+    SafeAreaView,
+    ScrollView,
+    StyleSheet,
+    TouchableOpacity,
+    TouchableWithoutFeedback
+} from "react-native";
 import Line from "../components/Line";
 import {MaterialIcons} from "@expo/vector-icons";
 import {Button, TextInput} from "react-native-paper";
@@ -37,95 +47,103 @@ const AddDetailsScreen = (props) => {
     )
 
     return (
-        <SafeAreaView style={styles.screen}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.photosContainer}>
-                {Images}
-            </ScrollView>
-            <Line />
-            <ScrollView style={styles.form}>
-                <TextInput
-                    style={styles.input}
-                    label='Başlık'
-                    value={title}
-                    key='title'
-                    mode='outlined'
-                    theme={{
-                        roundness: 10
-                    }}
-                    activeOutlineColor={Colors.primary}
-                    cursorColor={Colors.secondary}
-                    outlineColor={Colors.secondary}
-                    onChangeText={t => setTitle(t)}/>
-                <TextInput
-                    style={styles.input}
-                    label='Açıklama'
-                    value={description}
-                    key='description'
-                    mode='outlined'
-                    multiline={true}
-                    numberOfLines={5}
-                    theme={{
-                        roundness: 10
-                    }}
-                    activeOutlineColor={Colors.primary}
-                    cursorColor={Colors.secondary}
-                    outlineColor={Colors.secondary}
-                    onChangeText={d => setDescription(d)}/>
-                <TextInput
-                    style={styles.input}
-                    label='Etiketler'
-                    value={tag}
-                    key='tag'
-                    mode='outlined'
-                    multiline={true}
-                    numberOfLines={3}
-                    theme={{
-                        roundness: 10
-                    }}
-                    activeOutlineColor={Colors.primary}
-                    cursorColor={Colors.secondary}
-                    outlineColor={Colors.secondary}
-                    onChangeText={t => setTag(t)}/>
-                <Button
-                    key='address'
-                    style={styles.input}
-                    value={address}
-                    buttonColor={'#fff'}
-                    textColor={'#000'}
-                    textAlignments='left'
-                    theme={{
-                        roundness: 3
-                    }}
-                    contentStyle={{justifyContent: 'space-between', flexDirection: 'row-reverse'}}
-                    onPress={goToSelectAddress}
-                    icon='chevron-right'
-                    mode='outlined'>
-                    {address}
-                </Button>
-                <Button
-                    key='save'
-                    style={styles.input}
-                    value={address}
-                    buttonColor={Colors.primary}
-                    textColor={'#fff'}
-                    theme={{
-                        roundness: 3
-                    }}
-                    onPress={goToSelectAddress}
-                    mode='contained'>
-                    Kaydet
-                </Button>
-            </ScrollView>
-        </SafeAreaView>
+        <KeyboardAvoidingView keyboardVerticalOffset={100} style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <SafeAreaView style={styles.screen}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.photosContainer}>
+                        {Images}
+                    </ScrollView>
+                    <Line />
+                    <ScrollView style={styles.form}>
+                        <TextInput
+                            style={styles.input}
+                            label='Başlık'
+                            value={title}
+                            key='title'
+                            mode='outlined'
+                            theme={{
+                                roundness: 10
+                            }}
+                            activeOutlineColor={Colors.primary}
+                            cursorColor={Colors.secondary}
+                            outlineColor={Colors.secondary}
+                            onChangeText={t => setTitle(t)}/>
+                        <TextInput
+                            style={styles.input}
+                            label='Açıklama'
+                            value={description}
+                            key='description'
+                            mode='outlined'
+                            multiline={true}
+                            numberOfLines={5}
+                            theme={{
+                                roundness: 10
+                            }}
+                            activeOutlineColor={Colors.primary}
+                            cursorColor={Colors.secondary}
+                            outlineColor={Colors.secondary}
+                            onChangeText={d => setDescription(d)}/>
+                        <TextInput
+                            style={styles.input}
+                            label='Etiketler'
+                            value={tag}
+                            key='tag'
+                            mode='outlined'
+                            multiline={true}
+                            numberOfLines={3}
+                            theme={{
+                                roundness: 10
+                            }}
+                            activeOutlineColor={Colors.primary}
+                            cursorColor={Colors.secondary}
+                            outlineColor={Colors.secondary}
+                            onChangeText={t => setTag(t)}/>
+                        <Button
+                            key='address'
+                            style={styles.input}
+                            value={address}
+                            buttonColor={'#fff'}
+                            textColor={'#000'}
+                            textAlignments='left'
+                            theme={{
+                                roundness: 3
+                            }}
+                            contentStyle={{justifyContent: 'space-between', flexDirection: 'row-reverse'}}
+                            onPress={goToSelectAddress}
+                            icon='chevron-right'
+                            mode='outlined'>
+                            {address}
+                        </Button>
+                        <Button
+                            key='save'
+                            style={styles.input}
+                            value={address}
+                            buttonColor={Colors.primary}
+                            textColor={'#fff'}
+                            theme={{
+                                roundness: 3
+                            }}
+                            onPress={goToSelectAddress}
+                            mode='contained'>
+                            Kaydet
+                        </Button>
+                    </ScrollView>
+                </SafeAreaView>
+            </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
     )
 }
 
 const styles = StyleSheet.create({
+    container:{
+        flex: 1
+    },
     screen:{
-        display: "flex"
+        display: "flex",
+        flex: 1
     },
     photosContainer:{
-        height: 91
+        height: '7%'
     },
     form:{
         marginHorizontal: 3

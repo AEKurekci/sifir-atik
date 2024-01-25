@@ -1,4 +1,4 @@
-import {Dimensions, Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Dimensions, Platform, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import ProductList from "../components/ProductList";
 import React, {useCallback, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -74,6 +74,10 @@ const Home = (props) => {
 
     return (
         <SafeAreaView style={styles.screen}>
+            <StatusBar
+                hidden={false}
+                backgroundColor={Colors.primary}
+                style={styles.screen}/>
             <View style={styles.row}>
                 <View style={styles.categoryList}>
                     <CategoryList filterProduct={filterProduct}/>
