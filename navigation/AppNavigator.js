@@ -179,44 +179,6 @@ const FavStackNavigator = () => {
     )
 }
 
-const AddNewStackNavigator = createStackNavigator();
-
-const AddNewNavigator = () => {
-    return (
-        <AddNewStackNavigator.Navigator>
-            <AddNewStackNavigator.Screen
-                name='TabNavigator'
-                component={TabNavigator}
-                options={{
-                    ...defaultHeaderStyle,
-                    ...{
-                        headerTitle: '',
-                        headerTransparent: true,
-                    }
-                }} />
-            <AddNewStackNavigator.Screen
-                name='AddDetailsScreen'
-                component={AddDetailsScreen}
-                options={{
-                    ...defaultHeaderStyle,
-                    ...{
-                        headerTitle: 'Detay Ekle'
-                    }
-                }} />
-            <AddNewStackNavigator.Screen
-                name='AddressScreen'
-                component={AddressScreen}
-                options={props => ({
-                    ...defaultHeaderStyle,
-                    ...AddressScreenOptions(props),
-                    ...{
-                        headerTitle: 'Konum'
-                    }
-                })} />
-        </AddNewStackNavigator.Navigator>
-    )
-}
-
 const AddProductNewStackNavigator = createStackNavigator();
 
 const AddProductNewNavigator = () => {
@@ -367,6 +329,44 @@ const TabNavigator = () => {
                             tabBarLabel: 'Profilim'
                         })} />
         </Tab.Navigator>
+    )
+}
+
+const AddNewStackNavigator = createStackNavigator();
+
+const AddNewNavigator = () => {
+    return (
+        <AddNewStackNavigator.Navigator>
+            <AddNewStackNavigator.Screen
+                name='TabNavigator'
+                component={TabNavigator}
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: '',
+                        headerTransparent: true,
+                    }
+                }} />
+            <AddNewStackNavigator.Screen
+                name='AddDetailsScreen'
+                component={AddDetailsScreen}
+                options={{
+                    ...defaultHeaderStyle,
+                    ...{
+                        headerTitle: 'Detay Ekle'
+                    }
+                }} />
+            <AddNewStackNavigator.Screen
+                name='AddressScreen'
+                component={AddressScreen}
+                options={props => ({
+                    ...defaultHeaderStyle,
+                    ...AddressScreenOptions(props),
+                    ...{
+                        headerTitle: 'Konum'
+                    }
+                })} />
+        </AddNewStackNavigator.Navigator>
     )
 }
 

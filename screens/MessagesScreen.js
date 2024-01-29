@@ -1,13 +1,30 @@
 import {FlatList, SafeAreaView, StatusBar, StyleSheet} from "react-native";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import MessagingLine from "../components/MessagingLine";
 import Colors from "../constants/Colors";
+import {Searchbar} from "react-native-paper";
 
 const MessagesScreen = (props) => {
     const user = useSelector(state => state.users.user)
     const users = useSelector(state => state.users.users)
     const products = useSelector(state => state.products.products)
+    const [searchMessage, setSearchMessage] = useState('');
+
+    useEffect(() => {
+        props.navigation.setOptions({
+            headerTitle: () => (
+                <Searchbar
+                    style={styles.search}
+                    placeholderTextColor={'#ccc'}
+                    placeholder="Mesajlarda ara..."
+                    onChangeText={setSearchMessage}
+                    value={searchMessage}
+                    inputStyle={styles.searchInput}
+                />
+            )
+        })
+    }, [searchMessage])
 
     return (
         <SafeAreaView style={styles.screen}>
@@ -41,6 +58,15 @@ const styles = StyleSheet.create({
     screen:{
         flex: 1,
         paddingHorizontal: 3
+    },
+    search:{
+        width: 250,
+        height: '70%'
+    },
+    searchInput: {
+        textAlignVertical: 'top',
+        paddingTop: 7,
+        lineHeight: 27
     }
 })
 

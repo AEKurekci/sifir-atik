@@ -9,12 +9,14 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Colors from "../constants/Colors";
 import {productActions} from "../store/product/product-reducer";
 import {fetchAddress} from "../store/address/address-action";
+import {Searchbar} from "react-native-paper";
 
 const Home = (props) => {
     console.log(props.route.name)
     const dispatch = useDispatch();
     const [isRefreshing, setIsRefreshing] = useState(false);
     const [error, setError] = useState(false)
+    const [searchQuery, setSearchQuery] = useState('');
     const isAndroid = Platform.OS === 'android';
     const fontColor = isAndroid ? Colors.secondary : Colors.primary;
 
@@ -57,6 +59,24 @@ const Home = (props) => {
         dispatch(login())
         dispatch(fetchAddress())
     }, [])
+
+    useEffect(() => {
+        props.navigation.setOptions({
+            headerTitle: () => (
+                <Searchbar
+                    style={styles.search}
+                    placeholderTextColor={'#ccc'}
+                    placeholder="İhtiyaçlarını ara..."
+                    onChangeText={setSearchQuery}
+                    value={searchQuery}
+                    inputStyle={styles.searchInput}
+                />
+            ),
+            headerRight: () => (
+                <Ionicons style={{paddingRight: 5}} name='notifications' size={30} color='white' />
+            )
+        })
+    }, [searchQuery])
 
     useEffect(() => {
         if(user){
@@ -112,6 +132,15 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: '#ccc'
+    },
+    search:{
+        width: 250,
+        height: '70%'
+    },
+    searchInput: {
+        textAlignVertical: 'top',
+        paddingTop: 7,
+        lineHeight: 27
     }
 })
 
