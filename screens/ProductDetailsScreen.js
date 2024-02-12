@@ -25,7 +25,7 @@ const ProductDetailsScreen = (props) => {
     const product = props.route.params ? props.route.params.product : null;
     const profileScreenPath = props.route.params ? props.route.params.profileScreenPath : null;
     console.log('product detail profile path: ', profileScreenPath)
-    const [createdAt, setCreatedAt] = useState(null);
+    const [createTime, setCreateTime] = useState(null);
     const [expires, setExpires] = useState(null);
     const owner = props.route.params ? props.route.params.owner : null;
     const [error, setError] = useState(null)
@@ -53,9 +53,9 @@ const ProductDetailsScreen = (props) => {
     }, [owner])
 
     useEffect(() => {
-        const createDate = new Date(product.createdAt);
-        setCreatedAt(createDate.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'}))
-        const expireDate = new Date(product.expiresIn);
+        const createDate = new Date(product.createTime);
+        setCreateTime(createDate.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'}))
+        const expireDate = new Date(product.expireTime);
         setExpires(expireDate.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'}))
     }, [product])
 
@@ -126,7 +126,7 @@ const ProductDetailsScreen = (props) => {
                             </View>
                             <View style={styles.col}>
                                 <View style={styles.row}>
-                                    <Text style={styles.subTitle}>Paylaşıldı: {createdAt}</Text>
+                                    <Text style={styles.subTitle}>Paylaşıldı: {createdTime}</Text>
                                     <FontAwesome5 style={{paddingLeft: 2}} name='calendar-alt' size={14} color='black' />
                                 </View>
                                 <View style={styles.row}>
@@ -155,7 +155,7 @@ const ProductDetailsScreen = (props) => {
                         <Line/>
                         <Title>İlan Konumu</Title>
                         <View style={styles.mapContainer}>
-                            <MapPreview location={address.location} text={address.text} />
+                            <MapPreview lat={address.lat} lng={address.lng} text={address.text} />
                         </View>
                     </View>
                 </ScrollView>

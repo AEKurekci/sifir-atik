@@ -8,12 +8,14 @@ import {
     ScrollView,
     StyleSheet,
     TouchableOpacity,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback, View
 } from "react-native";
 import Line from "../components/Line";
 import {MaterialIcons} from "@expo/vector-icons";
-import {Button, TextInput} from "react-native-paper";
+import {Button, Text, TextInput} from "react-native-paper";
 import Colors from "../constants/Colors";
+import RNDateTimePicker from "@react-native-community/datetimepicker";
+import Title from "../components/Title";
 
 const AddDetailsScreen = (props) => {
     const [images, setImages] = useState([
@@ -27,10 +29,44 @@ const AddDetailsScreen = (props) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [tag, setTag] = useState('');
+    const [amount, setAmount] = useState(0);
+    const [expireTime, setExpireTime] = useState(() => {
+        const today = new Date();
+        return new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2);
+    });
     const [address, setAddress] = useState('Konum Seç');
+    const [mode, setMode] = useState('date');
+    const [showDate, setShowDate] = useState(false);
 
     const goToSelectAddress = () => {
         props.navigation.navigate('AddressScreen')
+    }
+
+    const onChangeDatePicker = (event, selectedDate) => {
+        const currentDate = selectedDate;
+        setShowDate(false);
+        setExpireTime(currentDate);
+    }
+
+    const showMode = (currentMode) => {
+        setShowDate(true);
+        setMode(currentMode);
+    }
+
+    const showDatepicker = () => {
+        showMode('date')
+    }
+
+    const showTimepicker = () => {
+        showMode('time')
+    }
+
+    const decreaseAmount = () => {
+        setAmount(prevState => prevState > 1 ? --prevState : prevState)
+    }
+
+    const increaseAmount = () => {
+        setAmount(prevState => ++prevState)
     }
 
     const Images = (
@@ -98,6 +134,86 @@ const AddDetailsScreen = (props) => {
                             cursorColor={Colors.secondary}
                             outlineColor={Colors.secondary}
                             onChangeText={t => setTag(t)}/>
+                        <View style={styles.row}>
+                            <Button
+                                key='decrease'
+                                style={styles.decr}
+                                value={'-'}
+                                buttonColor={Colors.primary}
+                                textColor={'#fff'}
+                                theme={{
+                                    roundness: 3
+                                }}
+                                onPress={decreaseAmount}
+                                mode='contained'>
+                                -
+                            </Button>
+                            <TextInput
+                                style={{...styles.input, ...styles.amount}}
+                                label='Miktar'
+                                value={amount.toString()}
+                                inputMode='numeric'
+                                key='amount'
+                                mode='outlined'
+                                theme={{
+                                    roundness: 10
+                                }}
+                                activeOutlineColor={Colors.primary}
+                                cursorColor={Colors.secondary}
+                                outlineColor={Colors.secondary}
+                                onChangeText={a => setAmount(a)}/>
+                            <Button
+                                key='increase'
+                                style={styles.decr}
+                                value={'+'}
+                                buttonColor={Colors.primary}
+                                textColor={'#fff'}
+                                theme={{
+                                    roundness: 3
+                                }}
+                                onPress={increaseAmount}
+                                mode='contained'>
+                                +
+                            </Button>
+                        </View>
+                        {showDate && <RNDateTimePicker
+                            testID="dateTimePicker"
+                            value={expireTime}
+                            mode={mode}
+                            is24Hour={true}
+                            onChange={onChangeDatePicker}
+                        />}
+                        <Title>Sona Erme Zamanı</Title>
+                        <View style={styles.row}>
+                            <Button
+                                key='expireDate'
+                                style={{...styles.input, ...styles.halfWidth}}
+                                value={expireTime.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'})}
+                                buttonColor={'#fff'}
+                                textColor={'#000'}
+                                textAlignments='left'
+                                theme={{
+                                    roundness: 3
+                                }}
+                                onPress={showDatepicker}
+                                mode='outlined'>
+                                {expireTime.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'})}
+                            </Button>
+                            <Button
+                                key='expireTime'
+                                style={{...styles.input, ...styles.halfWidth}}
+                                value={expireTime.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit'})}
+                                buttonColor={'#fff'}
+                                textColor={'#000'}
+                                textAlignments='left'
+                                theme={{
+                                    roundness: 3
+                                }}
+                                onPress={showTimepicker}
+                                mode='outlined'>
+                                {expireTime.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit'})}
+                            </Button>
+                        </View>
                         <Button
                             key='address'
                             style={styles.input}
@@ -127,6 +243,7 @@ const AddDetailsScreen = (props) => {
                             mode='contained'>
                             Kaydet
                         </Button>
+                        <Text></Text>
                     </ScrollView>
                 </SafeAreaView>
             </TouchableWithoutFeedback>
@@ -143,13 +260,22 @@ const styles = StyleSheet.create({
         flex: 1
     },
     photosContainer:{
-        height: '7%'
+        height: 110
     },
     form:{
         marginHorizontal: 3
     },
     input:{
         marginTop: 7
+    },
+    decr:{
+        flex: 1,
+        marginTop: 15
+    },
+    amount:{
+        flex: 70,
+        marginLeft: 4,
+        marginRight: 4
     },
     imageContainer:{
         display: "flex",
@@ -166,6 +292,15 @@ const styles = StyleSheet.create({
     image:{
         height: 75,
         width: 75
+    },
+    row:{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: 'space-around',
+        width: '100%'
+    },
+    halfWidth:{
+        width: '45%'
     }
 })
 

@@ -7,10 +7,8 @@
       "address": {
         "id": 0,
         "text": "Fatih/İstanbul",
-        "location": {
-          "lat": "41.008469",
-          "lng": "28.980261"
-        }
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "shares": 1,
       "totalShares": 5,
@@ -22,7 +20,7 @@
       "messages": [
         {
           "id": 0,
-          "user": 1,
+          "targetUser": 1,
           "productId": 0,
           "message": [
             {
@@ -49,7 +47,7 @@
         },
         {
           "id": 1,
-          "user": 2,
+          "targetUser": 2,
           "productId": 1,
           "message": [
             {
@@ -88,10 +86,8 @@
       "address": {
         "id": 1,
         "text": "Pendik/İstanbul",
-        "location": {
-          "lat": "41.008469",
-          "lng": "28.980261"
-        }
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "shares": 2,
       "totalShares": 7,
@@ -103,7 +99,7 @@
       "messages": [
         {
           "id": 2,
-          "user": 1,
+          "targetUser": 1,
           "productId": 0,
           "message": [
             {
@@ -130,7 +126,7 @@
         },
         {
           "id": 3,
-          "user": 2,
+          "targetUser": 2,
           "productId": 1,
           "message": [
             {
@@ -169,10 +165,8 @@
       "address": {
         "id": 2,
         "text": "Üsküdar/İstanbul",
-        "location": {
-          "lat": "41.008469",
-          "lng": "28.980261"
-        }
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "shares": 1,
       "totalShares": 11,
@@ -184,7 +178,7 @@
       "messages": [
         {
           "id": 4,
-          "user": 1,
+          "targetUser": 1,
           "productId": 0,
           "message": [
             {
@@ -211,7 +205,7 @@
         },
         {
           "id": 5,
-          "user": 3,
+          "targetUser": 3,
           "productId": 1,
           "message": [
             {
@@ -250,10 +244,8 @@
       "address": {
         "id": 3,
         "text": "Ümraniye/İstanbul",
-        "location": {
-          "lat": "41.008469",
-          "lng": "28.980261"
-        }
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "shares": 1,
       "totalShares": 13,
@@ -265,7 +257,7 @@
       "messages": [
         {
           "id": 6,
-          "user": 1,
+          "targetUser": 1,
           "productId": 0,
           "message": [
             {
@@ -292,7 +284,7 @@
         },
         {
           "id": 7,
-          "user": 2,
+          "targetUser": 2,
           "productId": 1,
           "message": [
             {
@@ -331,10 +323,8 @@
       "address": {
         "id": 3,
         "text": "Ümraniye/İstanbul",
-        "location": {
-          "lat": "41.008469",
-          "lng": "28.980261"
-        }
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "shares": 1,
       "totalShares": 17,
@@ -346,7 +336,7 @@
       "messages": [
         {
           "id": 8,
-          "user": 1,
+          "targetUser": 1,
           "productId": 0,
           "message": [
             {
@@ -373,7 +363,7 @@
         },
         {
           "id": 9,
-          "user": 2,
+          "targetUser": 2,
           "productId": 1,
           "message": [
             {
@@ -412,10 +402,8 @@
       "address": {
         "id": 3,
         "text": "Ümraniye/İstanbul",
-        "location": {
-          "lat": "41.008469",
-          "lng": "28.980261"
-        }
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "shares": 1,
       "totalShares": 17,
@@ -427,7 +415,7 @@
       "messages": [
         {
           "id": 10,
-          "user": 1,
+          "targetUser": 1,
           "productId": 0,
           "message": [
             {
@@ -454,7 +442,7 @@
         },
         {
           "id": 11,
-          "user": 2,
+          "targetUser": 2,
           "productId": 1,
           "message": [
             {
@@ -493,10 +481,8 @@
       "address": {
         "id": 3,
         "text": "Ümraniye/İstanbul",
-        "location": {
-          "lat": "41.008469",
-          "lng": "28.980261"
-        }
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "shares": 1,
       "totalShares": 17,
@@ -508,7 +494,7 @@
       "messages": [
         {
           "id": 12,
-          "user": 1,
+          "targetUser": 1,
           "productId": 0,
           "message": [
             {
@@ -535,7 +521,7 @@
         },
         {
           "id": 13,
-          "user": 2,
+          "targetUser": 2,
           "productId": 1,
           "message": [
             {

@@ -38,7 +38,7 @@ const MessagesScreen = (props) => {
                 keyExtractor={item => item.id.toString()}
                 renderItem={(renderItem) => {
                     let date = new Date(renderItem.item.message[renderItem.item.message.length - 1].t);
-                    let targetUser = users.filter(u => u.id === renderItem.item.user)
+                    let targetUser = users.filter(u => u.id === renderItem.item.targetUser)
                     let targetProduct = products.filter(p => p.id === renderItem.item.productId)
                     return (
                         <MessagingLine

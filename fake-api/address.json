@@ -3,34 +3,26 @@
     {
       "id": 0,
       "text": "Fatih/İstanbul",
-      "location": {
-        "lat": "41.008469",
-        "lng": "28.980261"
-      }
+      "lat": "41.008469",
+      "lng": "28.980261"
     },
     {
       "id": 1,
       "text": "Pendik/İstanbul",
-      "location": {
-        "lat": "41.008469",
-        "lng": "28.980261"
-      }
+      "lat": "41.008469",
+      "lng": "28.980261"
     },
     {
       "id": 2,
       "text": "Üsküdar/İstanbul",
-      "location": {
-        "lat": "41.008469",
-        "lng": "28.980261"
-      }
+      "lat": "41.008469",
+      "lng": "28.980261"
     },
     {
       "id": 3,
       "text": "Ümraniye/İstanbul",
-      "location": {
-        "lat": "41.008469",
-        "lng": "28.980261"
-      }
+      "lat": "41.008469",
+      "lng": "28.980261"
     }
   ]
 }
