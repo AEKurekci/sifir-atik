@@ -36,7 +36,7 @@ const ProductDetailsScreen = (props) => {
         setIsLoading(true)
         setError(null)
         try{
-            const data = await useHttp(`addresses/${owner.addressId}`, '3003')
+            const data = await useHttp(`addresses/${owner.address.id}`, '3003')
             console.log(data)
             setAddress(data);
         }catch (err) {
@@ -47,7 +47,7 @@ const ProductDetailsScreen = (props) => {
     }, [])
 
     useEffect(() => {
-        if(owner.addressId !== undefined){
+        if(owner.address.id !== undefined){
             getAddress()
         }
     }, [owner])
@@ -126,7 +126,7 @@ const ProductDetailsScreen = (props) => {
                             </View>
                             <View style={styles.col}>
                                 <View style={styles.row}>
-                                    <Text style={styles.subTitle}>Paylaşıldı: {createdTime}</Text>
+                                    <Text style={styles.subTitle}>Paylaşıldı: {createTime}</Text>
                                     <FontAwesome5 style={{paddingLeft: 2}} name='calendar-alt' size={14} color='black' />
                                 </View>
                                 <View style={styles.row}>

@@ -5,7 +5,13 @@ import {FontAwesome5, MaterialCommunityIcons} from "@expo/vector-icons";
 
 const AddCategory = props => {
     const goToAddDetails = () => {
-        props.navigation.navigate('AddDetailsScreen')
+        props.navigation.navigate('AddDetailsScreen', {
+            category: {
+                id: props.item.id,
+                value: props.item.value,
+                text: props.item.text
+            }
+        })
     }
 
     const iconColor = '#ccc';

@@ -24,11 +24,31 @@ export const fetchProduct = () => {
             const user = getState().users.user;
             if(user){
                 dispatch(productActions.fetchUserProducts({
-                    userProductList: response.filter(product => product.ownerId === user.id)
+                    userProductList: response.filter(product => product.owner.id === user.id)
                 }))
             }
 
         }catch (err){
+            console.log(err.message)
+        }
+    }
+}
+
+export const saveProduct = (product) => {
+    return async (dispatch) => {
+        try{
+            const response = await useHttp(
+                    'shares',
+                    3001,
+                    'POST',
+                    {"Content-Type": "application/json"},
+                    JSON.stringify(product)
+                );
+            console.log(response)
+            dispatch(productActions.addProduct({
+                product: response
+            }))
+        } catch (err) {
             console.log(err.message)
         }
     }
@@ -41,7 +61,7 @@ export const fetchUserProducts = () => {
             const user = getState().users.user;
             if(user){
                 dispatch(productActions.fetchUserProducts({
-                    userProductList: response.filter(product => product.ownerId === user.id)
+                    userProductList: response.filter(product => product.owner.id === user.id)
                 }))
             }
         }catch (err) {

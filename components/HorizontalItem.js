@@ -17,7 +17,7 @@ import Card from "./Card";
 const HorizontalItem = props => {
     const item = props.item;
     const owner = useSelector(state => {
-        return state.users.users.find(user => user.id === item.ownerId)
+        return state.users.users.find(user => user.id === item.owner.id)
     });
 
     let TouchableComponent = TouchableOpacity;

@@ -1,5 +1,7 @@
-import React, {useState} from "react";
+import React, {useCallback, useEffect, useReducer, useState} from "react";
 import {
+    ActivityIndicator,
+    Alert,
     Image,
     Keyboard,
     KeyboardAvoidingView,
@@ -8,7 +10,8 @@ import {
     ScrollView,
     StyleSheet,
     TouchableOpacity,
-    TouchableWithoutFeedback, View
+    TouchableWithoutFeedback,
+    View
 } from "react-native";
 import Line from "../components/Line";
 import {MaterialIcons} from "@expo/vector-icons";
@@ -16,27 +19,89 @@ import {Button, Text, TextInput} from "react-native-paper";
 import Colors from "../constants/Colors";
 import RNDateTimePicker from "@react-native-community/datetimepicker";
 import Title from "../components/Title";
+import {FORM_INPUT_UPDATE, formReducer} from "../components/formReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {saveProduct} from "../store/product/product-actions";
 
 const AddDetailsScreen = (props) => {
+    const product = props.route.params ? props.route.params.product : null;
+    const category = props.route.params ? props.route.params.category : null;
+    const owner = useSelector(state => state.users.user)
     const [images, setImages] = useState([
         {id: -1},
         {id: 0, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-        {id: 1, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-        {id: 2, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+        {id: 1, url: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+        {id: 2, url: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
         {id: 3, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
         {id: 4, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
         {id: 5, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}])
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [tag, setTag] = useState('');
-    const [amount, setAmount] = useState(0);
-    const [expireTime, setExpireTime] = useState(() => {
-        const today = new Date();
-        return new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2);
-    });
     const [address, setAddress] = useState('Konum Seç');
+    const [titleTouched, setTitleTouched] = useState(false);
+    const [descriptionTouched, setDescriptionTouched] = useState(false);
     const [mode, setMode] = useState('date');
     const [showDate, setShowDate] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+
+    const getInitialExpire = () => {
+        const today = new Date();
+        return new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2);
+    }
+
+    const [formState, dispatchFormState] = useReducer(formReducer, {
+        inputValues: {
+            title: product ? product.title : '',
+            description: product ? product.description : '',
+            keywords: product ? product.keywords : '',
+            amount: product ? product.amount : 1,
+            expireTime: product ? product.expireTime : getInitialExpire(),
+            images: images.filter(i => i.id >= 0)
+        },
+        inputValidities: {
+            title: !!product,
+            description: !!product,
+            keywords: true,
+            amount: true,
+            expireTime: true,
+            images: true
+        },
+        formIsValid: !!product
+    })
+
+    const inputChangeHandler = useCallback((inputIdentifier, inputValue, inputValidity) => {
+        dispatchFormState({
+            type: FORM_INPUT_UPDATE,
+            value: inputValue,
+            isValid: inputValidity,
+            input: inputIdentifier
+        })
+    }, [dispatchFormState])
+
+    const submitHandler = async () => {
+        setError(null);
+        if(!formState.formIsValid){
+            setError('Lütfen tüm alanların doğru bir şekilde girildiğinden emin olunuz.');
+            return;
+        }
+        setIsLoading(true);
+        try{
+            const body = {
+                ...formState.inputValues,
+                expireTime: formState.inputValues.expireTime.toLocaleString(),
+                keywords: formState.inputValues.keywords.split(','),
+                owner: {
+                    ...owner,
+                    messages: null
+                },
+                category}
+            console.log(body)
+            await dispatch(saveProduct(body))
+        }catch (e) {
+            setError(e.message)
+        }
+        setIsLoading(false);
+    }
 
     const goToSelectAddress = () => {
         props.navigation.navigate('AddressScreen')
@@ -45,7 +110,7 @@ const AddDetailsScreen = (props) => {
     const onChangeDatePicker = (event, selectedDate) => {
         const currentDate = selectedDate;
         setShowDate(false);
-        setExpireTime(currentDate);
+        inputChangeHandler('expireTime', currentDate, true);
     }
 
     const showMode = (currentMode) => {
@@ -62,11 +127,19 @@ const AddDetailsScreen = (props) => {
     }
 
     const decreaseAmount = () => {
-        setAmount(prevState => prevState > 1 ? --prevState : prevState)
+        inputChangeHandler('amount', formState.inputValues.amount > 1 ? --formState.inputValues.amount : formState.inputValues.amount, true)
     }
 
     const increaseAmount = () => {
-        setAmount(prevState => ++prevState)
+        inputChangeHandler('amount', ++formState.inputValues.amount, true)
+    }
+
+    const isEmpty = (text) => {
+        let result = false;
+        if(text !== undefined && typeof text === 'string' && text.length > 0){
+            result = true
+        }
+        return result
     }
 
     const Images = (
@@ -82,10 +155,32 @@ const AddDetailsScreen = (props) => {
         ))
     )
 
+    useEffect(() => {
+        if (error) {
+            Alert.alert("Bir hata oluştu ", error, [{ text: "Okey", onPress: () => {
+                    setError(null);
+                    setIsLoading(false);
+                }
+            }]);
+        }
+    }, [error]);
+
+    if(isLoading){
+        return(
+            <View style={styles.centered}>
+                <ActivityIndicator size='large' color={Colors.primary} />
+            </View>
+        )
+    }
+
     return (
-        <KeyboardAvoidingView keyboardVerticalOffset={100} style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <SafeAreaView style={styles.screen}>
+                    {!!error && (
+                        <View style={styles.error}>
+                            <Text> {error} </Text>
+                        </View>)}
                     <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.photosContainer}>
                         {Images}
                     </ScrollView>
@@ -94,23 +189,26 @@ const AddDetailsScreen = (props) => {
                         <TextInput
                             style={styles.input}
                             label='Başlık'
-                            value={title}
+                            value={formState.inputValues.title}
                             key='title'
                             mode='outlined'
+                            error={titleTouched && !formState.inputValidities.title}
                             theme={{
                                 roundness: 10
                             }}
                             activeOutlineColor={Colors.primary}
                             cursorColor={Colors.secondary}
                             outlineColor={Colors.secondary}
-                            onChangeText={t => setTitle(t)}/>
+                            onBlur={() => setTitleTouched(true)}
+                            onChangeText={t => inputChangeHandler('title', t, isEmpty(t))}/>
                         <TextInput
                             style={styles.input}
                             label='Açıklama'
-                            value={description}
+                            value={formState.inputValues.description}
                             key='description'
                             mode='outlined'
                             multiline={true}
+                            error={descriptionTouched && !formState.inputValidities.description}
                             numberOfLines={5}
                             theme={{
                                 roundness: 10
@@ -118,12 +216,13 @@ const AddDetailsScreen = (props) => {
                             activeOutlineColor={Colors.primary}
                             cursorColor={Colors.secondary}
                             outlineColor={Colors.secondary}
-                            onChangeText={d => setDescription(d)}/>
+                            onBlur={() => setDescriptionTouched(true)}
+                            onChangeText={d => inputChangeHandler('description', d, isEmpty(d))}/>
                         <TextInput
                             style={styles.input}
                             label='Etiketler'
-                            value={tag}
-                            key='tag'
+                            value={formState.inputValues.keywords}
+                            key='keywords'
                             mode='outlined'
                             multiline={true}
                             numberOfLines={3}
@@ -133,7 +232,7 @@ const AddDetailsScreen = (props) => {
                             activeOutlineColor={Colors.primary}
                             cursorColor={Colors.secondary}
                             outlineColor={Colors.secondary}
-                            onChangeText={t => setTag(t)}/>
+                            onChangeText={t => inputChangeHandler('keywords', t, true)}/>
                         <View style={styles.row}>
                             <Button
                                 key='decrease'
@@ -151,7 +250,7 @@ const AddDetailsScreen = (props) => {
                             <TextInput
                                 style={{...styles.input, ...styles.amount}}
                                 label='Miktar'
-                                value={amount.toString()}
+                                value={formState.inputValues.amount.toString()}
                                 inputMode='numeric'
                                 key='amount'
                                 mode='outlined'
@@ -161,7 +260,7 @@ const AddDetailsScreen = (props) => {
                                 activeOutlineColor={Colors.primary}
                                 cursorColor={Colors.secondary}
                                 outlineColor={Colors.secondary}
-                                onChangeText={a => setAmount(a)}/>
+                                onChangeText={a => inputChangeHandler('amount', a, true)}/>
                             <Button
                                 key='increase'
                                 style={styles.decr}
@@ -178,7 +277,7 @@ const AddDetailsScreen = (props) => {
                         </View>
                         {showDate && <RNDateTimePicker
                             testID="dateTimePicker"
-                            value={expireTime}
+                            value={formState.inputValues.expireTime}
                             mode={mode}
                             is24Hour={true}
                             onChange={onChangeDatePicker}
@@ -188,7 +287,7 @@ const AddDetailsScreen = (props) => {
                             <Button
                                 key='expireDate'
                                 style={{...styles.input, ...styles.halfWidth}}
-                                value={expireTime.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'})}
+                                value={formState.inputValues.expireTime.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'})}
                                 buttonColor={'#fff'}
                                 textColor={'#000'}
                                 textAlignments='left'
@@ -197,12 +296,12 @@ const AddDetailsScreen = (props) => {
                                 }}
                                 onPress={showDatepicker}
                                 mode='outlined'>
-                                {expireTime.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'})}
+                                {formState.inputValues.expireTime.toLocaleDateString('tr-TR', {day: 'numeric', month: 'short'})}
                             </Button>
                             <Button
                                 key='expireTime'
                                 style={{...styles.input, ...styles.halfWidth}}
-                                value={expireTime.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit'})}
+                                value={formState.inputValues.expireTime.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit'})}
                                 buttonColor={'#fff'}
                                 textColor={'#000'}
                                 textAlignments='left'
@@ -211,7 +310,7 @@ const AddDetailsScreen = (props) => {
                                 }}
                                 onPress={showTimepicker}
                                 mode='outlined'>
-                                {expireTime.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit'})}
+                                {formState.inputValues.expireTime.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit'})}
                             </Button>
                         </View>
                         <Button
@@ -239,7 +338,7 @@ const AddDetailsScreen = (props) => {
                             theme={{
                                 roundness: 3
                             }}
-                            onPress={goToSelectAddress}
+                            onPress={submitHandler}
                             mode='contained'>
                             Kaydet
                         </Button>
@@ -255,12 +354,25 @@ const styles = StyleSheet.create({
     container:{
         flex: 1
     },
+    centered:{
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    error:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#da5454',
+        borderRadius: 10,
+        color: 'white',
+        padding: 10,
+        marginVertical: 5
+    },
     screen:{
         display: "flex",
         flex: 1
     },
     photosContainer:{
-        height: 110
+        height: 100
     },
     form:{
         marginHorizontal: 3
@@ -282,7 +394,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 7,
+        borderRadius: 10,
         overflow: "hidden",
         borderWidth: 0.1,
         marginVertical: 8,

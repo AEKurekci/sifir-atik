@@ -5,14 +5,14 @@ import Colors from "../constants/Colors";
 
 const AddProductScreen = (props) => {
     const [categories, setCategories] = useState([
-        {text: 'Yemek', value: 0, icon: 'Ionicons', iconText: 'fast-food-outline', selected: false},
-        {text: 'Giyim', value: 1, icon: 'MaterialCommunityIcons', iconText: 'tshirt-crew', selected: false},
-        {text: 'Ayakkabı', value: 2, icon: 'MaterialCommunityIcons', iconText: 'shoe-heel', selected: false},
-        {text: 'Mobilya', value: 3, icon: 'FontAwesome5', iconText: 'couch', selected: false},
-        {text: 'Elektronik', value: 4, icon: 'Ionicons', iconText: 'phone-portrait-outline', selected: false},
-        {text: 'Kitap & Kırtasiye', value: 5, icon: 'MaterialCommunityIcons', iconText: 'bookshelf', selected: false},
-        {text: 'Hobi & Yaşam', value: 6, icon: 'Ionicons', iconText: 'basketball-outline', selected: false},
-        {text: 'Patiler', value: 7, icon: 'Ionicons', iconText: 'paw', selected: false}
+        {id: 0, text: 'Yemek', value: 0, icon: 'Ionicons', iconText: 'fast-food-outline', selected: false},
+        {id: 1, text: 'Giyim', value: 1, icon: 'MaterialCommunityIcons', iconText: 'tshirt-crew', selected: false},
+        {id: 2, text: 'Ayakkabı', value: 2, icon: 'MaterialCommunityIcons', iconText: 'shoe-heel', selected: false},
+        {id: 3, text: 'Mobilya', value: 3, icon: 'FontAwesome5', iconText: 'couch', selected: false},
+        {id: 4, text: 'Elektronik', value: 4, icon: 'Ionicons', iconText: 'phone-portrait-outline', selected: false},
+        {id: 5, text: 'Kitap & Kırtasiye', value: 5, icon: 'MaterialCommunityIcons', iconText: 'bookshelf', selected: false},
+        {id: 6, text: 'Hobi & Yaşam', value: 6, icon: 'Ionicons', iconText: 'basketball-outline', selected: false},
+        {id: 7, text: 'Patiler', value: 7, icon: 'Ionicons', iconText: 'paw', selected: false}
     ]);
 
     return (
