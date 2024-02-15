@@ -22,10 +22,12 @@ import Title from "../components/Title";
 import {FORM_INPUT_UPDATE, formReducer} from "../components/formReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {saveProduct} from "../store/product/product-actions";
+import MapPreview from "../components/MapPreview";
 
 const AddDetailsScreen = (props) => {
-    const product = props.route.params ? props.route.params.product : null;
-    const category = props.route.params ? props.route.params.category : null;
+    const product = props.route.params && props.route.params.product ? props.route.params.product : null;
+    const category = props.route.params && props.route.params.category ? props.route.params.category : null;
+    const address = props.route.params && props.route.params.address ? props.route.params.address : null;
     const owner = useSelector(state => state.users.user)
     const [images, setImages] = useState([
         {id: -1},
@@ -35,7 +37,7 @@ const AddDetailsScreen = (props) => {
         {id: 3, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
         {id: 4, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
         {id: 5, url: 'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}])
-    const [address, setAddress] = useState('Konum Seç');
+    const [addressText, setAddressText] = useState('Konum Seç');
     const [titleTouched, setTitleTouched] = useState(false);
     const [descriptionTouched, setDescriptionTouched] = useState(false);
     const [mode, setMode] = useState('date');
@@ -88,23 +90,40 @@ const AddDetailsScreen = (props) => {
         try{
             const body = {
                 ...formState.inputValues,
-                expireTime: formState.inputValues.expireTime.toLocaleString(),
+                createTime: new Date(),
                 keywords: formState.inputValues.keywords.split(','),
+                ownerId: owner.id,
                 owner: {
                     ...owner,
                     messages: null
                 },
+                address,
                 category}
             console.log(body)
             await dispatch(saveProduct(body))
+            props.navigation.navigate('ProfileNavigator', {
+                userId: owner.id,
+                productScreenPath: 'ProductDetailsScreenFromProfile',
+                profileScreenPath: 'ProfileScreen'
+            });
         }catch (e) {
             setError(e.message)
         }
         setIsLoading(false);
     }
 
+    useEffect(() => {
+        console.log(address)
+        if(address !== null){
+            setAddressText(address.text)
+        }
+    }, [address])
+
     const goToSelectAddress = () => {
-        props.navigation.navigate('AddressScreen')
+        props.navigation.navigate('AddressScreen', {
+            category,
+            user: owner
+        })
     }
 
     const onChangeDatePicker = (event, selectedDate) => {
@@ -316,7 +335,7 @@ const AddDetailsScreen = (props) => {
                         <Button
                             key='address'
                             style={styles.input}
-                            value={address}
+                            value={addressText}
                             buttonColor={'#fff'}
                             textColor={'#000'}
                             textAlignments='left'
@@ -327,12 +346,15 @@ const AddDetailsScreen = (props) => {
                             onPress={goToSelectAddress}
                             icon='chevron-right'
                             mode='outlined'>
-                            {address}
+                            {addressText}
                         </Button>
+                        {address !== null &&
+                            <View style={styles.mapContainer}>
+                                <MapPreview lat={address.lat} lng={address.lng}/>
+                            </View>}
                         <Button
                             key='save'
                             style={styles.input}
-                            value={address}
                             buttonColor={Colors.primary}
                             textColor={'#fff'}
                             theme={{
@@ -413,6 +435,9 @@ const styles = StyleSheet.create({
     },
     halfWidth:{
         width: '45%'
+    },
+    mapContainer:{
+        paddingTop: 10
     }
 })
 

@@ -17,7 +17,7 @@ import Card from "./Card";
 function Product(props) {
     const product = props.product;
     const owner = useSelector(state => {
-        return state.users.users.find(user => user.id === product.owner.id)
+        return state.users.users.find(user => user.id === product.ownerId)
     });
 
     let TouchableComponent = TouchableOpacity;

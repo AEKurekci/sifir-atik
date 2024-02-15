@@ -36,7 +36,7 @@ const ProductDetailsScreen = (props) => {
         setIsLoading(true)
         setError(null)
         try{
-            const data = await useHttp(`addresses/${owner.address.id}`, '3003')
+            const data = await useHttp(`addresses/${product.address !== undefined ? product.address.id : owner.addressId}`, '3003')
             console.log(data)
             setAddress(data);
         }catch (err) {
@@ -47,7 +47,7 @@ const ProductDetailsScreen = (props) => {
     }, [])
 
     useEffect(() => {
-        if(owner.address.id !== undefined){
+        if(owner.addressId !== undefined){
             getAddress()
         }
     }, [owner])

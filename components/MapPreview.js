@@ -11,7 +11,7 @@ const MapPreview = (props) => {
     return (
         <TouchableOpacity style={styles.container}>
             <Image style={styles.mapPreview} source={{uri: imagePreviewUrl}} />
-            <Text style={styles.desc}>{props.text}</Text>
+            {props.text !== undefined && <Text style={styles.desc}>{props.text}</Text>}
         </TouchableOpacity>
     )
 }

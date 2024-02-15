@@ -1,29 +1,76 @@
-import React, {useCallback, useState} from "react";
-import {SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from "react-native";
+import React, {useCallback, useEffect, useState} from "react";
+import {SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View} from "react-native";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
-import {Button} from "react-native-paper";
+import {Button, Checkbox} from "react-native-paper";
 import {SelectList} from "react-native-dropdown-select-list";
 import {useSelector} from "react-redux";
+import MapPreview from "../components/MapPreview";
 
 const AddressScreen = (props) => {
-    const [city, setCity] = useState('İl')
-    const [district, setDistrict] = useState('İlçe')
+    const user = props.route.params ? props.route.params.user : null;
+    const category = props.route.params ? props.route.params.category : null;
+    const [city, setCity] = useState(null)
+    const [district, setDistrict] = useState(null)
+    const [lat, setLat] = useState(null);
+    const [lng, setLng] = useState(null);
     const cities = useSelector(state => state.address.cities)
     const [districts, setDistricts] = useState([])
+    const [useMyAddress, setUseMyAddress] = useState(false);
 
     const goToSelectLocation = () => {
         props.navigation.navigate('AddressScreen')
     }
 
-    const citySelectHandler = useCallback(plaka => {
-        setCity(plaka)
-        for(let i = 0; i < cities.length; i++){
-            if(cities[i].plaka_kodu === plaka){
-                setDistricts(cities[i].ilceler)
-                break
+    const citySelectHandler = city => {
+        setCity(city.il_adi)
+        setDistricts(city.ilceler)
+        setLat(city.lat)
+        setLng(city.lng);
+    }
+
+    const districtSelectHandler = district => {
+        if(district){
+            let firstLetter = district.ilce_adi[0]
+            let remainLetters = district.ilce_adi.substring(1)
+            let dist = firstLetter + remainLetters.toLocaleLowerCase('tr');
+            setDistrict(dist)
+            setLat(district.lat)
+            setLng(district.lng);
+        }
+    }
+
+    const checkboxHandler = useCallback(() => {
+        if(user && user.address !== undefined && user.address !== null){
+            if(!useMyAddress){
+                setUseMyAddress(true)
+                setLat(user.address.lat)
+                setLng(user.address.lng)
+                let addressList = user.address.text.split('/')
+                setCity(addressList[0])
+                setDistrict(addressList[1])
+            }else{
+                setUseMyAddress(false)
+                setLat(null)
+                setLng(null)
+                setCity(null)
+                setDistrict(null)
             }
         }
-    }, [cities])
+    }, [user, useMyAddress])
+
+    useEffect(() => {
+        if(district !== null && district !== undefined && city !== null && city !== undefined &&
+            lat !== null && lat !== undefined && lng !== null && lng !== undefined){
+            props.navigation.navigate('AddDetailsScreen', {
+                category,
+                address: {
+                    text: district + '/' + city,
+                    lat,
+                    lng
+                }
+            })
+        }
+    }, [city, category, lat, lng])
 
     return (
         <SafeAreaView style={styles.screen}>
@@ -47,7 +94,7 @@ const AddressScreen = (props) => {
                     boxStyles={styles.selectList}
                     setSelected={val => citySelectHandler(val)}
                     data={cities.map(c => ({
-                        key: c.plaka_kodu,
+                        key: c,
                         value: c.il_adi
                     }))}
                     save='key'
@@ -56,16 +103,24 @@ const AddressScreen = (props) => {
                 />
                 <SelectList
                     boxStyles={styles.selectList}
-                    setSelected={val => setDistrict(val)}
-                    data={districts.map(c => ({
-                        key: c.ilce_kodu,
-                        value: c.ilce_adi
+                    setSelected={val => districtSelectHandler(val)}
+                    data={districts.map(d => ({
+                        key: d,
+                        value: d.ilce_adi
                     }))}
                     save='key'
                     placeholder='İlçe'
                     searchPlaceholder='Ara..'
                     notFoundText='Önce İl seçiniz...'
                 />
+                <Checkbox.Item
+                    label='Kayıtlı Adresimi Kullan'
+                    status={useMyAddress ? 'checked' : 'unchecked'}
+                    onPress={checkboxHandler} />
+                {lat !== null && lng !== null &&
+                    <View style={styles.mapContainer}>
+                        <MapPreview lat={lat} lng={lng}/>
+                    </View>}
             </ScrollView>
         </SafeAreaView>
     )
@@ -98,6 +153,9 @@ const styles = StyleSheet.create({
     },
     leftHeader:{
         paddingLeft: 15
+    },
+    mapContainer:{
+        paddingTop: 10
     }
 })
 

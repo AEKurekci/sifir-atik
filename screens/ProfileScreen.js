@@ -30,7 +30,7 @@ const ProfileScreen = (props) => {
                 headerTransparent: true,
                 headerTitle: ''
             })
-            setUserProducts(products.filter(p => p.owner.id === user.id))
+            setUserProducts(products.filter(p => p.ownerId === user.id))
         }
     }, [users, products, user, userId])
 

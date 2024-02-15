@@ -24,7 +24,7 @@ export const fetchProduct = () => {
             const user = getState().users.user;
             if(user){
                 dispatch(productActions.fetchUserProducts({
-                    userProductList: response.filter(product => product.owner.id === user.id)
+                    userProductList: response.filter(product => product.ownerId === user.id)
                 }))
             }
 
@@ -61,7 +61,7 @@ export const fetchUserProducts = () => {
             const user = getState().users.user;
             if(user){
                 dispatch(productActions.fetchUserProducts({
-                    userProductList: response.filter(product => product.owner.id === user.id)
+                    userProductList: response.filter(product => product.ownerId === user.id)
                 }))
             }
         }catch (err) {

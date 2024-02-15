@@ -811,6 +811,7 @@
           "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         }
       ],
+      "ownerId": 0,
       "owner": {
         "id": 0,
         "name": "Hacıbaşar",
@@ -845,6 +846,523 @@
         "text": "Yemek"
       },
       "id": 16
+    },
+    {
+      "title": "Koltuk",
+      "description": "Temiz koltuk",
+      "keywords": [
+        "Mobilya",
+        " yeni gibi",
+        " koltuk"
+      ],
+      "amount": 1,
+      "expireTime": "29.02.2024 00:00:00",
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 5,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "ownerId": 0,
+      "owner": {
+        "id": 0,
+        "name": "Hacıbaşar",
+        "addressId": 0,
+        "address": {
+          "id": 0,
+          "text": "Fatih/İstanbul",
+          "lat": "41.008469",
+          "lng": "28.980261"
+        },
+        "shares": 1,
+        "totalShares": 5,
+        "followings": [
+          1,
+          2
+        ],
+        "followers": [
+          1,
+          2
+        ],
+        "signDate": "2023-04-20 10:39:35",
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+        "favorites": [
+          5,
+          6
+        ],
+        "messages": null
+      },
+      "category": {
+        "id": 3,
+        "value": 3,
+        "text": "Mobilya"
+      },
+      "id": 17
+    },
+    {
+      "title": "Yatak örtüsü",
+      "description": "Hiç kullanılmamış yatak örtüsü",
+      "keywords": [
+        "Yeni"
+      ],
+      "amount": 2,
+      "expireTime": "2024-02-16T21:00:00.000Z",
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 5,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "ownerId": 0,
+      "owner": {
+        "id": 0,
+        "name": "Hacıbaşar",
+        "addressId": 0,
+        "address": {
+          "id": 0,
+          "text": "Fatih/İstanbul",
+          "lat": "41.008469",
+          "lng": "28.980261"
+        },
+        "shares": 1,
+        "totalShares": 5,
+        "followings": [
+          1,
+          2
+        ],
+        "followers": [
+          1,
+          2
+        ],
+        "signDate": "2023-04-20 10:39:35",
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+        "favorites": [
+          5,
+          6
+        ],
+        "messages": null
+      },
+      "category": {
+        "id": 3,
+        "value": 3,
+        "text": "Mobilya"
+      },
+      "id": 18
+    },
+    {
+      "title": "Pantalon",
+      "description": "Hiç kullanılmamış orjinal jeans",
+      "keywords": [
+        "Sıfır"
+      ],
+      "amount": 3,
+      "expireTime": "2024-02-28T21:00:00.000Z",
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 5,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "createTime": "2024-02-15T09:14:43.296Z",
+      "ownerId": 0,
+      "owner": {
+        "id": 0,
+        "name": "Hacıbaşar",
+        "addressId": 0,
+        "address": {
+          "id": 0,
+          "text": "Fatih/İstanbul",
+          "lat": "41.008469",
+          "lng": "28.980261"
+        },
+        "shares": 1,
+        "totalShares": 5,
+        "followings": [
+          1,
+          2
+        ],
+        "followers": [
+          1,
+          2
+        ],
+        "signDate": "2023-04-20 10:39:35",
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+        "favorites": [
+          5,
+          6
+        ],
+        "messages": null
+      },
+      "category": {
+        "id": 1,
+        "value": 1,
+        "text": "Giyim"
+      },
+      "id": 19
+    },
+    {
+      "title": "Kipat",
+      "description": "Vivivivi",
+      "keywords": [
+        "Güzel okunaklı"
+      ],
+      "amount": 8,
+      "expireTime": "2024-02-18T00:15:00.000Z",
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 5,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "createTime": "2024-02-15T18:01:20.098Z",
+      "ownerId": 0,
+      "owner": {
+        "id": 0,
+        "name": "Hacıbaşar",
+        "addressId": 0,
+        "address": {
+          "id": 0,
+          "text": "Fatih/İstanbul",
+          "lat": "41.008469",
+          "lng": "28.980261"
+        },
+        "shares": 1,
+        "totalShares": 5,
+        "followings": [
+          1,
+          2
+        ],
+        "followers": [
+          1,
+          2
+        ],
+        "signDate": "2023-04-20 10:39:35",
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+        "favorites": [
+          5,
+          6
+        ],
+        "messages": null
+      },
+      "address": {
+        "text": "Merkez/Sivas",
+        "lat": "39.748333",
+        "lng": "37.016111"
+      },
+      "category": {
+        "id": 1,
+        "value": 1,
+        "text": "Giyim"
+      },
+      "id": 20
+    },
+    {
+      "title": "Yemek",
+      "description": "Sjdkdk",
+      "keywords": [
+        "Güzel"
+      ],
+      "amount": 1,
+      "expireTime": "2024-02-17T03:20:00.000Z",
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 5,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "createTime": "2024-02-15T18:04:09.379Z",
+      "ownerId": 0,
+      "owner": {
+        "id": 0,
+        "name": "Hacıbaşar",
+        "addressId": 0,
+        "address": {
+          "id": 0,
+          "text": "Fatih/İstanbul",
+          "lat": "41.008469",
+          "lng": "28.980261"
+        },
+        "shares": 1,
+        "totalShares": 5,
+        "followings": [
+          1,
+          2
+        ],
+        "followers": [
+          1,
+          2
+        ],
+        "signDate": "2023-04-20 10:39:35",
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+        "favorites": [
+          5,
+          6
+        ],
+        "messages": null
+      },
+      "address": {
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.011046",
+        "lng": "28.957798"
+      },
+      "category": {
+        "id": 1,
+        "value": 1,
+        "text": "Giyim"
+      },
+      "id": 21
+    },
+    {
+      "title": "Çay bardağı",
+      "description": "Testty",
+      "keywords": [
+        "Güzel"
+      ],
+      "amount": 2,
+      "expireTime": "2024-02-17T21:00:00.000Z",
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 5,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "createTime": "2024-02-15T19:37:44.105Z",
+      "ownerId": 0,
+      "owner": {
+        "id": 0,
+        "name": "Hacıbaşar",
+        "addressId": 0,
+        "address": {
+          "id": 0,
+          "text": "Fatih/İstanbul",
+          "lat": "41.008469",
+          "lng": "28.980261"
+        },
+        "shares": 1,
+        "totalShares": 5,
+        "followings": [
+          1,
+          2
+        ],
+        "followers": [
+          1,
+          2
+        ],
+        "signDate": "2023-04-20 10:39:35",
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+        "favorites": [
+          5,
+          6
+        ],
+        "messages": null
+      },
+      "address": {
+        "text": "Hopa/Artvin",
+        "lat": "41.395978",
+        "lng": "41.42205"
+      },
+      "category": {
+        "id": 0,
+        "value": 0,
+        "text": "Yemek"
+      },
+      "id": 22
+    },
+    {
+      "title": "Çay bardağı",
+      "description": "Testty",
+      "keywords": [
+        "Güzelj"
+      ],
+      "amount": 2,
+      "expireTime": "2024-02-17T21:00:00.000Z",
+      "images": [
+        {
+          "id": 0,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 4,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 5,
+          "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+      ],
+      "createTime": "2024-02-15T19:39:45.417Z",
+      "ownerId": 0,
+      "owner": {
+        "id": 0,
+        "name": "Hacıbaşar",
+        "addressId": 0,
+        "address": {
+          "id": 0,
+          "text": "Fatih/İstanbul",
+          "lat": "41.008469",
+          "lng": "28.980261"
+        },
+        "shares": 1,
+        "totalShares": 5,
+        "followings": [
+          1,
+          2
+        ],
+        "followers": [
+          1,
+          2
+        ],
+        "signDate": "2023-04-20 10:39:35",
+        "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png",
+        "favorites": [
+          5,
+          6
+        ],
+        "messages": null
+      },
+      "address": {
+        "text": "Hopa/Artvin",
+        "lat": "41.395978",
+        "lng": "41.42205"
+      },
+      "category": {
+        "id": 0,
+        "value": 0,
+        "text": "Yemek"
+      },
+      "id": 23
     }
   ]
 }
