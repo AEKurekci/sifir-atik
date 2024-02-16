@@ -46,6 +46,13 @@
         "totalShares": 5,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
+      "addressId": 0,
+      "address": {
+        "id": 0,
+        "text": "Fatih/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 0,
         "value": 0,
@@ -97,6 +104,13 @@
         "shares": 2,
         "totalShares": 7,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "addressId": 1,
+      "address": {
+        "id": 1,
+        "text": "Pendik/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 0,
@@ -150,6 +164,13 @@
         "totalShares": 7,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
+      "addressId": 1,
+      "address": {
+        "id": 1,
+        "text": "Pendik/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 0,
         "value": 0,
@@ -201,6 +222,13 @@
         "shares": 1,
         "totalShares": 11,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "addressId": 2,
+      "address": {
+        "id": 2,
+        "text": "Üsküdar/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 0,
@@ -254,6 +282,13 @@
         "totalShares": 13,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 0,
         "value": 0,
@@ -306,6 +341,13 @@
         "totalShares": 13,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 0,
         "value": 0,
@@ -353,6 +395,13 @@
         "shares": 1,
         "totalShares": 13,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 1,
@@ -406,6 +455,13 @@
         "totalShares": 5,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 0,
         "value": 0,
@@ -457,6 +513,13 @@
         "shares": 1,
         "totalShares": 13,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 0,
@@ -510,6 +573,13 @@
         "totalShares": 13,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 2,
         "value": 2,
@@ -561,6 +631,13 @@
         "shares": 1,
         "totalShares": 17,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 7,
@@ -614,6 +691,13 @@
         "totalShares": 17,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 7,
         "value": 7,
@@ -665,6 +749,13 @@
         "shares": 1,
         "totalShares": 17,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 7,
@@ -718,6 +809,13 @@
         "totalShares": 17,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
       },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 7,
         "value": 7,
@@ -769,6 +867,13 @@
         "shares": 1,
         "totalShares": 17,
         "imageURL": "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+      },
+      "addressId": 3,
+      "address": {
+        "id": 3,
+        "text": "Ümraniye/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 7,
@@ -839,6 +944,13 @@
           6
         ],
         "messages": null
+      },
+      "addressId": 0,
+      "address": {
+        "id": 0,
+        "text": "Fatih/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 0,
@@ -912,6 +1024,13 @@
         ],
         "messages": null
       },
+      "addressId": 0,
+      "address": {
+        "id": 0,
+        "text": "Fatih/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 3,
         "value": 3,
@@ -981,6 +1100,13 @@
           6
         ],
         "messages": null
+      },
+      "addressId": 0,
+      "address": {
+        "id": 0,
+        "text": "Fatih/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
       },
       "category": {
         "id": 3,
@@ -1053,6 +1179,13 @@
         ],
         "messages": null
       },
+      "addressId": 0,
+      "address": {
+        "id": 0,
+        "text": "Fatih/İstanbul",
+        "lat": "41.008469",
+        "lng": "28.980261"
+      },
       "category": {
         "id": 1,
         "value": 1,
@@ -1124,7 +1257,9 @@
         ],
         "messages": null
       },
+      "addressId": 8,
       "address": {
+        "id": 8,
         "text": "Merkez/Sivas",
         "lat": "39.748333",
         "lng": "37.016111"
@@ -1200,7 +1335,9 @@
         ],
         "messages": null
       },
+      "addressId": 3,
       "address": {
+        "id": 3,
         "text": "Ümraniye/İstanbul",
         "lat": "41.011046",
         "lng": "28.957798"
@@ -1276,7 +1413,9 @@
         ],
         "messages": null
       },
+      "addressId": 7,
       "address": {
+        "id": 7,
         "text": "Hopa/Artvin",
         "lat": "41.395978",
         "lng": "41.42205"
@@ -1352,7 +1491,9 @@
         ],
         "messages": null
       },
+      "addressId": 7,
       "address": {
+        "id": 7,
         "text": "Hopa/Artvin",
         "lat": "41.395978",
         "lng": "41.42205"

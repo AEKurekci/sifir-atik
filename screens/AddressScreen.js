@@ -28,14 +28,16 @@ const AddressScreen = (props) => {
         setLng(city.lng);
     }
 
-    const districtSelectHandler = district => {
-        if(district){
-            let firstLetter = district.ilce_adi[0]
-            let remainLetters = district.ilce_adi.substring(1)
-            let dist = firstLetter + remainLetters.toLocaleLowerCase('tr');
+    const districtSelectHandler = val => {
+        console.log(val)
+        if(val){
+            let firstLetter = val.ilce_adi[0]
+            let remainLetters = val.ilce_adi.substring(1)
+            let dist = firstLetter + remainLetters.toLocaleLowerCase();
+            console.log(dist)
             setDistrict(dist)
-            setLat(district.lat)
-            setLng(district.lng);
+            setLat(val.lat)
+            setLng(val.lng);
         }
     }
 
@@ -70,7 +72,7 @@ const AddressScreen = (props) => {
                 }
             })
         }
-    }, [city, category, lat, lng])
+    }, [city, category, lat, lng, district])
 
     return (
         <SafeAreaView style={styles.screen}>

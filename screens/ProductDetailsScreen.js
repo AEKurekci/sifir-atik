@@ -8,8 +8,7 @@ import {
     TouchableOpacity,
     View
 } from "react-native";
-import React, {useCallback, useEffect, useState} from "react";
-import useHttp from "../hooks/use-http";
+import React, {useEffect, useState} from "react";
 import Colors from "../constants/Colors";
 import Line from "../components/Line";
 import MapPreview from "../components/MapPreview";
@@ -21,36 +20,20 @@ import Bubble from "../components/Bubble";
 import ProfileLine from "../components/ProfileLine";
 
 const ProductDetailsScreen = (props) => {
-    console.log(props.route.name)
     const product = props.route.params ? props.route.params.product : null;
     const profileScreenPath = props.route.params ? props.route.params.profileScreenPath : null;
-    console.log('product detail profile path: ', profileScreenPath)
     const [createTime, setCreateTime] = useState(null);
     const [expires, setExpires] = useState(null);
     const owner = props.route.params ? props.route.params.owner : null;
     const [error, setError] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [address, setAddress] = useState(null)
 
-    const getAddress = useCallback(async () => {
-        setIsLoading(true)
-        setError(null)
-        try{
-            const data = await useHttp(`addresses/${product.address !== undefined ? product.address.id : owner.addressId}`, '3003')
-            console.log(data)
-            setAddress(data);
-        }catch (err) {
-            setError('Fetching Address Fail -' + err.message)
-        }finally {
-            setIsLoading(false)
-        }
-    }, [])
-
     useEffect(() => {
-        if(owner.addressId !== undefined){
-            getAddress()
+        if(product.address !== undefined){
+            setAddress(product.address)
         }
-    }, [owner])
+    }, [product])
 
     useEffect(() => {
         const createDate = new Date(product.createTime);
