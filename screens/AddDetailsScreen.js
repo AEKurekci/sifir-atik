@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useReducer, useState} from "react";
 import {
     ActivityIndicator,
-    Alert,
     Image,
     Keyboard,
     KeyboardAvoidingView,
@@ -174,16 +173,6 @@ const AddDetailsScreen = (props) => {
         ))
     )
 
-    useEffect(() => {
-        if (error) {
-            Alert.alert("Bir hata oluştu ", error, [{ text: "Okey", onPress: () => {
-                    setError(null);
-                    setIsLoading(false);
-                }
-            }]);
-        }
-    }, [error]);
-
     if(isLoading){
         return(
             <View style={styles.centered}>
@@ -197,9 +186,9 @@ const AddDetailsScreen = (props) => {
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <SafeAreaView style={styles.screen}>
                     {!!error && (
-                        <View style={styles.error}>
-                            <Text> {error} </Text>
-                        </View>)}
+                        <TouchableOpacity style={styles.error} onPress={() => setError(null)}>
+                            <Text style={styles.errorText}> {error} </Text>
+                        </TouchableOpacity>)}
                     <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.photosContainer}>
                         {Images}
                     </ScrollView>
@@ -211,7 +200,7 @@ const AddDetailsScreen = (props) => {
                             value={formState.inputValues.title}
                             key='title'
                             mode='outlined'
-                            error={titleTouched && !formState.inputValidities.title}
+                            error={(titleTouched || !!error) && !formState.inputValidities.title}
                             theme={{
                                 roundness: 10
                             }}
@@ -227,7 +216,7 @@ const AddDetailsScreen = (props) => {
                             key='description'
                             mode='outlined'
                             multiline={true}
-                            error={descriptionTouched && !formState.inputValidities.description}
+                            error={(descriptionTouched || !!error) && !formState.inputValidities.description}
                             numberOfLines={5}
                             theme={{
                                 roundness: 10
@@ -385,9 +374,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#da5454',
         borderRadius: 10,
-        color: 'white',
         padding: 10,
         marginVertical: 5
+    },
+    errorText:{
+        color: '#fff'
     },
     screen:{
         display: "flex",

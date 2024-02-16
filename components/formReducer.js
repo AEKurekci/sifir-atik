@@ -1,4 +1,5 @@
 export const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
+export const FORM_INPUT_ON_BLUR = 'FORM_INPUT_ON_BLUR';
 
 export const formReducer = (state, action) => {
     if(action.type === FORM_INPUT_UPDATE){
@@ -19,6 +20,15 @@ export const formReducer = (state, action) => {
             inputValues: updatedValues,
             inputValidities: updatedValidities,
             formIsValid: updatedFormIsValid
+        }
+    }
+    if(action.type === FORM_INPUT_ON_BLUR){
+        return {
+            ...state,
+            touches: {
+                ...state.touches,
+                [action.input]: true
+            }
         }
     }
     return state;

@@ -16,6 +16,8 @@ import {createMaterialTopTabNavigator} from "@react-navigation/material-top-tabs
 import FollowingsScreen from "../screens/FollowingsScreen";
 import AddDetailsScreen from "../screens/AddDetailsScreen";
 import AddressScreen, {screenOptions as AddressScreenOptions} from "../screens/AddressScreen";
+import SignUpScreen from "../screens/SignUpScreen";
+import SignInScreen from "../screens/SignInScreen";
 
 const defaultHeaderStyle = {
     headerStyle: {
@@ -80,6 +82,24 @@ const ProfileStackNavigator = createStackNavigator();
 const ProfileNavigator = () => {
     return (
         <ProfileStackNavigator.Navigator>
+            <ProfileStackNavigator.Screen
+                name='SignUpScreen'
+                component={SignUpScreen}
+                options={() => ({
+                    ...defaultHeaderStyle,
+                    headerTitle: 'Kaydol'
+                    })
+                }
+            />
+            <ProfileStackNavigator.Screen
+                name='SignInScreen'
+                component={SignInScreen}
+                options={() => ({
+                    ...defaultHeaderStyle,
+                    headerTitle: 'Giriş Yap'
+                    })
+                }
+            />
             <ProfileStackNavigator.Screen
                 name='ProfileScreen'
                 component={ProfileScreen}
