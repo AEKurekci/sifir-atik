@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {ActivityIndicator, FlatList, SafeAreaView, StatusBar, StyleSheet, TouchableOpacity} from "react-native";
+import {FlatList, SafeAreaView, StatusBar, StyleSheet, TouchableOpacity} from "react-native";
 import {useSelector} from "react-redux";
 import Product from "../components/Product";
-import Colors from "../constants/Colors";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import ProfileHeader from "../components/ProfileHeader";
 
@@ -33,10 +32,6 @@ const ProfileScreen = (props) => {
             setUserProducts(products.filter(p => p.ownerId === user.id))
         }
     }, [users, products, user, userId])
-
-    if(userProducts.length === 0){
-        return <ActivityIndicator style={styles.screen} size='large' color={Colors.primary} />
-    }
 
     return (
         <SafeAreaView style={styles.screen}>

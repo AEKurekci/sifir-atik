@@ -2,7 +2,7 @@ import {Dimensions, Platform, SafeAreaView, StatusBar, StyleSheet, Text, Touchab
 import ProductList from "../components/ProductList";
 import React, {useCallback, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUsers, login} from "../store/user/user-actions";
+import {fetchUsers} from "../store/user/user-actions";
 import {fetchProduct, fetchUserProducts} from "../store/product/product-actions";
 import CategoryList from "../components/CategoryList";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -56,7 +56,7 @@ const Home = (props) => {
     useEffect(() => {
         fetchData()
         dispatch(fetchUsers())
-        dispatch(login())
+        //dispatch(login())
         dispatch(fetchAddress())
     }, [])
 

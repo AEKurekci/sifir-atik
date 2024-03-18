@@ -11,11 +11,14 @@ import {
 import Colors from "../constants/Colors";
 import {Button, Text, TextInput} from "react-native-paper";
 import {FORM_INPUT_ON_BLUR, FORM_INPUT_UPDATE, formReducer} from "../components/formReducer";
+import {useDispatch} from "react-redux";
+import {signUp} from "../store/auth/auth-actions";
 
 const SignUpScreen = props => {
     const [isLoading, setIsLoading] = useState(null);
     const [error, setError] = useState(null);
     const [hidePassword, setHidePassword] = useState(true)
+    const dispatch = useDispatch();
 
     const [formState, dispatchFormState] = useReducer(formReducer, {
         inputValues: {
@@ -23,22 +26,21 @@ const SignUpScreen = props => {
             surname: '',
             email: '',
             password: '',
-            phone: '',
-            imageURL: "https://seeklogo.com/images/1/cig-kofteci-sait-logo-F30D90F166-seeklogo.com.png"
+            phoneNo: ''
         },
         inputValidities: {
             name: false,
             surname: false,
             email: false,
             password: false,
-            phone: false,
+            phoneNo: false,
             imageURL: true
         },
         touches:{
             name: false,
             surname: false,
             email: false,
-            phone: false,
+            phoneNo: false,
             password: false
         },
         formIsValid: false
@@ -81,6 +83,8 @@ const SignUpScreen = props => {
                 signDate: new Date()
             }
             console.log(body)
+            await dispatch(signUp(body))
+            props.navigation.navigate('SignInScreen')
         }catch (err) {
             setError(err.message)
         }finally {
@@ -174,18 +178,18 @@ const SignUpScreen = props => {
                         <TextInput
                             style={styles.input}
                             label='Telefon No'
-                            value={formState.inputValues.phone}
-                            key='phone'
+                            value={formState.inputValues.phoneNo}
+                            key='phoneNo'
                             mode='outlined'
-                            error={(formState.touches.phone || !!error) && !formState.inputValidities.phone}
+                            error={(formState.touches.phoneNo || !!error) && !formState.inputValidities.phoneNo}
                             theme={{
                                 roundness: 10
                             }}
                             activeOutlineColor={Colors.primary}
                             cursorColor={Colors.secondary}
                             outlineColor={Colors.secondary}
-                            onBlur={() => inputOnBlurHandler('phone')}
-                            onChangeText={e => inputChangeHandler('phone', e, isEmpty(e))}/>
+                            onBlur={() => inputOnBlurHandler('phoneNo')}
+                            onChangeText={e => inputChangeHandler('phoneNo', e, isEmpty(e))}/>
                         <Button
                             key='signup'
                             style={styles.input}
@@ -197,6 +201,18 @@ const SignUpScreen = props => {
                             onPress={submitHandler}
                             mode='contained'>
                             Kaydol
+                        </Button>
+                        <Button
+                            key='signIn'
+                            style={styles.input}
+                            buttonColor={Colors.primary}
+                            textColor={'#fff'}
+                            theme={{
+                                roundness: 3
+                            }}
+                            onPress={() => {props.navigation.navigate('SignInScreen')}}
+                            mode='contained'>
+                            Giriş
                         </Button>
                     </ScrollView>
                 </SafeAreaView>

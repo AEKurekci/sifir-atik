@@ -10,10 +10,10 @@ const FollowingsScreen = (props) => {
     const user = useSelector(state => state.users.user)
 
     useEffect(() => {
-        if(users && users.length > 0){
+        if(users && users.length > 0 && user.favorites !== undefined){
             setFavorites(users.filter(u => user.favorites.includes(u.id)))
         }
-    }, [users])
+    }, [users, user])
 
     const onPressProfileHandler = (userId) => {
         props.navigation.navigate('ProfileScreenFromFav', {

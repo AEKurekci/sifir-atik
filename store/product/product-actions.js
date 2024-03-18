@@ -59,6 +59,7 @@ export const fetchUserProducts = () => {
         try{
             const response = await useHttp('shares', 3001);
             const user = getState().users.user;
+            console.log(user)
             if(user){
                 dispatch(productActions.fetchUserProducts({
                     userProductList: response.filter(product => product.ownerId === user.id)

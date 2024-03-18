@@ -1,4 +1,4 @@
-import useHttp from "../../hooks/use-http";
+import useHttp, {defaultHeader} from "../../hooks/use-http";
 import {userActions} from "./user-reducer";
 
 export const fetchUsers = () => {
@@ -14,12 +14,20 @@ export const fetchUsers = () => {
     }
 }
 
-export const login = () => {
-    return async dispatch => {
+export const getUser = (body) => {
+    return async (dispatch, getState) => {
         try{
-            const data = await useHttp('owners', '3002');
-            dispatch(userActions.login({
-                user: data[0]
+            const token = getState().auth.accessToken;
+            console.log(token)
+            const data = await useHttp('api/v1/user/getUser', '3333', 'POST',
+                {
+                    ...defaultHeader,
+                    Authorization: 'Bearer ' + token
+                },
+                JSON.stringify(body));
+            console.log(data)
+            dispatch(userActions.setUser({
+                user: data
             }))
         }catch (err){
             console.log(err.message)

@@ -17,7 +17,9 @@ const ProfileHeader = props => {
                 </View>
                 <View style={styles.infoContainer}>
                     <Ionicons style={styles.icon} name='people' size={15} color='black' />
-                    <Text style={styles.text}>{user.followers.length} Takipçi | {user.followings.length} Takip</Text>
+                    <Text style={styles.text}>
+                        {user.followers !== undefined ? user.followers.length : 0} Takipçi | {user.followings !== undefined ? user.followings.length : 0} Takip
+                    </Text>
                 </View>
             </View>
             <View style={styles.row}>

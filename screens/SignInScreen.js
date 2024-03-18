@@ -11,11 +11,16 @@ import {
 import Colors from "../constants/Colors";
 import {Button, Text, TextInput} from "react-native-paper";
 import {FORM_INPUT_ON_BLUR, FORM_INPUT_UPDATE, formReducer} from "../components/formReducer";
+import {useDispatch} from "react-redux";
+import {login} from "../store/auth/auth-actions";
+import {getUser} from "../store/user/user-actions";
+import {fetchUserProducts} from "../store/product/product-actions";
 
 const SignInScreen = props => {
     const [isLoading, setIsLoading] = useState(null);
     const [error, setError] = useState(null);
     const [hidePassword, setHidePassword] = useState(true)
+    const dispatch = useDispatch();
 
     const [formState, dispatchFormState] = useReducer(formReducer, {
         inputValues: {
@@ -66,6 +71,15 @@ const SignInScreen = props => {
         setIsLoading(true);
         try{
             console.log(formState.inputValues)
+            await dispatch(login(formState.inputValues))
+            await dispatch(getUser({
+                email: formState.inputValues.email
+            }))
+            await dispatch(fetchUserProducts())
+            props.navigation.navigate('ProfileScreen', {
+                productScreenPath: 'ProductDetailsScreenFromProfile',
+                profileScreenPath: 'ProfileScreen'
+            })
         }catch (err) {
             setError(err.message)
         }finally {
@@ -127,7 +141,7 @@ const SignInScreen = props => {
                             />}
                             onChangeText={p => inputChangeHandler('password', p, isEmpty(p))}/>
                         <Button
-                            key='signup'
+                            key='signIp'
                             style={styles.input}
                             buttonColor={Colors.primary}
                             textColor={'#fff'}

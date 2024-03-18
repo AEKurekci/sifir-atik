@@ -13,10 +13,10 @@ const FavoritesScreen = (props) => {
     const user = useSelector(state => state.users.user)
 
     useEffect(() => {
-        if(products && products.length > 0){
+        if(products && products.length > 0 && user.favorites !== undefined){
             setFavorites(products.filter(p => user.favorites.includes(p.id)))
         }
-    }, [products])
+    }, [products, user])
 
     return (
         <SafeAreaView style={styles.screen}>
