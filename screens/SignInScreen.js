@@ -3,8 +3,11 @@ import {
     ActivityIndicator,
     Keyboard,
     KeyboardAvoidingView,
-    Platform, SafeAreaView,
-    ScrollView, StyleSheet, TouchableOpacity,
+    Platform,
+    SafeAreaView,
+    ScrollView,
+    StyleSheet,
+    TouchableOpacity,
     TouchableWithoutFeedback,
     View
 } from "react-native";
@@ -13,8 +16,6 @@ import {Button, Text, TextInput} from "react-native-paper";
 import {FORM_INPUT_ON_BLUR, FORM_INPUT_UPDATE, formReducer} from "../components/formReducer";
 import {useDispatch} from "react-redux";
 import {login} from "../store/auth/auth-actions";
-import {getUser} from "../store/user/user-actions";
-import {fetchUserProducts} from "../store/product/product-actions";
 
 const SignInScreen = props => {
     const [isLoading, setIsLoading] = useState(null);
@@ -70,16 +71,7 @@ const SignInScreen = props => {
         }
         setIsLoading(true);
         try{
-            console.log(formState.inputValues)
             await dispatch(login(formState.inputValues))
-            await dispatch(getUser({
-                email: formState.inputValues.email
-            }))
-            await dispatch(fetchUserProducts())
-            props.navigation.navigate('ProfileScreen', {
-                productScreenPath: 'ProductDetailsScreenFromProfile',
-                profileScreenPath: 'ProfileScreen'
-            })
         }catch (err) {
             setError(err.message)
         }finally {
@@ -141,7 +133,7 @@ const SignInScreen = props => {
                             />}
                             onChangeText={p => inputChangeHandler('password', p, isEmpty(p))}/>
                         <Button
-                            key='signIp'
+                            key='signIn'
                             style={styles.input}
                             buttonColor={Colors.primary}
                             textColor={'#fff'}
@@ -151,6 +143,18 @@ const SignInScreen = props => {
                             onPress={submitHandler}
                             mode='contained'>
                             Giriş
+                        </Button>
+                        <Button
+                            key='signUp'
+                            style={styles.input}
+                            buttonColor={Colors.primary}
+                            textColor={'#fff'}
+                            theme={{
+                                roundness: 3
+                            }}
+                            onPress={() => {props.navigation.navigate('SignUpScreen')}}
+                            mode='contained'>
+                            Kaydol
                         </Button>
                     </ScrollView>
                 </SafeAreaView>

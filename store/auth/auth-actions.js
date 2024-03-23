@@ -1,6 +1,8 @@
 import useHttp, {defaultHeader} from "../../hooks/use-http";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {authActions} from "./auth-reducer";
+import {getUser} from "../user/user-actions";
+import {fetchUserProducts} from "../product/product-actions";
 
 
 export const login = (body) => {
@@ -8,13 +10,10 @@ export const login = (body) => {
         try{
             const data = await useHttp('api/v1/authentication/sign-in', '3333', 'POST', defaultHeader, JSON.stringify(body));
             console.log(data)
-            await saveDataToStorage(data.accessToken, data.refreshToken)
-            await dispatch(authActions.setTokens({
-                accessToken: data.accessToken,
-                refreshToken: data.refreshToken
-            }))
+            await saveDataToStorage(data.accessToken, data.refreshToken, data.expiration, data.email, data.userId)
+            await dispatch(authenticate(data.accessToken, data.refreshToken, data.userId, data.email))
         }catch (err){
-            console.log(err.message)
+            console.log('login-->', err.message)
         }
     }
 }
@@ -30,15 +29,56 @@ export const signUp = (user) => {
     }
 }
 
+export const refreshData = (body) => {
+    return async dispatch => {
+        try{
+            const data = await useHttp('api/v1/authentication/refresh-token', '3333', 'POST', defaultHeader, JSON.stringify(body));
+            console.log(data)
+            await saveDataToStorage(data.accessToken, data.refreshToken, data.expiration, data.email, data.userId)
+            await dispatch(authenticate(data.accessToken, data.refreshToken, data.userId, data.email))
+        }catch (err){
+            throw err;
+        }
+    }
+}
+
+export const authenticate = (accessToken, refreshToken, userId, email) => {
+    return async dispatch => {
+        await dispatch(getUser({email}, accessToken))
+        await dispatch(fetchUserProducts(accessToken))
+        await dispatch(authActions.setTokens({
+            userId,
+            accessToken,
+            refreshToken
+        }))
+    }
+}
+
 const saveDataToStorage = async (
     token,
-    refreshToken
+    refreshToken,
+    expiration,
+    email,
+    userId
 ) => {
     await AsyncStorage.setItem(
         "userData",
         JSON.stringify({
-            token: token
+            token: token,
+            expiration: expiration,
+            email,
+            userId
         })
     );
     await AsyncStorage.setItem("refreshToken", refreshToken);
+};
+
+export const logout = () => {
+    return async (dispatch) => {
+        await AsyncStorage.removeItem("userData");
+        await AsyncStorage.removeItem("refreshToken");
+        dispatch(authActions.setDidTry({
+            didTry: true
+        }));
+    }
 };

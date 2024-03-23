@@ -18,6 +18,8 @@ import AddDetailsScreen from "../screens/AddDetailsScreen";
 import AddressScreen, {screenOptions as AddressScreenOptions} from "../screens/AddressScreen";
 import SignUpScreen from "../screens/SignUpScreen";
 import SignInScreen from "../screens/SignInScreen";
+import {useSelector} from "react-redux";
+import AuthenticationStartupScreen from "../screens/AuthenticationStartupScreen";
 
 const defaultHeaderStyle = {
     headerStyle: {
@@ -80,27 +82,11 @@ export const HomeNavigator = () => {
 const ProfileStackNavigator = createStackNavigator();
 
 const ProfileNavigator = () => {
+    const isAuth = useSelector(state => !!state.auth.accessToken);
+    const didTryAuthLogin = useSelector(state => state.auth.didTryAuthLogin);
     return (
         <ProfileStackNavigator.Navigator>
-            <ProfileStackNavigator.Screen
-                name='SignUpScreen'
-                component={SignUpScreen}
-                options={() => ({
-                    ...defaultHeaderStyle,
-                    headerTitle: 'Kaydol'
-                    })
-                }
-            />
-            <ProfileStackNavigator.Screen
-                name='SignInScreen'
-                component={SignInScreen}
-                options={() => ({
-                    ...defaultHeaderStyle,
-                    headerTitle: 'Giriş Yap'
-                    })
-                }
-            />
-            <ProfileStackNavigator.Screen
+            {isAuth && <ProfileStackNavigator.Screen
                 name='ProfileScreen'
                 component={ProfileScreen}
                 options={(props) => {
@@ -113,8 +99,46 @@ const ProfileNavigator = () => {
                     productScreenPath: 'ProductDetailsScreenFromProfile',
                     profileScreenPath: 'ProfileScreen'
                 }}
-            />
-            <ProfileStackNavigator.Screen
+            />}
+            {!isAuth && didTryAuthLogin && (
+                <ProfileStackNavigator.Screen
+                    name='SignInScreen'
+                    component={SignInScreen}
+                    options={() => ({
+                        ...defaultHeaderStyle,
+                        headerTitle: 'Giriş Yap'
+                    })}
+                />
+            )}
+            {!isAuth && didTryAuthLogin && (
+                <ProfileStackNavigator.Screen
+                    name='SignUpScreen'
+                    component={SignUpScreen}
+                    options={() => ({
+                        ...defaultHeaderStyle,
+                        headerTitle: 'Kaydol'
+                    })
+                    }
+                />
+            )}
+            {!isAuth && !didTryAuthLogin && (
+                <ProfileStackNavigator.Screen
+                    name='AuthenticationStartupScreen'
+                    component={AuthenticationStartupScreen}
+                    options={() => ({
+                        ...defaultHeaderStyle,
+                        headerTitle: 'Giriş Kontrol Ediliyor..'
+                    })}
+                    initialParams={{
+                        navigationScreen: 'ProfileScreen',
+                        navigationParams: {
+                            productScreenPath: 'ProductDetailsScreenFromProfile',
+                            profileScreenPath: 'ProfileScreen'
+                        }
+                    }}
+                />
+            )}
+            {isAuth && <ProfileStackNavigator.Screen
                 name='ProductDetailsScreenFromProfile'
                 component={ProductDetailsScreen}
                 options={{...defaultHeaderStyle, ...productDetailHeaderStyle}}
@@ -122,12 +146,12 @@ const ProfileNavigator = () => {
                     productScreenPath: 'ProductDetailsScreenFromProfile',
                     profileScreenPath: 'ProfileScreen'
                 }}
-            />
-            <ProfileStackNavigator.Screen
+            />}
+            {isAuth && <ProfileStackNavigator.Screen
                 name='AddProductScreen'
                 component={AddProductScreen}
                 options={defaultHeaderStyle}
-                />
+            />}
         </ProfileStackNavigator.Navigator>
     )
 }

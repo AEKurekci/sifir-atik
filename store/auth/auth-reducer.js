@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     accessToken: null,
     userId: null,
-    refresToken: null
+    refreshToken: null,
+    didTryAuthLogin: false
 }
 
 const authSlice = createSlice({
@@ -13,6 +14,10 @@ const authSlice = createSlice({
         setTokens(state, action){
             state.accessToken = action.payload.accessToken
             state.refresToken = action.payload.refreshToken
+            state.userId = action.payload.userId
+        },
+        setDidTry(state, action){
+            state.didTryAuthLogin = action.payload.didTry
         }
     }
 })

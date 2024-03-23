@@ -54,14 +54,15 @@ export const saveProduct = (product) => {
     }
 }
 
-export const fetchUserProducts = () => {
+export const fetchUserProducts = (accessToken = null) => {
     return async (dispatch, getState) => {
         try{
             const response = await useHttp('shares', 3001);
             const user = getState().users.user;
+            const token = accessToken ? accessToken : getState().auth.token
             console.log(user)
             if(user){
-                dispatch(productActions.fetchUserProducts({
+                await dispatch(productActions.fetchUserProducts({
                     userProductList: response.filter(product => product.ownerId === user.id)
                 }))
             }

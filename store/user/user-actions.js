@@ -14,19 +14,17 @@ export const fetchUsers = () => {
     }
 }
 
-export const getUser = (body) => {
+export const getUser = (body, accessToken = null) => {
     return async (dispatch, getState) => {
         try{
-            const token = getState().auth.accessToken;
-            console.log(token)
+            const token = accessToken ? accessToken : getState().auth.accessToken;
             const data = await useHttp('api/v1/user/getUser', '3333', 'POST',
                 {
                     ...defaultHeader,
                     Authorization: 'Bearer ' + token
                 },
                 JSON.stringify(body));
-            console.log(data)
-            dispatch(userActions.setUser({
+            await dispatch(userActions.setUser({
                 user: data
             }))
         }catch (err){

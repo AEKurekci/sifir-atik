@@ -191,7 +191,7 @@ const SignUpScreen = props => {
                             onBlur={() => inputOnBlurHandler('phoneNo')}
                             onChangeText={e => inputChangeHandler('phoneNo', e, isEmpty(e))}/>
                         <Button
-                            key='signup'
+                            key='signUp'
                             style={styles.input}
                             buttonColor={Colors.primary}
                             textColor={'#fff'}
